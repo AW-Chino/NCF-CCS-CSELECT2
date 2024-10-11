@@ -1,21 +1,5 @@
 # Introduction to Intelligent Systems - Midterm Examination
 
-## Exam Description
-
-This midterm examination for the Introduction to Intelligent Systems course is designed to assess students' understanding of fundamental concepts in machine learning. 
-
-### Exam Details
-- **Duration:** 90 minutes
-- **Total Marks:** 45
-- **Question Types:** Multiple-choice and code interpretation
-
-### Exam Structure
-1. Scenario Based Questions (5 marks)
-2. Machine Learning Pipeline Steps (5 marks)
-3. Machine Learning Models Scenarios (10 marks)
-4. A or B Concept Questions (10 marks)
-5. Code Interpretation and Understanding (15 marks)
-
 ## Scope Coverage
 
 The exam covers a comprehensive range of machine learning topics, including:
@@ -50,10 +34,6 @@ The exam covers a comprehensive range of machine learning topics, including:
    - Cross-Validation
    - Bias and Variance
    - Overfitting and Underfitting
-
-5. **Ethical Considerations in Machine Learning**
-
-Students are expected to understand the fundamental concepts, applications, and differences between various machine learning algorithms and techniques. The exam also tests the ability to interpret and understand Python code used in machine learning contexts.
 
 ## Study Resources
 
