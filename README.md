@@ -42,9 +42,6 @@ The exam covers a comprehensive range of machine learning topics, including:
    - K-Means Clustering
    - Hierarchical Clustering
    - Principal Component Analysis (PCA)
-   - Artificial Neural Networks (ANN)
-   - Convolutional Neural Networks (CNN)
-   - Recurrent Neural Networks (RNN)
 
 4. **Key Concepts and Techniques:**
    - Feature Engineering and Selection
