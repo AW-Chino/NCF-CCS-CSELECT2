@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Machine Learning Reviewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+        }
+        h2 {
+            margin-top: 30px;
+        }
+        h3 {
+            margin-top: 20px;
+        }
+        code {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: block;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            padding: 10px;
+            margin: 10px 0;
+            white-space: pre-wrap;
+        }
+        .simple-explanation {
+            background-color: #e7f5fe;
+            border-left: 5px solid #4a90e2;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .key-points {
+            background-color: #f0f8ea;
+            border: 1px solid #a1c181;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            width: 80px;
+            margin-right: 20px;
+        }
+        .school-info {
+            flex-grow: 1;
+        }
+        .school-info h2, .school-info h3 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="https://ncf.edu.ph/wp-content/uploads/2024/04/ncf_logo.png" alt="Naga College Foundation Logo" class="logo">
+        <div class="school-info">
+            <h2>Naga College Foundation, Inc.</h2>
+            <h3>COLLEGE OF COMPUTER STUDIES</h3>
+            <h3>CS ELECT 2 - Introduction to Intelligent Systems</h3>
+        </div>
+    </div>
+    <h1>Midterm Comprehensive Reviewer</h1>
+
+
+    <h2>1. Introduction to Machine Learning</h2>
+    <p>Machine Learning is a field of artificial intelligence that focuses on creating systems that can learn and improve from experience without being explicitly programmed.</p>
+    
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong> Imagine teaching a computer to recognize cats by showing it thousands of cat pictures, rather than writing specific rules about what a cat looks like.
+    </div>
+
+    <img src="https://thumbs.dreamstime.com/b/machine-learning-concept-text-network-connected-icons-white-background-as-illustration-103089024.jpg" alt="Machine Learning Concept Illustration">
+
+    <div class="key-points">
+        <h3>Key Concepts:</h3>
+        <ul>
+            <li><strong>Training Data:</strong> The information we use to teach the machine learning model.</li>
+            <li><strong>Features:</strong> The characteristics or attributes of the data that the model uses to make decisions.</li>
+            <li><strong>Target Variable:</strong> What we're trying to predict or classify.</li>
+            <li><strong>Model:</strong> The "brain" of our machine learning system that makes predictions.</li>
+            <li><strong>Learning Algorithm:</strong> The method the model uses to improve its predictions.</li>
+        </ul>
+    </div>
+
+    <h2>2. Types of Machine Learning</h2>
+
+    <h3>2.1 Supervised Learning</h3>
+    <p>In supervised learning, we provide the model with labeled examples to learn from.</p>
+    
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong> It's like learning with a teacher who provides both questions and correct answers.
+    </div>
+
+    <img src="https://images.prismic.io/encord/f1fa13a6-88a3-4c20-b620-46489fe00f45_What+is+Supervised+Learning+%7C+Encord.png?auto=compress,format" alt="Supervised Learning Illustration">
+
+    <p>Examples:</p>
+    <ul>
+        <li>Predicting house prices based on features like size and location</li>
+        <li>Classifying emails as spam or not spam</li>
+    </ul>
+
+    <h3>2.2 Unsupervised Learning</h3>
+    <p>Unsupervised learning involves finding patterns in data without labeled outcomes.</p>
+    
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong> It's like exploring a dataset without knowing what to expect, looking for hidden patterns.
+    </div>
+
+    <img src="https://eastgate-software.com/wp-content/uploads/2023/10/Unsupervised-Learning-Clustering.png" alt="Unsupervised Learning Illustration">
+
+    <p>Examples:</p>
+    <ul>
+        <li>Grouping customers based on purchasing behavior</li>
+        <li>Detecting anomalies in network traffic</li>
+    </ul>
+
+    <h3>2.3 Reinforcement Learning</h3>
+    <p>In reinforcement learning, an agent learns to make decisions by interacting with an environment and receiving rewards or penalties.</p>
+    
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong> It's like training a dog – good behavior is rewarded, encouraging more of it in the future.
+    </div>
+
+    <img src="https://editor.analyticsvidhya.com/uploads/496302.jpg" alt="Reinforcement Learning Illustration">
+
+    <div class="key-points">
+        <h4>Key components:</h4>
+        <ul>
+            <li><strong>Agent:</strong> The learner (like the dog in our analogy)</li>
+            <li><strong>Environment:</strong> The world the agent interacts with (the home)</li>
+            <li><strong>State:</strong> Current situation (where the dog is in the house)</li>
+            <li><strong>Action:</strong> What the agent can do (sit, stay, etc.)</li>
+            <li><strong>Reward:</strong> Feedback (treats for good behavior)</li>
+            <li><strong>Policy:</strong> The strategy for choosing actions (what the dog has learned to do in different situations)</li>
+        </ul>
+    </div>
+
+    <p>Examples:</p>
+    <ul>
+        <li>Teaching a computer to play chess</li>
+        <li>Optimizing robot movements</li>
+    </ul>
+
+    <h2>3. Machine Learning Pipeline</h2>
+    <p>The machine learning pipeline is the series of steps we follow to create and use a machine learning model.</p>
+
+    <img src="https://daxg39y63pxwu.cloudfront.net/images/blog/machine-learning-pipeline-architecture/machine_learning_pipeline.png" alt="Machine Learning Pipeline Illustration">
+
+    <ol>
+        <li>
+            <strong>Data Collection:</strong> Gathering the information we need.<br>
+            Example: Collecting customer purchase history for a recommendation system.
+        </li>
+        <li>
+            <strong>Data Preprocessing:</strong> Cleaning and preparing the data.<br>
+            Activities: Handling missing values, encoding categories, scaling features.
+            <code>
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+            </code>
+        </li>
+        <li>
+            <strong>Model Selection:</strong> Choosing the right algorithm for our problem.<br>
+            Considerations: Type of problem, dataset size, need for interpretability.
+        </li>
+        <li>
+            <strong>Model Training:</strong> Teaching our chosen model using the prepared data.
+            <code>
+from sklearn.linear_model import LogisticRegression
+model = LogisticRegression()
+model.fit(X_train, y_train)
+            </code>
+        </li>
+        <li>
+            <strong>Model Evaluation:</strong> Checking how well our model performs.
+            <code>
+from sklearn.metrics import accuracy_score
+accuracy = accuracy_score(y_test, y_pred)
+            </code>
+        </li>
+    </ol>
+
+    <h2>4. Supervised Learning Models</h2>
+
+    <h3>4.1 Linear Regression</h3>
+    <p>Used for predicting a continuous outcome based on one or more input features.</p>
+    
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong> Drawing the best straight line through a set of points.
+    </div>
+
+    <img src="https://cdn-images-1.medium.com/v2/resize:fit:640/1*eeIvlwkMNG1wSmj3FR6M2g.gif" alt="Linear Regression Example">
+
+    <code>
+from sklearn.linear_model import LinearRegression
+model = LinearRegression()
+model.fit(X, y)
+    </code>
+
+    <h3>4.2 Logistic Regression</h3>
+    <p>Used for binary classification problems.</p>
+    
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong> Predicting whether something belongs to one category or another.
+    </div>
+
+    <img src="https://i.pinimg.com/originals/86/bb/7a/86bb7af29c41c40c2fae108f0f0a442b.gif" alt="Logistic Regression Example">
+
+    <code>
+from sklearn.linear_model import LogisticRegression
+model = LogisticRegression()
+model.fit(X, y)
+    </code>
+
+    <h3>4.3 Decision Trees</h3>
+    <p>A model that makes decisions based on asking a series of questions.</p>
+    
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong> Like a flowchart where each node is a question about a feature.
+    </div>
+
+    <img src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc573e3d2-d2a4-4183-a2b1-0630d2c1ecdd_720x405.gif" alt="Decision Tree Example">
+
+    <code>
+from sklearn.tree import DecisionTreeClassifier
+model = DecisionTreeClassifier()
+model.fit(X, y)
+    </code>
+
+    <h3>4.4 Random Forest</h3>
+    <p>An ensemble of decision trees.</p>
+    
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong> Instead of one big decision tree, use many smaller ones and have them vote on the outcome.
+    </div>
+
+    <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*EhAkkl6EpSYDak3dMEhOFQ.gif" alt="Random Forest Example">
+
+    <code>
+from sklearn.ensemble import RandomForestClassifier
+model = RandomForestClassifier()
+model.fit(X, y)
+    </code>
+
+    <h3>4.5 Support Vector Machines (SVM)</h3>
+    <p>Finds the best boundary between classes in high-dimensional space.</p>
+    
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong> Trying to draw a clear border between different groups of data points.
+    </div>
+
+    <img src="https://miro.medium.com/v2/resize:fit:640/format:webp/0*_NY364FgpJmwgxE7.gif" alt="Support Vector Machines Example">
+
+    <code>
+from sklearn.svm import SVC
+model = SVC(kernel='rbf')
+model.fit(X, y)
+    </code>
+
+    <h3>4.6 K-Nearest Neighbors (KNN)</h3>
+    <p>Classifies a point based on its nearest neighbors' classifications.</p>
+    
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong> "Tell me who your friends are, and I'll tell you who you are."
+    </div>
+
+    <img src="https://ptime.s3.ap-northeast-1.amazonaws.com/media/machine_learning/classification/KNN_Working.gif" alt="K-Nearest Neighbors Illustration">
+
+    <code>
+from sklearn.neighbors import KNeighborsClassifier
+model = KNeighborsClassifier(n_neighbors=5)
+model.fit(X, y)
+    </code>
+
+    <h2>5. Unsupervised Learning Models</h2>
+
+    <h3>5.1 K-Means Clustering</h3>
+    <p>Groups similar data points together.</p>
+    
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong> Sorting a mixed bag of colored marbles into groups based on their colors.
+    </div>
+
+    <img src="https://sandipanweb.wordpress.com/wp-content/uploads/2017/03/kmeans3.gif?w=676" alt="K-Means Clustering Example">
+
+    <code>
+from sklearn.cluster import KMeans
+model = KMeans(n_clusters=3)
+model.fit(X)
+    </code>
+
+    <h3>5.2 Hierarchical Clustering</h3>
+    <p>Creates a tree of clusters.</p>
+    
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong> Organizing a family tree, where individuals are grouped into families, families into clans, and so on.
+    </div>
+
+    <img src="https://cdn-images-1.medium.com/max/640/1*ET8kCcPpr893vNZFs8j4xg.gif" alt="Hierarchical Clustering Example">
+
+    <code>
+from scipy.cluster.hierarchy import dendrogram, linkage
+linked = linkage(X, method='ward')
+    </code>
+
+    <h3>5.3 Principal Component Analysis (PCA)</h3>
+    <p>Reduces the dimensionality of data while preserving its variation.</p>
+    
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong> Summarizing a long story while keeping the main points.
+    </div>
+
+    <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*37a_i1t1tDxDYT3ZI6Yn8w.gif" alt="Principal Component Analysis Example">
+
+    <code>
+from sklearn.decomposition import PCA
+pca = PCA(n_components=2)
+X_reduced = pca.fit_transform(X)
+    </code>
+
+    <h3>5.4 DBSCAN</h3>
+    <p>Density-Based Spatial Clustering of Applications with Noise.</p>
+    
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong> Grouping closely packed points and marking outliers in sparse regions.
+    </div>
+
+    <img src="https://ml-explained.com/articles/dbscan-explained/dbscan.gif" alt="DBSCAN Example">
+
+    <code>
+from sklearn.cluster import DBSCAN
+dbscan = DBSCAN(eps=0.5, min_samples=5)
+dbscan.fit(X)
+    </code>
+
+    <h2>6. Model Evaluation and Validation</h2>
+
+    <h3>6.1 Cross-Validation</h3>
+    <p>Testing our model on different subsets of the data.</p>
+    
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong> Instead of one big exam, taking several smaller quizzes and averaging the scores.
+    </div>
+
+
+    <code>
+from sklearn.model_selection import cross_val_score
+scores = cross_val_score(model, X, y, cv=5)
+    </code>
+
+    <h3>6.2 Confusion Matrix</h3>
+    <p>A table showing correct and incorrect predictions for each class.</p>
+    
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong> A report card showing how often the model confuses one class for another.
+    </div>
+
+    <img src="https://miro.medium.com/v2/resize:fit:1400/1*9TDo041I1jDfkoRI09Zeog.gif" alt="Confusion Matrix Illustration">
+
+    <code>
+from sklearn.metrics import confusion_matrix
+cm = confusion_matrix(y_true, y_pred)
+    </code>
+
+    <h3>6.3 Precision, Recall, and F1-Score</h3>
+    <p>Metrics for evaluating classification models.</p>
+    <ul>
+        <li><strong>Precision:</strong> How many selected items are relevant.</li>
+        <li><strong>Recall:</strong> How many relevant items are selected.</li>
+        <li><strong>F1-Score:</strong> The harmonic mean of precision and recall.</li>
+    </ul>
+    
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong>
+        <ul>
+            <li>Precision: Out of all the times the model said "dog", how often was it right?</li>
+            <li>Recall: Out of all the actual dogs, how many did the model correctly identify?</li>
+            <li>F1-Score: A balanced measure of both precision and recall.</li>
+        </ul>
+    </div>
+
+
+    <code>
+from sklearn.metrics import classification_report
+print(classification_report(y_true, y_pred))
+    </code>
+
+    <h3>6.4 Mean Squared Error (MSE) and R-squared</h3>
+    <p>Metrics for evaluating regression models.</p>
+    
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong>
+        <ul>
+            <li>MSE: On average, how far off are our predictions?</li>
+            <li>R-squared: What percentage of the variation in the outcome can our model explain?</li>
+        </ul>
+    </div>
+
+    <code>
+from sklearn.metrics import mean_squared_error, r2_score
+mse = mean_squared_error(y_true, y_pred)
+r2 = r2_score(y_true, y_pred)
+    </code>
+
+    <h3>6.5 Learning Curves</h3>
+    <p>Plots showing how model performance changes with more training data.</p>
+    
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong> A graph showing whether adding more study time (data) improves test scores (model performance).
+    </div>
+
+
+    <h3>6.6 Bias vs. Variance</h3>
+    <ul>
+        <li><strong>Bias:</strong> Error from oversimplified assumptions.</li>
+        <li><strong>Variance:</strong> Error from sensitivity to small fluctuations in the training set.</li>
+    </ul>
+    
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong>
+        <ul>
+            <li>High bias is like always guessing the same thing, regardless of the input.</li>
+            <li>High variance is like making wild guesses that change dramatically with small changes in input.</li>
+        </ul>
+    </div>
+
+    <img src="https://datamapu.com/images/bias_variance/bias_variance_4.png" alt="Bias vs Variance Illustration">
+
+    <h3>6.7 Overfitting vs. Underfitting</h3>
+    <ul>
+        <li><strong>Overfitting:</strong> Model learns the training data too well, including noise.</li>
+        <li><strong>Underfitting:</strong> Model is too simple to capture the underlying pattern.</li>
+    </ul>
+    
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong>
+        <ul>
+            <li>Overfitting is like memorizing the textbook but not understanding the concepts.</li>
+            <li>Underfitting is like not studying enough and failing to grasp even the basics.</li>
+        </ul>
+    </div>
+
+    <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190523171258/overfitting_2.png" alt="Overfitting vs Underfitting Illustration">
+
+    <h2>7. Feature Engineering and Selection</h2>
+
+    <h3>7.1 Feature Engineering</h3>
+    <p>Creating new features from existing data.</p>
+
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong> Coming up with new, helpful ways to look at your data.
+    </div>
+
+    <h3>7.2 Feature Selection</h3>
+    <p>Choosing the most relevant features for your model.</p>
+
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong> Picking the most important factors that influence the outcome.
+
+    <code>
+from sklearn.feature_selection import SelectKBest
+selector = SelectKBest(k=5)
+X_new = selector.fit_transform(X, y)
+    </code>
+
+    <h2>8. Ensemble Methods</h2>
+
+    <p>Combining multiple models to improve performance.</p>
+    <img src="https://miro.medium.com/v2/resize:fit:2000/1*zTgGBTQIMlASWm5QuS2UpA.jpeg" alt="Ensemble Methods">
+
+    <h3>8.1 Bagging (Bootstrap Aggregating)</h3>
+    <p>Training multiple models on random subsets of the data and averaging their predictions.</p>
+
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong> Getting opinions from multiple experts and taking a vote.
+    </div>
+
+    <img src="https://miro.medium.com/v2/resize:fit:1400/1*DfolLEWXiyPnFajYQZd4Gg.jpeg" alt="Bagging Illustration">
+
+    <h3>8.2 Boosting</h3>
+    <p>Training a sequence of weak models, each trying to correct the errors of the previous ones.</p>
+
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong> Learning from mistakes, with each new model focusing on what previous models got wrong.
+    </div>
+
+    <img src="https://miro.medium.com/v2/resize:fit:2000/1*zTgGBTQIMlASWm5QuS2UpA.jpeg" alt="Boosting Illustration">
+
+    <code>
+from sklearn.ensemble import GradientBoostingClassifier
+model = GradientBoostingClassifier()
+model.fit(X_train, y_train)
+    </code>
+
+    <h2>9. Neural Networks and Deep Learning</h2>
+
+    <h3>9.1 Artificial Neural Networks (ANN)</h3>
+    <p>Models inspired by the human brain, consisting of interconnected nodes organized in layers.</p>
+
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong> A complex system of interconnected "neurons" that learn to recognize patterns.
+    </div>
+
+    <img src="https://miro.medium.com/v2/resize:fit:1400/1*gMJz6v4nQNXXxbDgYuynGg.gif" alt="Artificial Neural Network Illustration">
+
+    <h3>9.2 Convolutional Neural Networks (CNN)</h3>
+    <p>Specialized neural networks for processing grid-like data, such as images.</p>
+
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong> A system that can recognize patterns in images, similar to how our visual cortex works.
+    </div>
+
+    <img src="https://miro.medium.com/v2/resize:fit:1000/1*63sGPbvLLpvlD16hG1bvmA.gif" alt="Convolutional Neural Network Illustration">
+
+    <h3>9.3 Recurrent Neural Networks (RNN)</h3>
+    <p>Neural networks designed to work with sequential data.</p>
+
+    <div class="simple-explanation">
+        <strong>Simple explanation:</strong> A model that can understand context in sequences, like words in a sentence or time series data.
+    </div>
+
+    <img src="https://miro.medium.com/v2/resize:fit:1200/1*qMZm06EoaPRzHFFUM3Xbkw.gif" alt="Recurrent Neural Network Illustration">
+
+    <h2>10. Code Interpretation in Machine Learning</h2>
+
+    <p>Understanding Python code for machine learning is crucial. Here's a walkthrough of a typical machine learning code snippet:</p>
+
+    <code>
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+
+# Part 1: Data preparation
+X = np.array([
+    [150.52, 151.90, 149.80, 76520300, 149.62],
+    [151.70, 152.84, 151.41, 55648500, 150.65],
+    # ... more data rows ...
+])
+y = np.array([150.65, 152.71, 153.12, 152.95, 153.64, 154.09, 154.50, 154.98, 156.90, 157.41])
+
+# Part 2: Splitting the data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Part 3: Model creation and training
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Part 4: Making predictions
+y_pred = model.predict(X_test)
+
+# Part 5: Model evaluation
+mse = mean_squared_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+    </code>
+
+
+    <p><strong>Explanation:</strong></p>
+    <ol>
+        <li>We prepare our data: X contains our features, y contains our target values.</li>
+        <li>We split our data into training and testing sets.</li>
+        <li>We create a Linear Regression model and train it on our training data.</li>
+        <li>We use our trained model to make predictions on the test data.</li>
+        <li>We evaluate how well our model performed using Mean Squared Error and R-squared score.</li>
+    </ol>
+
+    <p>Understanding such code snippets is essential for implementing and troubleshooting machine learning models in practice.</p>
+</div>
+    
+    <h2>Image Sources and References</h2>
+
+    <h3>Image Sources</h3>
+    <ol>
+        <li>Machine Learning Concept: <a href="https://thumbs.dreamstime.com/b/machine-learning-concept-text-network-connected-icons-white-background-as-illustration-103089024.jpg" target="_blank">Dreamstime</a></li>
+        <li>Supervised Learning: <a href="https://images.prismic.io/encord/f1fa13a6-88a3-4c20-b620-46489fe00f45_What+is+Supervised+Learning+%7C+Encord.png?auto=compress,format" target="_blank">Encord</a></li>
+        <li>Unsupervised Learning: <a href="https://eastgate-software.com/wp-content/uploads/2023/10/Unsupervised-Learning-Clustering.png" target="_blank">Eastgate Software</a></li>
+        <li>Reinforcement Learning: <a href="https://editor.analyticsvidhya.com/uploads/496302.jpg" target="_blank">Analytics Vidhya</a></li>
+        <li>Machine Learning Pipeline: <a href="https://daxg39y63pxwu.cloudfront.net/images/blog/machine-learning-pipeline-architecture/machine_learning_pipeline.png" target="_blank">CloudFront</a></li>
+        <li>Linear Regression: <a href="https://cdn-images-1.medium.com/v2/resize:fit:640/1*eeIvlwkMNG1wSmj3FR6M2g.gif" target="_blank">Medium</a></li>
+        <li>Logistic Regression: <a href="https://i.pinimg.com/originals/86/bb/7a/86bb7af29c41c40c2fae108f0f0a442b.gif" target="_blank">Pinterest</a></li>
+        <li>Decision Tree: <a href="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc573e3d2-d2a4-4183-a2b1-0630d2c1ecdd_720x405.gif" target="_blank">Substack</a></li>
+        <li>Random Forest: <a href="https://miro.medium.com/v2/resize:fit:720/format:webp/1*EhAkkl6EpSYDak3dMEhOFQ.gif" target="_blank">Medium</a></li>
+        <li>Support Vector Machines: <a href="https://miro.medium.com/v2/resize:fit:640/format:webp/0*_NY364FgpJmwgxE7.gif" target="_blank">Medium</a></li>
+        <li>K-Nearest Neighbors: <a href="https://ptime.s3.ap-northeast-1.amazonaws.com/media/machine_learning/classification/KNN_Working.gif" target="_blank">Amazon S3</a></li>
+        <li>K-Means Clustering: <a href="https://sandipanweb.wordpress.com/wp-content/uploads/2017/03/kmeans3.gif?w=676" target="_blank">WordPress</a></li>
+        <li>Hierarchical Clustering: <a href="https://cdn-images-1.medium.com/max/640/1*ET8kCcPpr893vNZFs8j4xg.gif" target="_blank">Medium</a></li>
+        <li>Principal Component Analysis: <a href="https://miro.medium.com/v2/resize:fit:720/format:webp/1*37a_i1t1tDxDYT3ZI6Yn8w.gif" target="_blank">Medium</a></li>
+        <li>DBSCAN: <a href="https://ml-explained.com/articles/dbscan-explained/dbscan.gif" target="_blank">ML Explained</a></li>
+        <li>Confusion Matrix: <a href="https://miro.medium.com/v2/resize:fit:1400/1*9TDo041I1jDfkoRI09Zeog.gif" target="_blank">Medium</a></li>
+        <li>Bias vs Variance: <a href="https://datamapu.com/images/bias_variance/bias_variance_4.png" target="_blank">Datamapu</a></li>
+        <li>Overfitting vs Underfitting: <a href="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190523171258/overfitting_2.png" target="_blank">GeeksforGeeks</a></li>
+        <li>Ensemble Methods: <a href="https://miro.medium.com/v2/resize:fit:2000/1*zTgGBTQIMlASWm5QuS2UpA.jpeg" target="_blank">Medium</a></li>
+        <li>Bagging: <a href="https://miro.medium.com/v2/resize:fit:1400/1*DfolLEWXiyPnFajYQZd4Gg.jpeg" target="_blank">Medium</a></li>
+        <li>Artificial Neural Network: <a href="https://miro.medium.com/v2/resize:fit:1400/1*gMJz6v4nQNXXxbDgYuynGg.gif" target="_blank">Medium</a></li>
+        <li>Convolutional Neural Network: <a href="https://miro.medium.com/v2/resize:fit:1000/1*63sGPbvLLpvlD16hG1bvmA.gif" target="_blank">Medium</a></li>
+        <li>Recurrent Neural Network: <a href="https://miro.medium.com/v2/resize:fit:1200/1*qMZm06EoaPRzHFFUM3Xbkw.gif" target="_blank">Medium</a></li>
+    </ol>
+
+    <h3>References</h3>
+    <ol>
+        <li>Géron, A. (2019). Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems. O'Reilly Media.</li>
+        <li>James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013). An Introduction to Statistical Learning: with Applications in R. Springer.</li>
+        <li>Goodfellow, I., Bengio, Y., & Courville, A. (2016). Deep Learning. MIT Press.</li>
+        <li>Scikit-learn: Machine Learning in Python, Pedregosa et al., JMLR 12, pp. 2825-2830, 2011.</li>
+        <li>TensorFlow: Large-Scale Machine Learning on Heterogeneous Systems, 2015. Software available from tensorflow.org.</li>
+        <li>Keras: The Python Deep Learning library. Software available from keras.io.</li>
+    </ol>
+
+    <p>Note: This reviewer is based on these references and other widely available online resources. It's intended for educational purposes and to provide a comprehensive overview of machine learning concepts.</p>
+
+</body>
+</html>
