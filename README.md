@@ -64,10 +64,9 @@ Students are expected to understand the fundamental concepts, applications, and 
    [View Reviewer](https://htmlpreview.github.io/?https://github.com/LibranDev-Github/NCF-CCS-CSELECT2/blob/main/Comprehensive%20Midterm%20Reviewer%20sy2425.html)
 
 2. **Notebook LLM (based on the reviewers):**  
-   [Access Notebook](https://notebooklm.google.com/notebook/8f62b398-bf4a-47cd-9b88-e82fde6ee59a/audio)
-
-3. **Additional Resource:**  
-   [Link to be generated]
+   [Models and Evaluation](https://notebooklm.google.com/notebook/884fa6eb-cf26-4f14-9063-5ff14debb5c1/audio)
+   [General Overview](https://notebooklm.google.com/notebook/8f62b398-bf4a-47cd-9b88-e82fde6ee59a/audio)
+  
 
 ## Preparation Tips
 
