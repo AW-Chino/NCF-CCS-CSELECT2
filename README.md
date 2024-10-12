@@ -7,7 +7,6 @@ The exam covers a comprehensive range of machine learning topics, including:
 1. **Types of Learning Algorithms:**
    - Supervised Learning
    - Unsupervised Learning
-   - Reinforcement Learning
 
 2. **Machine Learning Pipeline:**
    - Data Collection
