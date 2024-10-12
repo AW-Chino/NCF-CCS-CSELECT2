@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Glossary</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0 auto; max-width: 800px; padding: 20px; }
+        h1 { color: #333; }
+        h2 { color: #0066cc; }
+        .term { margin-bottom: 20px; }
+        .meaning { font-weight: bold; }
+        .description { margin-top: 5px; }
+        .synonyms { font-style: italic; }
+    </style>
+</head>
+<body>
+    <h1>Machine Learning Glossary</h1>
+
+    <div class="term">
+        <h2>Dimensionality</h2>
+        <p class="meaning">The number of features or attributes in a dataset.</p>
+        <p class="description">In simple terms, it's how many "columns" of information you have for each data point. High dimensionality can make analysis more complex and computationally expensive.</p>
+        <p class="synonyms">Synonyms: Feature space, attribute space</p>
+    </div>
+
+    <div class="term">
+        <h2>Feature</h2>
+        <p class="meaning">An individual measurable property or characteristic of a phenomenon being observed.</p>
+        <p class="description">Think of it as a column in your dataset. For example, if predicting house prices, features might include square footage, number of bedrooms, and location.</p>
+        <p class="synonyms">Synonyms: Attribute, variable, predictor</p>
+    </div>
+
+    <div class="term">
+        <h2>Hyperparameter</h2>
+        <p class="meaning">A parameter whose value is set before the learning process begins.</p>
+        <p class="description">These are the "knobs" you can adjust when setting up your model. For example, the number of trees in a Random Forest or the learning rate in gradient descent.</p>
+        <p class="synonyms">Synonyms: Model parameter</p>
+    </div>
+
+    <div class="term">
+        <h2>Overfitting</h2>
+        <p class="meaning">When a model learns the training data too well, including noise and fluctuations that don't represent the underlying pattern.</p>
+        <p class="description">It's like memorizing the textbook instead of understanding the concepts. The model performs well on training data but poorly on new, unseen data.</p>
+        <p class="synonyms">Synonyms: High variance</p>
+    </div>
+
+    <div class="term">
+        <h2>Underfitting</h2>
+        <p class="meaning">When a model is too simple to capture the underlying pattern in the data.</p>
+        <p class="description">It's like not studying enough for an exam. The model performs poorly on both training and new data because it hasn't captured the essential relationships.</p>
+        <p class="synonyms">Synonyms: High bias</p>
+    </div>
+
+    <div class="term">
+        <h2>Regularization</h2>
+        <p class="meaning">A technique used to prevent overfitting by adding a penalty term to the loss function.</p>
+        <p class="description">It's like adding a "complexity tax" to your model. This encourages the model to be simpler, which often leads to better generalization.</p>
+        <p class="synonyms">Synonyms: Weight decay, shrinkage</p>
+    </div>
+
+    <div class="term">
+        <h2>Epoch</h2>
+        <p class="meaning">One complete pass through the entire training dataset.</p>
+        <p class="description">Think of it as one full round of studying all your flashcards. Models often train for multiple epochs to improve their performance.</p>
+        <p class="synonyms">Synonyms: Iteration (in some contexts)</p>
+    </div>
+
+    <div class="term">
+        <h2>Batch</h2>
+        <p class="meaning">A subset of the training data used in one iteration of model training.</p>
+        <p class="description">Instead of looking at all data at once, the model looks at small "batches" at a time. This can make training more manageable and sometimes more effective.</p>
+        <p class="synonyms">Synonyms: Mini-batch</p>
+    </div>
+
+    <div class="term">
+        <h2>Gradient Descent</h2>
+        <p class="meaning">An optimization algorithm used to minimize the loss function by iteratively moving in the direction of steepest descent.</p>
+        <p class="description">Imagine rolling a ball down a hill and it naturally finds the lowest point. Gradient descent does this mathematically to find the best model parameters.</p>
+        <p class="synonyms">Synonyms: Method of steepest descent</p>
+    </div>
+
+    <div class="term">
+        <h2>Cross-validation</h2>
+        <p class="meaning">A resampling procedure used to evaluate machine learning models on a limited data sample.</p>
+        <p class="description">It's like taking multiple smaller quizzes instead of one big exam. This gives a more robust estimate of how well your model will perform on new data.</p>
+        <p class="synonyms">Synonyms: Rotation estimation, out-of-sample testing</p>
+    </div>
+
+    <div class="term">
+        <h2>Ensemble</h2>
+        <p class="meaning">A machine learning technique that combines several base models to produce one optimal predictive model.</p>
+        <p class="description">It's like asking for opinions from a group of experts instead of just one. This often leads to better and more robust predictions.</p>
+        <p class="synonyms">Synonyms: Ensemble method, multi-model technique</p>
+    </div>
+
+    <div class="term">
+        <h2>Bias (statistical)</h2>
+        <p class="meaning">The difference between the model's expected predictions and the true values.</p>
+        <p class="description">It's a measure of how far off, on average, your model's predictions are from the truth. High bias can lead to underfitting.</p>
+        <p class="synonyms">Synonyms: Systematic error</p>
+    </div>
+
+    <div class="term">
+        <h2>Variance (statistical)</h2>
+        <p class="meaning">The variability of model prediction for a given data point.</p>
+        <p class="description">It's a measure of how much your model's predictions would change if you trained it on different data. High variance can lead to overfitting.</p>
+        <p class="synonyms">Synonyms: Model sensitivity</p>
+    </div>
+
+    <div class="term">
+        <h2>Feature Engineering</h2>
+        <p class="meaning">The process of using domain knowledge to extract features from raw data.</p>
+        <p class="description">It's like creating new, more informative variables from your existing data. Good feature engineering can significantly improve model performance.</p>
+        <p class="synonyms">Synonyms: Feature extraction, attribute engineering</p>
+    </div>
+
+    <div class="term">
+        <h2>One-Hot Encoding</h2>
+        <p class="meaning">A process by which categorical variables are converted into a form that could be provided to ML algorithms to do a better job in prediction.</p>
+        <p class="description">It's like creating separate yes/no columns for each category. For example, "color" might become "is_red", "is_blue", "is_green", etc.</p>
+        <p class="synonyms">Synonyms: One-of-K encoding, dummy variable encoding</p>
+    </div>
+
+</body>
+</html>
