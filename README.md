@@ -42,8 +42,11 @@ The exam covers a comprehensive range of machine learning topics, including:
 
 2. **Notebook LLM (based on the reviewers):**  
    [Models and Evaluation](https://notebooklm.google.com/notebook/884fa6eb-cf26-4f14-9063-5ff14debb5c1/audio)
+
    [General Overview](https://notebooklm.google.com/notebook/8f62b398-bf4a-47cd-9b88-e82fde6ee59a/audio)
-  
+
+3. **Glossary**
+   [Glossary](https://github.com/LibranDev-Github/NCF-CCS-CSELECT2/blob/main/glossary.md)
 
 ## Preparation Tips
 
