@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comprehensive Machine Learning Reviewer</title>
     <style>
-        body {
+             body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             color: #333;
@@ -70,23 +70,24 @@
         .school-info h2, .school-info h3 {
             margin: 0;
         }
-    </style>
+         .application { background-color: #f0f0f0; padding: 10px; margin: 10px 0; }
+        .comparison { background-color: #e6f3ff; padding: 10px; margin: 10px 0; }
+        </style>
 </head>
 <body>
-    <div class="header">
-        <img src="https://ncf.edu.ph/wp-content/uploads/2024/04/ncf_logo.png" alt="Naga College Foundation Logo" class="logo">
+    <header>
         <div class="school-info">
             <h2>Naga College Foundation, Inc.</h2>
             <h3>COLLEGE OF COMPUTER STUDIES</h3>
             <h3>CS ELECT 2 - Introduction to Intelligent Systems</h3>
         </div>
-    </div>
-    <h1>Midterm Comprehensive Reviewer</h1>
+    </header>
 
+    <h1>Comprehensive Midterm Machine Learning Reviewer</h1>
 
     <h2>1. Introduction to Machine Learning</h2>
     <p>Machine Learning is a field of artificial intelligence that focuses on creating systems that can learn and improve from experience without being explicitly programmed.</p>
-    
+
     <div class="simple-explanation">
         <strong>Simple explanation:</strong> Imagine teaching a computer to recognize cats by showing it thousands of cat pictures, rather than writing specific rules about what a cat looks like.
     </div>
@@ -104,43 +105,220 @@
         </ul>
     </div>
 
+    <div class="application">
+        <h3>Applications of Machine Learning:</h3>
+        <ol>
+            <li>
+                <strong>Spam Email Detection:</strong>
+                <p>Machine learning models analyze email content and metadata to distinguish between legitimate emails and spam.</p>
+                <pre><code>
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.model_selection import train_test_split
+
+# Sample data
+emails = ["Get rich quick! Buy now!", "Meeting at 3pm tomorrow", "Viagra for cheap prices", "Project deadline reminder"]
+labels = [1, 0, 1, 0]  # 1 for spam, 0 for not spam
+
+vectorizer = CountVectorizer()
+X = vectorizer.fit_transform(emails)
+X_train, X_test, y_train, y_test = train_test_split(X, labels, test_size=0.2, random_state=42)
+
+model = MultinomialNB()
+model.fit(X_train, y_train)
+
+predictions = model.predict(X_test)
+print("Predictions:", predictions)
+                </code></pre>
+            </li>
+            <li>
+                <strong>Image Recognition:</strong>
+                <p>Machine learning algorithms can identify objects, faces, or scenes in images, used in applications like autonomous vehicles and security systems.</p>
+            </li>
+            <li>
+                <strong>Recommendation Systems:</strong>
+                <p>Online platforms use machine learning to suggest products, movies, or content based on user behavior and preferences.</p>
+            </li>
+            <li>
+                <strong>Fraud Detection:</strong>
+                <p>Financial institutions employ machine learning to identify unusual patterns in transactions that may indicate fraudulent activity.</p>
+            </li>
+        </ol>
+    </div>
+
     <h2>2. Types of Machine Learning</h2>
 
     <h3>2.1 Supervised Learning</h3>
     <p>In supervised learning, we provide the model with labeled examples to learn from.</p>
-    
+
     <div class="simple-explanation">
         <strong>Simple explanation:</strong> It's like learning with a teacher who provides both questions and correct answers.
     </div>
 
     <img src="https://images.prismic.io/encord/f1fa13a6-88a3-4c20-b620-46489fe00f45_What+is+Supervised+Learning+%7C+Encord.png?auto=compress,format" alt="Supervised Learning Illustration">
 
-    <p>Examples:</p>
-    <ul>
-        <li>Predicting house prices based on features like size and location</li>
-        <li>Classifying emails as spam or not spam</li>
-    </ul>
+    <div class="application">
+        <h3>Applications of Supervised Learning:</h3>
+        <ol>
+            <li>
+                <strong>Credit Score Prediction:</strong>
+                <p>Banks use supervised learning to predict credit scores based on financial history, helping assess loan applications.</p>
+                <pre><code>
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+import numpy as np
+
+# Sample data (features: income, debt, credit_history_length, num_credit_cards)
+X = np.array([[50000, 5000, 5, 2], [75000, 2000, 10, 1], [30000, 10000, 3, 3]])
+y = np.array([700, 750, 600])  # Credit scores
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+model = RandomForestRegressor(n_estimators=100, random_state=42)
+model.fit(X_train, y_train)
+predictions = model.predict(X_test)
+mse = mean_squared_error(y_test, predictions)
+print(f"Mean Squared Error: {mse}")
+                </code></pre>
+            </li>
+            <li>
+                <strong>Disease Diagnosis:</strong>
+                <p>Medical professionals use supervised learning models to assist in diagnosing diseases based on patient symptoms and test results.</p>
+            </li>
+            <li>
+                <strong>Sentiment Analysis:</strong>
+                <p>Companies analyze customer reviews and social media posts to determine sentiment towards their products or brand.</p>
+            </li>
+            <li>
+                <strong>Stock Price Prediction:</strong>
+                <p>Financial analysts use supervised learning to forecast stock prices based on historical data and market indicators.</p>
+            </li>
+        </ol>
+    </div>
+
+    <div class="comparison">
+        <h3>Comparison: Linear Regression vs. Polynomial Regression</h3>
+        <p>Both are supervised learning algorithms used for regression tasks, but they differ in their approach:</p>
+        <ul>
+            <li><strong>Linear Regression:</strong> Assumes a linear relationship between features and the target variable. Simple and interpretable, but may underfit complex relationships.</li>
+            <li><strong>Polynomial Regression:</strong> Can capture non-linear relationships by adding polynomial terms. More flexible but may overfit if the degree is too high.</li>
+        </ul>
+        <pre><code>
+from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import PolynomialFeatures
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate sample data
+X = np.array([1, 2, 3, 4, 5]).reshape(-1, 1)
+y = np.array([2, 4, 5, 4, 5])
+
+# Linear Regression
+linear_model = LinearRegression()
+linear_model.fit(X, y)
+
+# Polynomial Regression
+poly_features = PolynomialFeatures(degree=2)
+X_poly = poly_features.fit_transform(X)
+poly_model = LinearRegression()
+poly_model.fit(X_poly, y)
+
+# Plotting
+plt.scatter(X, y, color='blue')
+plt.plot(X, linear_model.predict(X), color='red', label='Linear')
+plt.plot(X, poly_model.predict(X_poly), color='green', label='Polynomial')
+plt.legend()
+plt.show()
+        </code></pre>
+    </div>
 
     <h3>2.2 Unsupervised Learning</h3>
     <p>Unsupervised learning involves finding patterns in data without labeled outcomes.</p>
-    
+
     <div class="simple-explanation">
         <strong>Simple explanation:</strong> It's like exploring a dataset without knowing what to expect, looking for hidden patterns.
     </div>
 
     <img src="https://eastgate-software.com/wp-content/uploads/2023/10/Unsupervised-Learning-Clustering.png" alt="Unsupervised Learning Illustration">
 
-    <p>Examples:</p>
-    <ul>
-        <li>Grouping customers based on purchasing behavior</li>
-        <li>Detecting anomalies in network traffic</li>
-    </ul>
+    <div class="application">
+        <h3>Applications of Unsupervised Learning:</h3>
+        <ol>
+            <li>
+                <strong>Customer Segmentation:</strong>
+                <p>Businesses use clustering algorithms to group customers with similar behaviors for targeted marketing campaigns.</p>
+                <pre><code>
+from sklearn.cluster import KMeans
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Sample customer data (features: annual_income, spending_score)
+X = np.array([[15000, 39], [15500, 81], [16000, 6], [16000, 77], [17000, 40]])
+
+kmeans = KMeans(n_clusters=3, random_state=42)
+kmeans.fit(X)
+labels = kmeans.labels_
+
+plt.scatter(X[:, 0], X[:, 1], c=labels, cmap='viridis')
+plt.xlabel('Annual Income')
+plt.ylabel('Spending Score')
+plt.title('Customer Segments')
+plt.show()
+                </code></pre>
+            </li>
+            <li>
+                <strong>Anomaly Detection:</strong>
+                <p>Financial institutions use unsupervised learning to identify unusual transactions that may indicate fraud.</p>
+            </li>
+            <li>
+                <strong>Topic Modeling:</strong>
+                <p>Natural language processing applications use techniques like Latent Dirichlet Allocation to discover topics in large collections of text.</p>
+            </li>
+            <li>
+                <strong>Dimensionality Reduction:</strong>
+                <p>Scientists use techniques like Principal Component Analysis to reduce the number of features in high-dimensional datasets while preserving important information.</p>
+            </li>
+        </ol>
+    </div>
+
+    <div class="comparison">
+        <h3>Comparison: K-Means vs. DBSCAN Clustering</h3>
+        <p>Both are unsupervised learning algorithms used for clustering, but they have different approaches:</p>
+        <ul>
+            <li><strong>K-Means:</strong> Partitions data into K clusters based on centroids. Assumes spherical clusters and requires specifying the number of clusters beforehand.</li>
+            <li><strong>DBSCAN (Density-Based Spatial Clustering of Applications with Noise):</strong> Forms clusters based on density of points. Can find clusters of arbitrary shape and automatically determines the number of clusters.</li>
+        </ul>
+        <pre><code>
+from sklearn.cluster import KMeans, DBSCAN
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate sample data
+X = np.random.rand(100, 2)
+
+# K-Means
+kmeans = KMeans(n_clusters=3, random_state=42)
+kmeans_labels = kmeans.fit_predict(X)
+
+# DBSCAN
+dbscan = DBSCAN(eps=0.1, min_samples=5)
+dbscan_labels = dbscan.fit_predict(X)
+
+# Plotting
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
+ax1.scatter(X[:, 0], X[:, 1], c=kmeans_labels, cmap='viridis')
+ax1.set_title('K-Means Clustering')
+ax2.scatter(X[:, 0], X[:, 1], c=dbscan_labels, cmap='viridis')
+ax2.set_title('DBSCAN Clustering')
+plt.show()
+        </code></pre>
+    </div>
 
     <h3>2.3 Reinforcement Learning</h3>
     <p>In reinforcement learning, an agent learns to make decisions by interacting with an environment and receiving rewards or penalties.</p>
-    
+
     <div class="simple-explanation">
-        <strong>Simple explanation:</strong> It's like training a dog – good behavior is rewarded, encouraging more of it in the future.
+        <strong>Simple explanation:</strong> It's like training a dog -- good behavior is rewarded, encouraging more of it in the future.
     </div>
 
     <img src="https://editor.analyticsvidhya.com/uploads/496302.jpg" alt="Reinforcement Learning Illustration">
@@ -157,338 +335,1196 @@
         </ul>
     </div>
 
-    <p>Examples:</p>
-    <ul>
-        <li>Teaching a computer to play chess</li>
-        <li>Optimizing robot movements</li>
-    </ul>
-
-    <h2>3. Machine Learning Pipeline</h2>
-    <p>The machine learning pipeline is the series of steps we follow to create and use a machine learning model.</p>
-
-    <img src="https://daxg39y63pxwu.cloudfront.net/images/blog/machine-learning-pipeline-architecture/machine_learning_pipeline.png" alt="Machine Learning Pipeline Illustration">
-
-    <ol>
-        <li>
-            <strong>Data Collection:</strong> Gathering the information we need.<br>
-            Example: Collecting customer purchase history for a recommendation system.
-        </li>
-        <li>
-            <strong>Data Preprocessing:</strong> Cleaning and preparing the data.<br>
-            Activities: Handling missing values, encoding categories, scaling features.
-            <code>
-from sklearn.preprocessing import StandardScaler
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X)
-            </code>
-        </li>
-        <li>
-            <strong>Model Selection:</strong> Choosing the right algorithm for our problem.<br>
-            Considerations: Type of problem, dataset size, need for interpretability.
-        </li>
-        <li>
-            <strong>Model Training:</strong> Teaching our chosen model using the prepared data.
-            <code>
-from sklearn.linear_model import LogisticRegression
-model = LogisticRegression()
-model.fit(X_train, y_train)
-            </code>
-        </li>
-        <li>
-            <strong>Model Evaluation:</strong> Checking how well our model performs.
-            <code>
-from sklearn.metrics import accuracy_score
-accuracy = accuracy_score(y_test, y_pred)
-            </code>
-        </li>
-    </ol>
-
-    <h2>4. Supervised Learning Models</h2>
-
-    <h3>4.1 Linear Regression</h3>
-    <p>Used for predicting a continuous outcome based on one or more input features.</p>
-    
-    <div class="simple-explanation">
-        <strong>Simple explanation:</strong> Drawing the best straight line through a set of points.
+    <div class="application">
+        <h3>Applications of Reinforcement Learning:</h3>
+        <ol>
+            <li>
+                <strong>Game Playing:</strong>
+                <p>Reinforcement learning has been used to create agents that can play complex games like Go and chess at superhuman levels.</p>
+            </li>
+            <li>
+                <strong>Robotics:</strong>
+                <p>Robots use reinforcement learning to learn how to navigate environments and perform tasks without explicit programming.</p>
+            </li>
+            <li>
+                <strong>Autonomous Vehicles:</strong>
+                <p>Self-driving cars use reinforcement learning to make decisions about steering, acceleration, and braking in various traffic scenarios.</p>
+            </li>
+            <li>
+                <strong>Resource Management:</strong>
+                <p>Data centers use reinforcement learning to optimize resource allocation and energy consumption.</p>
+            </li>
+        </ol>
     </div>
 
-    <img src="https://cdn-images-1.medium.com/v2/resize:fit:640/1*eeIvlwkMNG1wSmj3FR6M2g.gif" alt="Linear Regression Example">
-
-    <code>
-from sklearn.linear_model import LinearRegression
-model = LinearRegression()
-model.fit(X, y)
-    </code>
-
-    <h3>4.2 Logistic Regression</h3>
-    <p>Used for binary classification problems.</p>
-    
-    <div class="simple-explanation">
-        <strong>Simple explanation:</strong> Predicting whether something belongs to one category or another.
-    </div>
-
-    <img src="https://i.pinimg.com/originals/86/bb/7a/86bb7af29c41c40c2fae108f0f0a442b.gif" alt="Logistic Regression Example">
-
-    <code>
-from sklearn.linear_model import LogisticRegression
-model = LogisticRegression()
-model.fit(X, y)
-    </code>
-
-    <h3>4.3 Decision Trees</h3>
-    <p>A model that makes decisions based on asking a series of questions.</p>
-    
-    <div class="simple-explanation">
-        <strong>Simple explanation:</strong> Like a flowchart where each node is a question about a feature.
-    </div>
-
-    <img src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc573e3d2-d2a4-4183-a2b1-0630d2c1ecdd_720x405.gif" alt="Decision Tree Example">
-
-    <code>
-from sklearn.tree import DecisionTreeClassifier
-model = DecisionTreeClassifier()
-model.fit(X, y)
-    </code>
-
-    <h3>4.4 Random Forest</h3>
-    <p>An ensemble of decision trees.</p>
-    
-    <div class="simple-explanation">
-        <strong>Simple explanation:</strong> Instead of one big decision tree, use many smaller ones and have them vote on the outcome.
-    </div>
-
-    <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*EhAkkl6EpSYDak3dMEhOFQ.gif" alt="Random Forest Example">
-
-    <code>
-from sklearn.ensemble import RandomForestClassifier
-model = RandomForestClassifier()
-model.fit(X, y)
-    </code>
-
-    <h3>4.5 Support Vector Machines (SVM)</h3>
-    <p>Finds the best boundary between classes in high-dimensional space.</p>
-    
-    <div class="simple-explanation">
-        <strong>Simple explanation:</strong> Trying to draw a clear border between different groups of data points.
-    </div>
-
-    <img src="https://miro.medium.com/v2/resize:fit:640/format:webp/0*_NY364FgpJmwgxE7.gif" alt="Support Vector Machines Example">
-
-    <code>
-from sklearn.svm import SVC
-model = SVC(kernel='rbf')
-model.fit(X, y)
-    </code>
-
-    <h3>4.6 K-Nearest Neighbors (KNN)</h3>
-    <p>Classifies a point based on its nearest neighbors' classifications.</p>
-    
-    <div class="simple-explanation">
-        <strong>Simple explanation:</strong> "Tell me who your friends are, and I'll tell you who you are."
-    </div>
-
-    <img src="https://ptime.s3.ap-northeast-1.amazonaws.com/media/machine_learning/classification/KNN_Working.gif" alt="K-Nearest Neighbors Illustration">
-
-    <code>
-from sklearn.neighbors import KNeighborsClassifier
-model = KNeighborsClassifier(n_neighbors=5)
-model.fit(X, y)
-    </code>
-
-    <h2>5. Unsupervised Learning Models</h2>
-
-    <h3>5.1 K-Means Clustering</h3>
-    <p>Groups similar data points together.</p>
-    
-    <div class="simple-explanation">
-        <strong>Simple explanation:</strong> Sorting a mixed bag of colored marbles into groups based on their colors.
-    </div>
-
-    <img src="https://sandipanweb.wordpress.com/wp-content/uploads/2017/03/kmeans3.gif?w=676" alt="K-Means Clustering Example">
-
-    <code>
-from sklearn.cluster import KMeans
-model = KMeans(n_clusters=3)
-model.fit(X)
-    </code>
-
-    <h3>5.2 Hierarchical Clustering</h3>
-    <p>Creates a tree of clusters.</p>
-    
-    <div class="simple-explanation">
-        <strong>Simple explanation:</strong> Organizing a family tree, where individuals are grouped into families, families into clans, and so on.
-    </div>
-
-    <img src="https://cdn-images-1.medium.com/max/640/1*ET8kCcPpr893vNZFs8j4xg.gif" alt="Hierarchical Clustering Example">
-
-    <code>
-from scipy.cluster.hierarchy import dendrogram, linkage
-linked = linkage(X, method='ward')
-    </code>
-
-    <h3>5.3 Principal Component Analysis (PCA)</h3>
-    <p>Reduces the dimensionality of data while preserving its variation.</p>
-    
-    <div class="simple-explanation">
-        <strong>Simple explanation:</strong> Summarizing a long story while keeping the main points.
-    </div>
-
-    <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*37a_i1t1tDxDYT3ZI6Yn8w.gif" alt="Principal Component Analysis Example">
-
-    <code>
-from sklearn.decomposition import PCA
-pca = PCA(n_components=2)
-X_reduced = pca.fit_transform(X)
-    </code>
-
-    <h3>5.4 DBSCAN</h3>
-    <p>Density-Based Spatial Clustering of Applications with Noise.</p>
-    
-    <div class="simple-explanation">
-        <strong>Simple explanation:</strong> Grouping closely packed points and marking outliers in sparse regions.
-    </div>
-
-    <img src="https://ml-explained.com/articles/dbscan-explained/dbscan.gif" alt="DBSCAN Example">
-
-    <code>
-from sklearn.cluster import DBSCAN
-dbscan = DBSCAN(eps=0.5, min_samples=5)
-dbscan.fit(X)
-    </code>
-
-    <h2>6. Model Evaluation and Validation</h2>
-
-    <h3>6.1 Cross-Validation</h3>
-    <p>Testing our model on different subsets of the data.</p>
-    
-    <div class="simple-explanation">
-        <strong>Simple explanation:</strong> Instead of one big exam, taking several smaller quizzes and averaging the scores.
-    </div>
-
-
-    <code>
-from sklearn.model_selection import cross_val_score
-scores = cross_val_score(model, X, y, cv=5)
-    </code>
-
-    <h3>6.2 Confusion Matrix</h3>
-    <p>A table showing correct and incorrect predictions for each class.</p>
-    
-    <div class="simple-explanation">
-        <strong>Simple explanation:</strong> A report card showing how often the model confuses one class for another.
-    </div>
-
-    <img src="https://miro.medium.com/v2/resize:fit:1400/1*9TDo041I1jDfkoRI09Zeog.gif" alt="Confusion Matrix Illustration">
-
-    <code>
-from sklearn.metrics import confusion_matrix
-cm = confusion_matrix(y_true, y_pred)
-    </code>
-
-    <h3>6.3 Precision, Recall, and F1-Score</h3>
-    <p>Metrics for evaluating classification models.</p>
-    <ul>
-        <li><strong>Precision:</strong> How many selected items are relevant.</li>
-        <li><strong>Recall:</strong> How many relevant items are selected.</li>
-        <li><strong>F1-Score:</strong> The harmonic mean of precision and recall.</li>
-    </ul>
-    
-    <div class="simple-explanation">
-        <strong>Simple explanation:</strong>
+    <div class="comparison">
+        <h3>Comparison: Q-Learning vs. Policy Gradient Methods</h3>
+        <p>Both are reinforcement learning algorithms, but they differ in their approach:</p>
         <ul>
-            <li>Precision: Out of all the times the model said "dog", how often was it right?</li>
-            <li>Recall: Out of all the actual dogs, how many did the model correctly identify?</li>
-            <li>F1-Score: A balanced measure of both precision and recall.</li>
+            <li><strong>Q-Learning:</strong> A value-based method that learns the quality of actions in different states. It builds a Q-table or Q-function to determine the best action in each state.</li>
+            <li><strong>Policy Gradient Methods:</strong> Directly learn the policy (mapping from states to actions) without necessarily learning a value function. They can handle continuous action spaces more naturally.</li>
         </ul>
+        <pre><code>
+            import numpy as np
+            
+            # Simple Q-Learning example
+            class QLearning:
+                def __init__(self, states, actions, learning_rate=0.1, discount_factor=0.9):
+                    self.q_table = np.zeros((states, actions))
+                    self.lr = learning_rate
+                    self.gamma = discount_factor
+            
+                def update(self, state, action, reward, next_state):
+                    current_q = self.q_table[state, action]
+                    next_max_q = np.max(self.q_table[next_state])
+                    new_q = current_q + self.lr * (reward + self.gamma * next_max_q - current_q)
+                    self.q_table[state, action] = new_q
+            
+            # Simple Policy Gradient example
+            class PolicyGradient:
+                def __init__(self, state_dim, action_dim, learning_rate=0.01):
+                    self.weights = np.random.rand(state_dim, action_dim)
+                    self.lr = learning_rate
+            
+                def get_action(self, state):
+                    probabilities = self.softmax(np.dot(state, self.weights))
+                    return np.random.choice(len(probabilities), p=probabilities)
+            
+                def update(self, state, action, reward):
+                    probabilities = self.softmax(np.dot(state, self.weights))
+                    gradient = state[:, np.newaxis] * (np.eye(len(probabilities))[action] - probabilities)
+                    self.weights += self.lr * reward * gradient
+            
+                @staticmethod
+                def softmax(x):
+                    e_x = np.exp(x - np.max(x))
+                    return e_x / e_x.sum()
+            
+            # Usage example
+            q_learning = QLearning(states=10, actions=4)
+            policy_gradient = PolicyGradient(state_dim=5, action_dim=4)
+            
+            # Simulate environment interactions and updates for both algorithms
+                    </code></pre>
+                </div>
+            
+                <h2>3. Machine Learning Pipeline</h2>
+                <p>The machine learning pipeline is the series of steps we follow to create and use a machine learning model.</p>
+            
+                <img src="https://daxg39y63pxwu.cloudfront.net/images/blog/machine-learning-pipeline-architecture/machine_learning_pipeline.png" alt="Machine Learning Pipeline Illustration">
+            
+                <div class="application">
+                    <h3>Steps in the Machine Learning Pipeline:</h3>
+                    <ol>
+                        <li>
+                            <strong>Data Collection:</strong>
+                            <p>Gathering the information we need.</p>
+                            <p>Example: Collecting customer purchase history for a recommendation system.</p>
+                        </li>
+                        <li>
+                            <strong>Data Preprocessing:</strong>
+                            <p>Cleaning and preparing the data.</p>
+                            <p>Activities: Handling missing values, encoding categories, scaling features.</p>
+                            <pre><code>
+            from sklearn.preprocessing import StandardScaler
+            from sklearn.impute import SimpleImputer
+            from sklearn.compose import ColumnTransformer
+            from sklearn.pipeline import Pipeline
+            
+            # Create a preprocessing pipeline
+            numeric_features = ['age', 'income']
+            categorical_features = ['gender', 'occupation']
+            
+            numeric_transformer = Pipeline(steps=[
+                ('imputer', SimpleImputer(strategy='median')),
+                ('scaler', StandardScaler())
+            ])
+            
+            categorical_transformer = Pipeline(steps=[
+                ('imputer', SimpleImputer(strategy='constant', fill_value='missing')),
+                ('onehot', OneHotEncoder(handle_unknown='ignore'))
+            ])
+            
+            preprocessor = ColumnTransformer(
+                transformers=[
+                    ('num', numeric_transformer, numeric_features),
+                    ('cat', categorical_transformer, categorical_features)
+                ])
+            
+            # Use the preprocessor in a full pipeline
+            full_pipeline = Pipeline([
+                ('preprocessor', preprocessor),
+                ('classifier', RandomForestClassifier())
+            ])
+            
+            # Fit the pipeline
+            full_pipeline.fit(X_train, y_train)
+                            </code></pre>
+                        </li>
+                        <li>
+                            <strong>Model Selection:</strong>
+                            <p>Choosing the right algorithm for our problem.</p>
+                            <p>Considerations: Type of problem, dataset size, need for interpretability.</p>
+                        </li>
+                        <li>
+                            <strong>Model Training:</strong>
+                            <p>Teaching our chosen model using the prepared data.</p>
+                            <pre><code>
+            from sklearn.model_selection import GridSearchCV
+            from sklearn.ensemble import RandomForestClassifier
+            
+            # Define parameter grid
+            param_grid = {
+                'n_estimators': [100, 200, 300],
+                'max_depth': [None, 10, 20, 30],
+                'min_samples_split': [2, 5, 10]
+            }
+            
+            # Create a grid search object
+            grid_search = GridSearchCV(RandomForestClassifier(random_state=42), param_grid, cv=5)
+            
+            # Fit the grid search
+            grid_search.fit(X_train, y_train)
+            
+            # Get the best model
+            best_model = grid_search.best_estimator_
+                            </code></pre>
+                        </li>
+                        <li>
+                            <strong>Model Evaluation:</strong>
+                            <p>Checking how well our model performs.</p>
+                            <pre><code>
+            from sklearn.metrics import accuracy_score, classification_report
+            
+            # Make predictions
+            y_pred = best_model.predict(X_test)
+            
+            # Calculate accuracy
+            accuracy = accuracy_score(y_test, y_pred)
+            print(f"Accuracy: {accuracy}")
+            
+            # Generate a classification report
+            print(classification_report(y_test, y_pred))
+                            </code></pre>
+                        </li>
+                        <li>
+                            <strong>Model Deployment:</strong>
+                            <p>Integrating the model into a production environment.</p>
+                            <p>Example: Using Flask to create a simple API for the model:</p>
+                            <pre><code>
+            from flask import Flask, request, jsonify
+            import joblib
+            
+            app = Flask(__name__)
+            
+            # Load the trained model
+            model = joblib.load('trained_model.joblib')
+            
+            @app.route('/predict', methods=['POST'])
+            def predict():
+                data = request.json
+                prediction = model.predict([data['features']])
+                return jsonify({'prediction': prediction.tolist()})
+            
+            if __name__ == '__main__':
+                app.run(debug=True)
+                            </code></pre>
+                        </li>
+                    </ol>
+                </div>
+            
+                <h2>4. Supervised Learning Models</h2>
+            
+                <h3>4.1 Linear Regression</h3>
+                <p>Used for predicting a continuous outcome based on one or more input features.</p>
+            
+                <div class="simple-explanation">
+                    <strong>Simple explanation:</strong> Drawing the best straight line through a set of points.
+                </div>
+            
+                <img src="https://cdn-images-1.medium.com/v2/resize:fit:640/1*eeIvlwkMNG1wSmj3FR6M2g.gif" alt="Linear Regression Example">
+            
+                <div class="application">
+                    <h3>Applications of Linear Regression:</h3>
+                    <ol>
+                        <li>
+                            <strong>Sales Forecasting:</strong>
+                            <p>Predicting future sales based on historical data and other relevant features.</p>
+                        </li>
+                        <li>
+                            <strong>Salary Estimation:</strong>
+                            <p>Estimating salaries based on years of experience, education level, and other factors.</p>
+                        </li>
+                        <li>
+                            <strong>Real Estate Pricing:</strong>
+                            <p>Predicting house prices based on features like size, location, and number of rooms.</p>
+                        </li>
+                    </ol>
+                    <pre><code>
+            from sklearn.linear_model import LinearRegression
+            from sklearn.model_selection import train_test_split
+            import numpy as np
+            
+            # Generate sample data
+            X = np.array([[1], [2], [3], [4], [5]])
+            y = np.array([2, 4, 5, 4, 5])
+            
+            # Split the data
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+            
+            # Create and train the model
+            model = LinearRegression()
+            model.fit(X_train, y_train)
+            
+            # Make predictions
+            y_pred = model.predict(X_test)
+            
+            print(f"Coefficients: {model.coef_}")
+            print(f"Intercept: {model.intercept_}")
+                    </code></pre>
+                </div>
+            
+                <h3>4.2 Logistic Regression</h3>
+                <p>Used for binary classification problems.</p>
+            
+                <div class="simple-explanation">
+                    <strong>Simple explanation:</strong> Predicting whether something belongs to one category or another.
+                </div>
+            
+                <img src="https://i.pinimg.com/originals/86/bb/7a/86bb7af29c41c40c2fae108f0f0a442b.gif" alt="Logistic Regression Example">
+            
+                <div class="application">
+                    <h3>Applications of Logistic Regression:</h3>
+                    <ol>
+                        <li>
+                            <strong>Credit Approval:</strong>
+                            <p>Predicting whether a loan application should be approved or denied.</p>
+                        </li>
+                        <li>
+                            <strong>Medical Diagnosis:</strong>
+                            <p>Classifying whether a patient has a particular disease based on symptoms and test results.</p>
+                        </li>
+                        <li>
+                            <strong>Email Spam Detection:</strong>
+                            <p>Determining whether an email is spam or not based on its content and metadata.</p>
+                        </li>
+                    </ol>
+                    <pre><code>
+            from sklearn.linear_model import LogisticRegression
+            from sklearn.model_selection import train_test_split
+            from sklearn.metrics import accuracy_score, classification_report
+            import numpy as np
+            
+            # Generate sample data
+            X = np.array([[0, 0], [1, 1], [1, 0], [0, 1]])
+            y = np.array([0, 1, 1, 0])
+            
+            # Split the data
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+            
+            # Create and train the model
+            model = LogisticRegression()
+            model.fit(X_train, y_train)
+            
+            # Make predictions
+            y_pred = model.predict(X_test)
+            
+            print(f"Accuracy: {accuracy_score(y_test, y_pred)}")
+            print(classification_report(y_test, y_pred))
+                    </code></pre>
+                </div>
+            
+                <div class="comparison">
+                    <h3>Comparison: Linear Regression vs. Logistic Regression</h3>
+                    <ul>
+                        <li><strong>Output:</strong> Linear regression predicts continuous values, while logistic regression predicts probabilities for binary classification.</li>
+                        <li><strong>Function:</strong> Linear regression uses a linear function, while logistic regression uses the sigmoid function to map inputs to probabilities.</li>
+                        <li><strong>Use Cases:</strong> Linear regression is used for regression tasks (predicting quantities), while logistic regression is used for binary classification tasks.</li>
+                    </ul>
+                </div>
+            
+                <h3>4.3 Decision Trees</h3>
+                <p>A model that makes decisions based on asking a series of questions.</p>
+            
+                <div class="simple-explanation">
+                    <strong>Simple explanation:</strong> Like a flowchart where each node is a question about a feature.
+                </div>
+            
+                <img src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc573e3d2-d2a4-4183-a2b1-0630d2c1ecdd_720x405.gif" alt="Decision Tree Example">
+            
+                <div class="application">
+                    <h3>Applications of Decision Trees:</h3>
+                    <ol>
+                        <li>
+                            <strong>Customer Churn Prediction:</strong>
+                            <p>Identifying factors that lead to customer churn and predicting which customers are likely to leave.</p>
+                        </li>
+                        <li>
+                            <strong>Medical Diagnosis:</strong>
+                            <p>Creating a decision support system for doctors to diagnose diseases based on symptoms and test results.</p>
+                        </li>
+                        <li>
+                            <strong>Risk Assessment:</strong>
+                            <p>Evaluating the risk of loan defaults or insurance claims based on various factors.</p>
+                        </li>
+                    </ol>
+                    <pre><code>
+            from sklearn.tree import DecisionTreeClassifier, plot_tree
+            from sklearn.model_selection import train_test_split
+            from sklearn.metrics import accuracy_score
+            import matplotlib.pyplot as plt
+            
+            # Generate sample data
+            X = [[0, 0], [1, 1], [1, 0], [0, 1]]
+            y = [0, 1, 1, 0]
+            
+            # Split the data
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+            
+            # Create and train the model
+            model = DecisionTreeClassifier(max_depth=3)
+            model.fit(X_train, y_train)
+            
+            # Make predictions
+            y_pred = model.predict(X_test)
+            
+            print(f"Accuracy: {accuracy_score(y_test, y_pred)}")
+            
+            # Visualize the tree
+            plt.figure(figsize=(20,10))
+            plot_tree(model, filled=True, feature_names=['feature1', 'feature2'], class_names=['class0', 'class1'])
+            plt.show()
+                    </code></pre>
+                </div>
+            
+                <h3>4.4 Random Forest</h3>
+                <p>An ensemble of decision trees.</p>
+            
+                <div class="simple-explanation">
+                    <strong>Simple explanation:</strong> Instead of one big decision tree, use many smaller ones and have them vote on the outcome.
+                </div>
+            
+                <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*EhAkkl6EpSYDak3dMEhOFQ.gif" alt="Random Forest Example">
+            
+                <div class="application">
+                    <h3>Applications of Random Forest:</h3>
+                    <ol>
+                        <li>
+                            <strong>Feature Importance:</strong>
+                            <p>Identifying the most influential features in complex datasets.</p>
+                        </li>
+                        <li>
+                            <strong>Ecological Modeling:</strong>
+                            <p>Predicting species distributions or habitat suitability in ecology.</p>
+                        </li>
+                        <li>
+                            <strong>Financial Analysis:</strong>
+                            <p>Predicting stock prices or detecting fraudulent transactions.</p>
+                        </li>
+                    </ol>
+                    <pre><code>
+            from sklearn.ensemble import RandomForestClassifier
+            from sklearn.datasets import make_classification
+            from sklearn.model_selection import train_test_split
+            from sklearn.metrics import accuracy_score, classification_report
+            
+            # Generate sample data
+            X, y = make_classification(n_samples=1000, n_features=20, n_informative=15, n_redundant=5, random_state=42)
+            
+            # Split the data
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+            
+            # Create and train the model
+            rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
+            rf_model.fit(X_train, y_train)
+            
+            # Make predictions
+            y_pred = rf_model.predict(X_test)
+            
+            # Evaluate the model
+            accuracy = accuracy_score(y_test, y_pred)
+            print(f"Accuracy: {accuracy:.2f}")
+            print("\nClassification Report:")
+            print(classification_report(y_test, y_pred))
+            
+            # Feature importance
+            importances = rf_model.feature_importances_
+            for i, importance in enumerate(importances):
+                print(f"Feature {i}: {importance:.4f}")
+                    </code></pre>
+                </div>
+            
+                <h3>4.5 Support Vector Machines (SVM)</h3>
+                <p>Finds the best boundary between classes in high-dimensional space.</p>
+            
+                <div class="simple-explanation">
+                    <strong>Simple explanation:</strong> Trying to draw a clear border between different groups of data points.
+                </div>
+            
+                <img src="https://miro.medium.com/v2/resize:fit:640/format:webp/0*_NY364FgpJmwgxE7.gif" alt="Support Vector Machines Example">
+            
+                <div class="application">
+                    <h3>Applications of Support Vector Machines:</h3>
+                    <ol>
+                        <li>
+                            <strong>Text Classification:</strong>
+                            <p>Categorizing documents or emails into predefined categories.</p>
+                        </li>
+                        <li>
+                            <strong>Image Recognition:</strong>
+                            <p>Classifying images or detecting objects within images.</p>
+                        </li>
+                        <li>
+                            <strong>Bioinformatics:</strong>
+                            <p>Protein classification and gene expression analysis.</p>
+                        </li>
+                    </ol>
+                    <pre><code>
+            from sklearn.svm import SVC
+            from sklearn.datasets import make_classification
+            from sklearn.model_selection import train_test_split
+            from sklearn.metrics import accuracy_score, classification_report
+            from sklearn.preprocessing import StandardScaler
+            
+            # Generate sample data
+            X, y = make_classification(n_samples=1000, n_features=20, n_informative=15, n_redundant=5, random_state=42)
+            
+            # Split the data
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+            
+            # Scale the features
+            scaler = StandardScaler()
+            X_train_scaled = scaler.fit_transform(X_train)
+            X_test_scaled = scaler.transform(X_test)
+            
+            # Create and train the model
+            svm_model = SVC(kernel='rbf', random_state=42)
+            svm_model.fit(X_train_scaled, y_train)
+            
+            # Make predictions
+            y_pred = svm_model.predict(X_test_scaled)
+            
+            # Evaluate the model
+            accuracy = accuracy_score(y_test, y_pred)
+            print(f"Accuracy: {accuracy:.2f}")
+            print("\nClassification Report:")
+            print(classification_report(y_test, y_pred))
+                    </code></pre>
+                </div>
+            
+                <h3>4.6 K-Nearest Neighbors (KNN)</h3>
+                <p>Classifies a point based on its nearest neighbors' classifications.</p>
+            
+                <div class="simple-explanation">
+                    <strong>Simple explanation:</strong> "Tell me who your friends are, and I'll tell you who you are."
+                </div>
+            
+                <img src="https://ptime.s3.ap-northeast-1.amazonaws.com/media/machine_learning/classification/KNN_Working.gif" alt="K-Nearest Neighbors Illustration">
+            
+                <div class="application">
+                    <h3>Applications of K-Nearest Neighbors:</h3>
+                    <ol>
+                        <li>
+                            <strong>Recommendation Systems:</strong>
+                            <p>Suggesting products or content based on similarities to user preferences.</p>
+                        </li>
+                        <li>
+                            <strong>Pattern Recognition:</strong>
+                            <p>Identifying patterns in image or speech data.</p>
+                        </li>
+                        <li>
+                            <strong>Credit Scoring:</strong>
+                            <p>Assessing creditworthiness based on similarities to known cases.</p>
+                        </li>
+                    </ol>
+                    <pre><code>
+            from sklearn.neighbors import KNeighborsClassifier
+            from sklearn.datasets import make_classification
+            from sklearn.model_selection import train_test_split
+            from sklearn.metrics import accuracy_score, classification_report
+            from sklearn.preprocessing import StandardScaler
+            
+            # Generate sample data
+            X, y = make_classification(n_samples=1000, n_features=20, n_informative=15, n_redundant=5, random_state=42)
+            
+            # Split the data
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+            
+            # Scale the features
+            scaler = StandardScaler()
+            X_train_scaled = scaler.fit_transform(X_train)
+            X_test_scaled = scaler.transform(X_test)
+            
+            # Create and train the model
+            knn_model = KNeighborsClassifier(n_neighbors=5)
+            knn_model.fit(X_train_scaled, y_train)
+            
+            # Make predictions
+            y_pred = knn_model.predict(X_test_scaled)
+            
+            # Evaluate the model
+            accuracy = accuracy_score(y_test, y_pred)
+            print(f"Accuracy: {accuracy:.2f}")
+            print("\nClassification Report:")
+            print(classification_report(y_test, y_pred))
+                    </code></pre>
+                </div>
+            
+                <div class="comparison">
+                    <h3>Comparison: Random Forest vs. SVM vs. KNN</h3>
+                    <ul>
+                        <li><strong>Interpretability:</strong> Random Forest provides feature importance, SVM and KNN are less interpretable.</li>
+                        <li><strong>Scalability:</strong> Random Forest and KNN can handle large datasets well, while SVM may struggle with very large datasets.</li>
+                        <li><strong>Feature Space:</strong> SVM works well in high-dimensional spaces, Random Forest can handle both low and high-dimensional data, KNN performs better in lower-dimensional spaces.</li>
+                        <li><strong>Outlier Sensitivity:</strong> Random Forest is robust to outliers, SVM can be sensitive to outliers, KNN can be influenced by outliers.</li>
+                        <li><strong>Training Time:</strong> KNN has the fastest training time (as it doesn't really "train"), followed by Random Forest, with SVM potentially taking longer, especially for large datasets.</li>
+                        <li><strong>Prediction Time:</strong> Random Forest and SVM generally have faster prediction times than KNN, especially for large datasets.</li>
+                    </ul>
+                </div>
+            
+                        
+                <h2>5. Unsupervised Learning Models</h2>
+            
+                <h3>5.1 K-Means Clustering</h3>
+                <p>Groups similar data points together.</p>
+            
+                <div class="simple-explanation">
+                    <strong>Simple explanation:</strong> Sorting a mixed bag of colored marbles into groups based on their colors.
+                </div>
+            
+                <img src="https://sandipanweb.wordpress.com/wp-content/uploads/2017/03/kmeans3.gif?w=676" alt="K-Means Clustering Example">
+            
+                <div class="application">
+                    <h3>Applications of K-Means Clustering:</h3>
+                    <ol>
+                        <li>
+                            <strong>Customer Segmentation:</strong>
+                            <p>Grouping customers based on purchasing behavior for targeted marketing campaigns.</p>
+                        </li>
+                        <li>
+                            <strong>Image Compression:</strong>
+                            <p>Reducing the number of colors in an image by clustering similar colors together.</p>
+                        </li>
+                        <li>
+                            <strong>Document Clustering:</strong>
+                            <p>Grouping similar documents together for topic modeling or information retrieval.</p>
+                        </li>
+                    </ol>
+                    <pre><code>
+            from sklearn.cluster import KMeans
+            import numpy as np
+            import matplotlib.pyplot as plt
+            
+            # Generate sample data
+            X = np.array([[1, 2], [1.5, 1.8], [5, 8], [8, 8], [1, 0.6], [9, 11]])
+            
+            # Create and fit the model
+            kmeans = KMeans(n_clusters=2, random_state=42)
+            kmeans.fit(X)
+            
+            # Get cluster centers and labels
+            centers = kmeans.cluster_centers_
+            labels = kmeans.labels_
+            
+            # Plot the results
+            plt.scatter(X[:, 0], X[:, 1], c=labels, cmap='viridis')
+            plt.scatter(centers[:, 0], centers[:, 1], c='red', marker='x', s=200, linewidths=3)
+            plt.title('K-Means Clustering')
+            plt.show()
+                    </code></pre>
+                </div>
+            
+                <h3>5.2 Hierarchical Clustering</h3>
+                <p>Creates a tree of clusters.</p>
+            
+                <div class="simple-explanation">
+                    <strong>Simple explanation:</strong> Organizing a family tree, where individuals are grouped into families, families into clans, and so on.
+                </div>
+            
+                <img src="https://cdn-images-1.medium.com/max/640/1*ET8kCcPpr893vNZFs8j4xg.gif" alt="Hierarchical Clustering Example">
+            
+                <div class="application">
+                    <h3>Applications of Hierarchical Clustering:</h3>
+                    <ol>
+                        <li>
+                            <strong>Taxonomy Creation:</strong>
+                            <p>Building hierarchical categorizations for biological species or document libraries.</p>
+                        </li>
+                        <li>
+                            <strong>Social Network Analysis:</strong>
+                            <p>Identifying communities and sub-communities within social networks.</p>
+                        </li>
+                        <li>
+                            <strong>Customer Segmentation:</strong>
+                            <p>Creating nested groups of customers based on multiple characteristics.</p>
+                        </li>
+                    </ol>
+                    <pre><code>
+            from scipy.cluster.hierarchy import dendrogram, linkage
+            import numpy as np
+            import matplotlib.pyplot as plt
+            
+            # Generate sample data
+            X = np.array([[1, 1], [2, 1], [4, 3], [5, 4]])
+            
+            # Perform hierarchical clustering
+            linked = linkage(X, 'single')
+            
+            # Plot the dendrogram
+            plt.figure(figsize=(10, 7))
+            dendrogram(linked)
+            plt.title('Hierarchical Clustering Dendrogram')
+            plt.show()
+                    </code></pre>
+                </div>
+            
+                <div class="comparison">
+                    <h3>Comparison: K-Means vs. Hierarchical Clustering</h3>
+                    <ul>
+                        <li><strong>Structure:</strong> K-Means creates flat clusters, while Hierarchical Clustering creates a tree-like structure of nested clusters.</li>
+                        <li><strong>Number of Clusters:</strong> K-Means requires specifying the number of clusters in advance, while Hierarchical Clustering can be cut at any level to produce a desired number of clusters.</li>
+                        <li><strong>Scalability:</strong> K-Means is generally more scalable to large datasets, while Hierarchical Clustering can be computationally intensive for large datasets.</li>
+                        <li><strong>Sensitivity to Outliers:</strong> K-Means can be sensitive to outliers, while some Hierarchical Clustering methods (e.g., single linkage) are more robust to outliers.</li>
+                    </ul>
+                </div>
+            
+                <h3>5.3 Principal Component Analysis (PCA)</h3>
+                <p>Reduces the dimensionality of data while preserving its variation.</p>
+            
+                <div class="simple-explanation">
+                    <strong>Simple explanation:</strong> Summarizing a long story while keeping the main points.
+                </div>
+            
+                <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*37a_i1t1tDxDYT3ZI6Yn8w.gif" alt="Principal Component Analysis Example">
+            
+                <div class="application">
+                    <h3>Applications of PCA:</h3>
+                    <ol>
+                        <li>
+                            <strong>Image Compression:</strong>
+                            <p>Reducing the size of image data while retaining most of the important visual information.</p>
+                        </li>
+                        <li>
+                            <strong>Feature Selection:</strong>
+                            <p>Identifying the most important features in high-dimensional datasets.</p>
+                        </li>
+                        <li>
+                            <strong>Visualization:</strong>
+                            <p>Reducing high-dimensional data to 2D or 3D for visualization purposes.</p>
+                        </li>
+                    </ol>
+                    <pre><code>
+            from sklearn.decomposition import PCA
+            from sklearn.preprocessing import StandardScaler
+            import numpy as np
+            import matplotlib.pyplot as plt
+            
+            # Generate sample data
+            np.random.seed(42)
+            X = np.random.rand(100, 5)
+            
+            # Standardize the data
+            scaler = StandardScaler()
+            X_scaled = scaler.fit_transform(X)
+            
+            # Apply PCA
+            pca = PCA(n_components=2)
+            X_pca = pca.fit_transform(X_scaled)
+            
+            # Plot the results
+            plt.scatter(X_pca[:, 0], X_pca[:, 1])
+            plt.title('PCA: Data in 2D')
+            plt.xlabel('First Principal Component')
+            plt.ylabel('Second Principal Component')
+            plt.show()
+            
+            # Print explained variance ratio
+            print(f"Explained Variance Ratio: {pca.explained_variance_ratio_}")
+                    </code></pre>
+                </div>
+            
+                <h3>5.4 DBSCAN (Density-Based Spatial Clustering of Applications with Noise)</h3>
+                <p>Groups closely packed points and marks outliers in sparse regions.</p>
+            
+                <div class="simple-explanation">
+                    <strong>Simple explanation:</strong> Finding dense neighborhoods in data and labeling points outside these neighborhoods as noise.
+                </div>
+            
+                <img src="https://ml-explained.com/articles/dbscan-explained/dbscan.gif" alt="DBSCAN Example">
+            
+                <div class="application">
+                    <h3>Applications of DBSCAN:</h3>
+                    <ol>
+                        <li>
+                            <strong>Anomaly Detection:</strong>
+                            <p>Identifying unusual data points in various domains such as fraud detection or network intrusion detection.</p>
+                        </li>
+                        <li>
+                            <strong>Spatial Data Analysis:</strong>
+                            <p>Clustering geographical locations or identifying areas of high activity in spatial data.</p>
+                        </li>
+                        <li>
+                            <strong>Image Segmentation:</strong>
+                            <p>Separating different regions in an image based on pixel density and similarity.</p>
+                        </li>
+                    </ol>
+                    <pre><code>
+            from sklearn.cluster import DBSCAN
+            from sklearn.datasets import make_moons
+            import matplotlib.pyplot as plt
+            
+            # Generate sample data
+            X, _ = make_moons(n_samples=200, noise=0.05, random_state=42)
+            
+            # Apply DBSCAN
+            dbscan = DBSCAN(eps=0.3, min_samples=5)
+            labels = dbscan.fit_predict(X)
+            
+            # Plot the results
+            plt.scatter(X[:, 0], X[:, 1], c=labels, cmap='viridis')
+            plt.title('DBSCAN Clustering')
+            plt.show()
+            
+            # Print number of clusters and noise points
+            n_clusters = len(set(labels)) - (1 if -1 in labels else 0)
+            n_noise = list(labels).count(-1)
+            print(f"Number of clusters: {n_clusters}")
+            print(f"Number of noise points: {n_noise}")
+                    </code></pre>
+                </div>
+            
+                <div class="comparison">
+                    <h3>Comparison: DBSCAN vs. K-Means</h3>
+                    <ul>
+                        <li><strong>Shape of Clusters:</strong> DBSCAN can find arbitrarily shaped clusters, while K-Means assumes spherical clusters.</li>
+                        <li><strong>Number of Clusters:</strong> DBSCAN automatically determines the number of clusters, while K-Means requires specifying this in advance.</li>
+                        <li><strong>Outlier Handling:</strong> DBSCAN explicitly identifies outliers as noise, while K-Means assigns every point to a cluster, potentially distorting cluster shapes.</li>
+                        <li><strong>Sensitivity to Parameters:</strong> DBSCAN is sensitive to its two parameters (eps and min_samples), while K-Means is mainly sensitive to the initial centroid positions and the number of clusters.</li>
+                    </ul>
+                </div>
+            
+                <h2>6. Model Evaluation and Validation</h2>
+            
+                <h3>6.1 Cross-Validation</h3>
+                <p>Testing our model on different subsets of the data.</p>
+            
+                <div class="simple-explanation">
+                    <strong>Simple explanation:</strong> Instead of one big exam, taking several smaller quizzes and averaging the scores.
+                </div>
+            
+                <div class="application">
+                    <h3>Applications of Cross-Validation:</h3>
+                    <ol>
+                        <li>
+                            <strong>Model Selection:</strong>
+                            <p>Comparing different models or hyperparameters to choose the best performing one.</p>
+                        </li>
+                        <li>
+                            <strong>Assessing Generalization:</strong>
+                            <p>Estimating how well a model will perform on unseen data.</p>
+                        </li>
+                        <li>
+                            <strong>Detecting Overfitting:</strong>
+                            <p>Identifying if a model is overfitting to the training data.</p>
+                        </li>
+                    </ol>
+                    <pre><code>
+            from sklearn.model_selection import cross_val_score
+            from sklearn.ensemble import RandomForestClassifier
+            from sklearn.datasets import make_classification
+            
+            # Generate sample data
+            X, y = make_classification(n_samples=1000, n_features=20, n_informative=2, n_redundant=10, random_state=42)
+            
+            # Create a model
+            model = RandomForestClassifier(n_estimators=100, random_state=42)
+            
+            # Perform cross-validation
+            scores = cross_val_score(model, X, y, cv=5)
+            
+            print(f"Cross-validation scores: {scores}")
+            print(f"Mean score: {scores.mean():.2f} (+/- {scores.std() * 2:.2f})")
+                    </code></pre>
+                </div>
+            
+                <h3>6.2 Confusion Matrix</h3>
+                <p>A table showing correct and incorrect predictions for each class.</p>
+            
+                <div class="simple-explanation">
+                    <strong>Simple explanation:</strong> A report card showing how often the model confuses one class for another.
+                </div>
+            
+                <img src="https://miro.medium.com/v2/resize:fit:1400/1*9TDo041I1jDfkoRI09Zeog.gif" alt="Confusion Matrix Illustration">
+            
+                <div class="application">
+                    <h3>Applications of Confusion Matrix:</h3>
+                    <ol>
+                        <li>
+                            <strong>Model Performance Analysis:</strong>
+                            <p>Detailed breakdown of model predictions, including true positives, false positives, true negatives, and false negatives.</p>
+                        </li>
+                        <li>
+                            <strong>Error Type Identification:</strong>
+                            <p>Understanding which types of errors (false positives or false negatives) the model is more prone to make.</p>
+                        </li>
+                        <li>
+                            <strong>Threshold Adjustment:</strong>
+                            <p>Helping in deciding the optimal threshold for binary classification problems.</p>
+                        </li>
+                    </ol>
+                    <pre><code>
+            from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+            from sklearn.model_selection import train_test_split
+            from sklearn.ensemble import RandomForestClassifier
+            from sklearn.datasets import make_classification
+            import matplotlib.pyplot as plt
+            
+            # Generate sample data
+            X, y = make_classification(n_samples=1000, n_features=20, n_classes=2, random_state=42)
+            
+            # Split the data
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+            
+            # Train a model
+            model = RandomForestClassifier(n_estimators=100, random_state=42)
+            model.fit(X_train, y_train)
+            
+            # Make predictions
+            y_pred = model.predict(X_test)
+            
+            # Create and plot confusion matrix
+            cm = confusion_matrix(y_test, y_pred)
+            disp = ConfusionMatrixDisplay(confusion_matrix=cm)
+            disp.plot()
+            plt.title('Confusion Matrix')
+            plt.show()
+                    </code></pre>
+                </div>
+            
+                <h3>6.3 Precision, Recall, and F1-Score</h3>
+                <p>Metrics for evaluating classification models.</p>
+            
+                <div class="simple-explanation">
+                    <strong>Simple explanation:</strong>
+                    <ul>
+                        <li>Precision: Out of all the times the model said "dog", how often was it right?</li>
+                        <li>Recall: Out of all the actual dogs, how many did the model correctly identify?</li>
+                        <li>F1-Score: A balanced measure of both precision and recall.</li>
+                    </ul>
+                </div>
+            
+                <div class="application">
+                    <h3>Applications of Precision, Recall, and F1-Score:</h3>
+                    <ol>
+                        <li>
+                            <strong>Medical Diagnosis:</strong>
+                            <p>Evaluating the performance of disease detection models, where both false positives and false negatives can have serious consequences.</p>
+                        </li>
+                        <li>
+                            <strong>Information Retrieval:</strong>
+                            <p>Assessing the quality of search engine results or recommendation systems.</p>
+                        </li>
+                        <li>
+                            <strong>Spam Detection:</strong>
+                            <p>Balancing the trade-off between catching all spam (high recall) and not misclassifying legitimate emails as spam (high precision).</p>
+                        </li>
+                    </ol>
+                    <pre><code>
+            from sklearn.metrics import precision_score, recall_score, f1_score
+            from sklearn.model_selection import train_test_split
+            from sklearn.ensemble import RandomForestClassifier
+            from sklearn.datasets import make_classification
+            
+            # Generate sample data
+            X, y = make_classification(n_samples=1000, n_classes=2, random_state=42)
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+            
+            # Train a model
+            model = RandomForestClassifier(random_state=42)
+            model.fit(X_train, y_train)
+            
+            # Make predictions
+            y_pred = model.predict(X_test)
+            
+            # Calculate metrics
+            precision = precision_score(y_test, y_pred)
+            recall = recall_score(y_test, y_pred)
+            f1 = f1_score(y_test, y_pred)
+            
+            print(f"Precision: {precision:.2f}")
+            print(f"Recall: {recall:.2f}")
+            print(f"F1-Score: {f1:.2f}")
+                    </code></pre>
+                </div>
+            
+                <h3>6.4 ROC Curve and AUC</h3>
+                <p>The Receiver Operating Characteristic (ROC) curve and Area Under the Curve (AUC) are used to evaluate the performance of classification models at various threshold settings.</p>
+            
+                <div class="simple-explanation">
+                    <strong>Simple explanation:</strong> The ROC curve shows how well the model can distinguish between classes as we vary the threshold for classification. The AUC summarizes the model's performance in a single number.
+                </div>
+            
+                <div class="application">
+                    <h3>Applications of ROC Curve and AUC:</h3>
+                    <ol>
+                        <li>
+                            <strong>Model Comparison:</strong>
+                            <p>Comparing the performance of different classification models across all possible thresholds.</p>
+                        </li>
+                        <li>
+                            <strong>Credit Scoring:</strong>
+                            <p>Evaluating credit risk models to balance the trade-off between approving good customers and rejecting bad ones.</p>
+                        </li>
+                        <li>
+                            <strong>Medical Screening:</strong>
+                            <p>Assessing diagnostic tests to find the optimal balance between sensitivity and specificity.</p>
+                        </li>
+                    </ol>
+                    <pre><code>
+            from sklearn.metrics import roc_curve, auc
+            import matplotlib.pyplot as plt
+            
+            # Assuming we have y_test and y_pred_proba from a previous model
+            y_pred_proba = model.predict_proba(X_test)[:, 1]
+            
+            # Calculate ROC curve and AUC
+            fpr, tpr, thresholds = roc_curve(y_test, y_pred_proba)
+            roc_auc = auc(fpr, tpr)
+            
+            # Plot ROC curve
+            plt.figure()
+            plt.plot(fpr, tpr, color='darkorange', lw=2, label=f'ROC curve (AUC = {roc_auc:.2f})')
+            plt.plot([0, 1], [0, 1], color='navy', lw=2, linestyle='--')
+            plt.xlim([0.0, 1.0])
+            plt.ylim([0.0, 1.05])
+            plt.xlabel('False Positive Rate')
+            plt.ylabel('True Positive Rate')
+            plt.title('Receiver Operating Characteristic (ROC) Curve')
+            plt.legend(loc="lower right")
+            plt.show()
+            
+            print(f"AUC: {roc_auc:.2f}")
+                    </code></pre>
+                </div>
+            
+                <h3>6.5 Mean Squared Error (MSE) and R-squared</h3>
+                <p>Metrics for evaluating regression models.</p>
+            
+                <div class="simple-explanation">
+                    <strong>Simple explanation:</strong>
+                    <ul>
+                        <li>MSE: On average, how far off are our predictions?</li>
+                        <li>R-squared: What percentage of the variation in the outcome can our model explain?</li>
+                    </ul>
+                </div>
+            
+                <div class="application">
+                    <h3>Applications of MSE and R-squared:</h3>
+                    <ol>
+                        <li>
+                            <strong>Price Prediction:</strong>
+                            <p>Evaluating models that predict house prices, stock prices, or product demand.</p>
+                        </li>
+                        <li>
+                            <strong>Scientific Modeling:</strong>
+                            <p>Assessing the fit of models in fields like physics, biology, or economics.</p>
+                        </li>
+                        <li>
+                            <strong>Quality Control:</strong>
+                            <p>Monitoring the accuracy of manufacturing processes or measurement systems.</p>
+                        </li>
+                    </ol>
+                    <pre><code>
+            from sklearn.metrics import mean_squared_error, r2_score
+            from sklearn.model_selection import train_test_split
+            from sklearn.linear_model import LinearRegression
+            from sklearn.datasets import make_regression
+            
+            # Generate sample data
+            X, y = make_regression(n_samples=1000, n_features=10, noise=0.1, random_state=42)
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+            
+            # Train a model
+            model = LinearRegression()
+            model.fit(X_train, y_train)
+            
+            # Make predictions
+            y_pred = model.predict(X_test)
+            
+            # Calculate metrics
+            mse = mean_squared_error(y_test, y_pred)
+            r2 = r2_score(y_test, y_pred)
+            
+            print(f"Mean Squared Error: {mse:.2f}")
+            print(f"R-squared: {r2:.2f}")
+                    </code></pre>
+                </div>
+            
+                <h3>6.6 Learning Curves</h3>
+                <p>Plots showing how model performance changes with more training data.</p>
+            
+                <div class="simple-explanation">
+                    <strong>Simple explanation:</strong> A graph showing whether adding more study time (data) improves test scores (model performance).
+                </div>
+            
+                <div class="application">
+                    <h3>Applications of Learning Curves:</h3>
+                    <ol>
+                        <li>
+                            <strong>Diagnosing Bias and Variance:</strong>
+                            <p>Identifying whether a model is suffering from high bias (underfitting) or high variance (overfitting).</p>
+                        </li>
+                        <li>
+                            <strong>Data Collection Planning:</strong>
+                            <p>Determining if collecting more training data is likely to improve model performance.</p>
+                        </li>
+                        <li>
+                            <strong>Model Selection:</strong>
+                            <p>Comparing the learning rates of different models to choose the most appropriate one for a given dataset size.</p>
+                        </li>
+                    </ol>
+                    <pre><code>
+            from sklearn.model_selection import learning_curve
+            from sklearn.svm import SVC
+            import numpy as np
+            import matplotlib.pyplot as plt
+            
+            # Assuming we have X and y from a previous example
+            train_sizes, train_scores, test_scores = learning_curve(
+                SVC(kernel='rbf', gamma=0.1), X, y, cv=5, n_jobs=-1, 
+                train_sizes=np.linspace(0.1, 1.0, 10))
+            
+            train_scores_mean = np.mean(train_scores, axis=1)
+            train_scores_std = np.std(train_scores, axis=1)
+            test_scores_mean = np.mean(test_scores, axis=1)
+            test_scores_std = np.std(test_scores, axis=1)
+            
+            plt.figure()
+            plt.title("Learning Curve")
+            plt.xlabel("Training examples")
+            plt.ylabel("Score")
+            plt.grid()
+            
+            plt.fill_between(train_sizes, train_scores_mean - train_scores_std,
+                             train_scores_mean + train_scores_std, alpha=0.1, color="r")
+            plt.fill_between(train_sizes, test_scores_mean - test_scores_std,
+                             test_scores_mean + test_scores_std, alpha=0.1, color="g")
+            plt.plot(train_sizes, train_scores_mean, 'o-', color="r", label="Training score")
+            plt.plot(train_sizes, test_scores_mean, 'o-', color="g", label="Cross-validation score")
+            
+            plt.legend(loc="best")
+            plt.show()
+                    </code></pre>
+                </div>
+            
+                <div class="comparison">
+                    <h3>Comparison of Evaluation Metrics</h3>
+                    <ul>
+                        <li><strong>Classification vs. Regression:</strong> Precision, Recall, F1-Score, and ROC-AUC are used for classification tasks, while MSE and R-squared are used for regression tasks.</li>
+                        <li><strong>Balanced vs. Imbalanced Data:</strong> F1-Score is particularly useful for imbalanced datasets, while accuracy can be misleading.</li>
+                        <li><strong>Threshold Dependency:</strong> ROC-AUC evaluates performance across all thresholds, while Precision and Recall are threshold-dependent.</li>
+                        <li><strong>Interpretability:</strong> R-squared is easily interpretable as the proportion of variance explained, while MSE is in the original units of the target variable.</li>
+                        <li><strong>Model Diagnostics:</strong> Learning curves provide insights into model bias and variance, which is not captured by single-number metrics.</li>
+                    </ul>
+                </div>
+            
+                        
+                <h2>7. Feature Engineering and Selection</h2>
+            
+                <h3>7.1 Feature Engineering</h3>
+                <p>Creating new features from existing data.</p>
+            
+                <div class="simple-explanation">
+                    <strong>Simple explanation:</strong> Coming up with new, helpful ways to look at your data.
+                </div>
+            
+                <div class="application">
+                    <h3>Applications of Feature Engineering:</h3>
+                    <ol>
+                        <li>
+                            <strong>Text Analysis:</strong>
+                            <p>Creating features like word count, sentence length, or TF-IDF scores from raw text data.</p>
+                        </li>
+                        <li>
+                            <strong>Time Series Analysis:</strong>
+                            <p>Extracting features like day of week, month, or season from date-time data.</p>
+                        </li>
+                        <li>
+                            <strong>Image Processing:</strong>
+                            <p>Extracting features like edges, corners, or color histograms from image data.</p>
+                        </li>
+                    </ol>
+                    <pre><code>
+            import pandas as pd
+            from sklearn.preprocessing import PolynomialFeatures
+            
+            # Sample data
+            data = pd.DataFrame({
+                'area': [1000, 1500, 2000, 2500],
+                'bedrooms': [2, 3, 3, 4],
+                'price': [200000, 300000, 350000, 450000]
+            })
+            
+            # Create polynomial features
+            poly = PolynomialFeatures(degree=2, include_bias=False)
+            poly_features = poly.fit_transform(data[['area', 'bedrooms']])
+            
+            # Create new DataFrame with original and new features
+            feature_names = poly.get_feature_names_out(['area', 'bedrooms'])
+            poly_df = pd.DataFrame(poly_features, columns=feature_names)
+            
+            print(poly_df.head())
+                    </code></pre>
+                </div>
+            
+                <h3>7.2 Feature Selection</h3>
+                <p>Choosing the most relevant features for your model.</p>
+            
+                <div class="simple-explanation">
+                    <strong>Simple explanation:</strong> Picking the most important factors that influence the outcome.
+                </div>
+            
+                <div class="application">
+                    <h3>Applications of Feature Selection:</h3>
+                    <ol>
+                        <li>
+                            <strong>Dimensionality Reduction:</strong>
+                            <p>Reducing the number of features to improve model performance and reduce overfitting.</p>
+                        </li>
+                        <li>
+                            <strong>Model Interpretability:</strong>
+                            <p>Identifying the most important features for easier interpretation of model decisions.</p>
+                        </li>
+                        <li>
+                            <strong>Computational Efficiency:</strong>
+                            <p>Reducing training time and resource requirements by focusing on the most important features.</p>
+                        </li>
+                    </ol>
+                    <pre><code>
+            from sklearn.feature_selection import SelectKBest, f_regression
+            from sklearn.datasets import make_regression
+            
+            # Generate sample data
+            X, y = make_regression(n_samples=100, n_features=20, noise=0.1, random_state=42)
+            
+            # Perform feature selection
+            selector = SelectKBest(score_func=f_regression, k=5)
+            X_new = selector.fit_transform(X, y)
+            
+            # Get selected feature indices
+            selected_features = selector.get_support(indices=True)
+            print(f"Selected features: {selected_features}")
+
+# Get feature scores
+feature_scores = selector.scores_
+for feature, score in enumerate(feature_scores):
+    print(f"Feature {feature}: {score}")
+        </code></pre>
     </div>
-
-
-    <code>
-from sklearn.metrics import classification_report
-print(classification_report(y_true, y_pred))
-    </code>
-
-    <h3>6.4 Mean Squared Error (MSE) and R-squared</h3>
-    <p>Metrics for evaluating regression models.</p>
-    
-    <div class="simple-explanation">
-        <strong>Simple explanation:</strong>
-        <ul>
-            <li>MSE: On average, how far off are our predictions?</li>
-            <li>R-squared: What percentage of the variation in the outcome can our model explain?</li>
-        </ul>
-    </div>
-
-    <code>
-from sklearn.metrics import mean_squared_error, r2_score
-mse = mean_squared_error(y_true, y_pred)
-r2 = r2_score(y_true, y_pred)
-    </code>
-
-    <h3>6.5 Learning Curves</h3>
-    <p>Plots showing how model performance changes with more training data.</p>
-    
-    <div class="simple-explanation">
-        <strong>Simple explanation:</strong> A graph showing whether adding more study time (data) improves test scores (model performance).
-    </div>
-
-
-    <h3>6.6 Bias vs. Variance</h3>
-    <ul>
-        <li><strong>Bias:</strong> Error from oversimplified assumptions.</li>
-        <li><strong>Variance:</strong> Error from sensitivity to small fluctuations in the training set.</li>
-    </ul>
-    
-    <div class="simple-explanation">
-        <strong>Simple explanation:</strong>
-        <ul>
-            <li>High bias is like always guessing the same thing, regardless of the input.</li>
-            <li>High variance is like making wild guesses that change dramatically with small changes in input.</li>
-        </ul>
-    </div>
-
-    <img src="https://datamapu.com/images/bias_variance/bias_variance_4.png" alt="Bias vs Variance Illustration">
-
-    <h3>6.7 Overfitting vs. Underfitting</h3>
-    <ul>
-        <li><strong>Overfitting:</strong> Model learns the training data too well, including noise.</li>
-        <li><strong>Underfitting:</strong> Model is too simple to capture the underlying pattern.</li>
-    </ul>
-    
-    <div class="simple-explanation">
-        <strong>Simple explanation:</strong>
-        <ul>
-            <li>Overfitting is like memorizing the textbook but not understanding the concepts.</li>
-            <li>Underfitting is like not studying enough and failing to grasp even the basics.</li>
-        </ul>
-    </div>
-
-    <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190523171258/overfitting_2.png" alt="Overfitting vs Underfitting Illustration">
-
-    <h2>7. Feature Engineering and Selection</h2>
-
-    <h3>7.1 Feature Engineering</h3>
-    <p>Creating new features from existing data.</p>
-
-    <div class="simple-explanation">
-        <strong>Simple explanation:</strong> Coming up with new, helpful ways to look at your data.
-    </div>
-
-    <h3>7.2 Feature Selection</h3>
-    <p>Choosing the most relevant features for your model.</p>
-
-    <div class="simple-explanation">
-        <strong>Simple explanation:</strong> Picking the most important factors that influence the outcome.
-
-    <code>
-from sklearn.feature_selection import SelectKBest
-selector = SelectKBest(k=5)
-X_new = selector.fit_transform(X, y)
-    </code>
 
     <h2>8. Ensemble Methods</h2>
-
     <p>Combining multiple models to improve performance.</p>
+
     <img src="https://miro.medium.com/v2/resize:fit:2000/1*zTgGBTQIMlASWm5QuS2UpA.jpeg" alt="Ensemble Methods">
 
     <h3>8.1 Bagging (Bootstrap Aggregating)</h3>
@@ -500,6 +1536,49 @@ X_new = selector.fit_transform(X, y)
 
     <img src="https://miro.medium.com/v2/resize:fit:1400/1*DfolLEWXiyPnFajYQZd4Gg.jpeg" alt="Bagging Illustration">
 
+    <div class="application">
+        <h3>Applications of Bagging:</h3>
+        <ol>
+            <li>
+                <strong>Random Forests:</strong>
+                <p>An ensemble of decision trees, each trained on a random subset of the data and features.</p>
+            </li>
+            <li>
+                <strong>Financial Forecasting:</strong>
+                <p>Combining multiple models to predict stock prices or market trends.</p>
+            </li>
+            <li>
+                <strong>Medical Diagnosis:</strong>
+                <p>Aggregating predictions from multiple models to improve diagnostic accuracy.</p>
+            </li>
+        </ol>
+        <pre><code>
+from sklearn.ensemble import BaggingClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.datasets import make_classification
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Generate sample data
+X, y = make_classification(n_samples=1000, n_features=20, n_informative=15, n_redundant=5, random_state=42)
+
+# Split the data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Create and train the bagging classifier
+base_estimator = DecisionTreeClassifier(max_depth=5)
+bagging_model = BaggingClassifier(base_estimator=base_estimator, n_estimators=10, random_state=42)
+bagging_model.fit(X_train, y_train)
+
+# Make predictions
+y_pred = bagging_model.predict(X_test)
+
+# Calculate accuracy
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Accuracy: {accuracy:.2f}")
+        </code></pre>
+    </div>
+
     <h3>8.2 Boosting</h3>
     <p>Training a sequence of weak models, each trying to correct the errors of the previous ones.</p>
 
@@ -509,11 +1588,56 @@ X_new = selector.fit_transform(X, y)
 
     <img src="https://miro.medium.com/v2/resize:fit:2000/1*zTgGBTQIMlASWm5QuS2UpA.jpeg" alt="Boosting Illustration">
 
-    <code>
+    <div class="application">
+        <h3>Applications of Boosting:</h3>
+        <ol>
+            <li>
+                <strong>XGBoost for Competitions:</strong>
+                <p>Widely used in machine learning competitions for its high performance on structured data.</p>
+            </li>
+            <li>
+                <strong>Facial Recognition:</strong>
+                <p>Improving accuracy in facial feature detection and recognition tasks.</p>
+            </li>
+            <li>
+                <strong>Web Search Ranking:</strong>
+                <p>Enhancing search result rankings by combining multiple weak learners.</p>
+            </li>
+        </ol>
+        <pre><code>
 from sklearn.ensemble import GradientBoostingClassifier
-model = GradientBoostingClassifier()
-model.fit(X_train, y_train)
-    </code>
+from sklearn.datasets import make_classification
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Generate sample data
+X, y = make_classification(n_samples=1000, n_features=20, n_informative=15, n_redundant=5, random_state=42)
+
+# Split the data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Create and train the gradient boosting classifier
+gb_model = GradientBoostingClassifier(n_estimators=100, learning_rate=0.1, max_depth=3, random_state=42)
+gb_model.fit(X_train, y_train)
+
+# Make predictions
+y_pred = gb_model.predict(X_test)
+
+# Calculate accuracy
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Accuracy: {accuracy:.2f}")
+        </code></pre>
+    </div>
+
+    <div class="comparison">
+        <h3>Comparison: Bagging vs. Boosting</h3>
+        <ul>
+            <li><strong>Model Building:</strong> Bagging builds independent models in parallel, while boosting builds models sequentially.</li>
+            <li><strong>Error Handling:</strong> Bagging reduces variance by averaging predictions, while boosting reduces bias by focusing on misclassified instances.</li>
+            <li><strong>Overfitting:</strong> Bagging is less prone to overfitting, while boosting can overfit if not properly tuned.</li>
+            <li><strong>Computational Efficiency:</strong> Bagging is easily parallelizable, while boosting is inherently sequential and may be slower.</li>
+        </ul>
+    </div>
 
     <h2>9. Neural Networks and Deep Learning</h2>
 
@@ -526,6 +1650,54 @@ model.fit(X_train, y_train)
 
     <img src="https://miro.medium.com/v2/resize:fit:1400/1*gMJz6v4nQNXXxbDgYuynGg.gif" alt="Artificial Neural Network Illustration">
 
+    <div class="application">
+        <h3>Applications of Artificial Neural Networks:</h3>
+        <ol>
+            <li>
+                <strong>Pattern Recognition:</strong>
+                <p>Identifying patterns in data, such as handwriting recognition or speech recognition.</p>
+            </li>
+            <li>
+                <strong>Financial Forecasting:</strong>
+                <p>Predicting stock prices or market trends based on historical data and various indicators.</p>
+            </li>
+            <li>
+                <strong>Medical Diagnosis:</strong>
+                <p>Analyzing medical images or patient data to assist in disease diagnosis.</p>
+            </li>
+        </ol>
+        <pre><code>
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from sklearn.datasets import make_classification
+from sklearn.model_selection import train_test_split
+
+# Generate sample data
+X, y = make_classification(n_samples=1000, n_features=20, n_informative=15, n_redundant=5, random_state=42)
+
+# Split the data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Create the model
+model = Sequential([
+    Dense(64, activation='relu', input_shape=(20,)),
+    Dense(32, activation='relu'),
+    Dense(1, activation='sigmoid')
+])
+
+# Compile the model
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+
+# Train the model
+history = model.fit(X_train, y_train, epochs=50, batch_size=32, validation_split=0.2, verbose=0)
+
+# Evaluate the model
+loss, accuracy = model.evaluate(X_test, y_test)
+print(f"Test accuracy: {accuracy:.2f}")
+        </code></pre>
+    </div>
+
     <h3>9.2 Convolutional Neural Networks (CNN)</h3>
     <p>Specialized neural networks for processing grid-like data, such as images.</p>
 
@@ -534,6 +1706,47 @@ model.fit(X_train, y_train)
     </div>
 
     <img src="https://miro.medium.com/v2/resize:fit:1000/1*63sGPbvLLpvlD16hG1bvmA.gif" alt="Convolutional Neural Network Illustration">
+
+    <div class="application">
+        <h3>Applications of Convolutional Neural Networks:</h3>
+        <ol>
+            <li>
+                <strong>Image Classification:</strong>
+                <p>Categorizing images into predefined classes, such as identifying different species of animals.</p>
+            </li>
+            <li>
+                <strong>Object Detection:</strong>
+                <p>Locating and identifying multiple objects within an image, used in autonomous vehicles and security systems.</p>
+            </li>
+            <li>
+                <strong>Facial Recognition:</strong>
+                <p>Identifying and verifying individuals based on facial features in images or video.</p>
+            </li>
+        </ol>
+        <pre><code>
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
+
+# Create a simple CNN model for image classification
+model = Sequential([
+    Conv2D(32, (3, 3), activation='relu', input_shape=(64, 64, 3)),
+    MaxPooling2D((2, 2)),
+    Conv2D(64, (3, 3), activation='relu'),
+    MaxPooling2D((2, 2)),
+    Conv2D(64, (3, 3), activation='relu'),
+    Flatten(),
+    Dense(64, activation='relu'),
+    Dense(10, activation='softmax')
+])
+
+# Compile the model
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+
+# Print model summary
+model.summary()
+        </code></pre>
+    </div>
 
     <h3>9.3 Recurrent Neural Networks (RNN)</h3>
     <p>Neural networks designed to work with sequential data.</p>
@@ -544,52 +1757,84 @@ model.fit(X_train, y_train)
 
     <img src="https://miro.medium.com/v2/resize:fit:1200/1*qMZm06EoaPRzHFFUM3Xbkw.gif" alt="Recurrent Neural Network Illustration">
 
-    <h2>10. Code Interpretation in Machine Learning</h2>
+    <div class="application">
+        <h3>Applications of Recurrent Neural Networks:</h3>
+        <ol>
+            <li>
+                <strong>Natural Language Processing:</strong>
+                <p>Text generation, machine translation, and sentiment analysis in sequential text data.</p>
+            </li>
+            <li>
+                <strong>Time Series Forecasting:</strong>
+                <p>Predicting future values in time series data, such as stock prices or weather patterns.</p>
+            </li>
+            <li>
+                <strong>Speech Recognition:</strong>
+                <p>Converting spoken language into written text by processing audio sequences.</p>
+            </li>
+        </ol>
+        <pre><code>
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import SimpleRNN, Dense
 
-    <p>Understanding Python code for machine learning is crucial. Here's a walkthrough of a typical machine learning code snippet:</p>
-
-    <code>
-import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error, r2_score
-
-# Part 1: Data preparation
-X = np.array([
-    [150.52, 151.90, 149.80, 76520300, 149.62],
-    [151.70, 152.84, 151.41, 55648500, 150.65],
-    # ... more data rows ...
+# Create a simple RNN model for sequence classification
+model = Sequential([
+    SimpleRNN(64, input_shape=(10, 1), return_sequences=True),
+    SimpleRNN(32),
+    Dense(1, activation='sigmoid')
 ])
-y = np.array([150.65, 152.71, 153.12, 152.95, 153.64, 154.09, 154.50, 154.98, 156.90, 157.41])
 
-# Part 2: Splitting the data
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Compile the model
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
-# Part 3: Model creation and training
-model = LinearRegression()
-model.fit(X_train, y_train)
+# Print model summary
+model.summary()
+        </code></pre>
+    </div>
 
-# Part 4: Making predictions
-y_pred = model.predict(X_test)
+    <div class="comparison">
+        <h3>Comparison: CNN vs. RNN</h3>
+        <ul>
+            <li><strong>Data Type:</strong> CNNs are best for grid-like data (e.g., images), while RNNs excel with sequential data (e.g., time series, text).</li>
+            <li><strong>Context Handling:</strong> RNNs can maintain context across long sequences, while CNNs typically have a fixed receptive field.</li>
+            <li><strong>Parameter Sharing:</strong> CNNs share parameters across space, while RNNs share parameters across time steps.</li>
+            <li><strong>Applications:</strong> CNNs are widely used in computer vision tasks, while RNNs are common in natural language processing and time series analysis.</li>
+        </ul>
+    </div>
 
-# Part 5: Model evaluation
-mse = mean_squared_error(y_test, y_pred)
-r2 = r2_score(y_test, y_pred)
-    </code>
+    <h2>10. Ethical Considerations in Machine Learning</h2>
+    <p>As machine learning becomes more prevalent in society, it's crucial to consider the ethical implications of these technologies.</p>
 
+    <div class="application">
+        <h3>Key Ethical Considerations:</h3>
+        <ol>
+            <li>
+                <strong>Bias and Fairness:</strong>
+                <p>Ensuring that machine learning models don't perpetuate or amplify existing biases in society.</p>
+                <p>Example: Regularly auditing hiring algorithms for gender or racial bias.</p>
+            </li>
+            <li>
+                <strong>Privacy and Data Protection:</strong>
+                <p>Protecting individual privacy when collecting and using data for machine learning models.</p>
+                <p>Example: Implementing differential privacy techniques in data analysis.</p>
+            </li>
+            <li>
+                <strong>Transparency and Explainability:</strong>
+                <p>Making machine learning models and their decision-making processes understandable to stakeholders.</p>
+                <p>Example: Using interpretable AI techniques like LIME or SHAP for model explanations.</p>
+            </li>
+            <li>
+                <strong>Accountability:</strong>
+                <p>Establishing clear lines of responsibility for the outcomes of machine learning systems.</p>
+                <p>Example: Creating ethics boards to oversee AI development and deployment in organizations.</p>
+            </li>
+        </ol>
+    </div>
 
-    <p><strong>Explanation:</strong></p>
-    <ol>
-        <li>We prepare our data: X contains our features, y contains our target values.</li>
-        <li>We split our data into training and testing sets.</li>
-        <li>We create a Linear Regression model and train it on our training data.</li>
-        <li>We use our trained model to make predictions on the test data.</li>
-        <li>We evaluate how well our model performed using Mean Squared Error and R-squared score.</li>
-    </ol>
+    <h2>Conclusion</h2>
+    <p>Machine learning is a powerful tool that can solve complex problems and provide valuable insights across various domains. However, it's essential to understand the strengths and limitations of different algorithms, carefully preprocess and analyze data, and consider the ethical implications of these technologies. As the field continues to evolve, staying updated with new techniques and best practices is crucial for anyone working in machine learning and artificial intelligence.</p>
 
-    <p>Understanding such code snippets is essential for implementing and troubleshooting machine learning models in practice.</p>
-</div>
-    
     <h2>Image Sources and References</h2>
 
     <h3>Image Sources</h3>
@@ -622,11 +1867,20 @@ r2 = r2_score(y_test, y_pred)
     <h3>References</h3>
     <ol>
         <li>Géron, A. (2019). Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems. O'Reilly Media.</li>
-        <li>James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013). An Introduction to Statistical Learning: with Applications in R. Springer.</li>
-        <li>Goodfellow, I., Bengio, Y., & Courville, A. (2016). Deep Learning. MIT Press.</li>
+        <li>James, G., Witten, D., Hastie, T., &amp; Tibshirani, R. (2013). An Introduction to Statistical Learning: with Applications in R. Springer.</li>
+        <li>Goodfellow, I., Bengio, Y., &amp; Courville, A. (2016). Deep Learning. MIT Press.</li>
         <li>Scikit-learn: Machine Learning in Python, Pedregosa et al., JMLR 12, pp. 2825-2830, 2011.</li>
         <li>TensorFlow: Large-Scale Machine Learning on Heterogeneous Systems, 2015. Software available from tensorflow.org.</li>
         <li>Keras: The Python Deep Learning library. Software available from keras.io.</li>
+        <li>Bishop, C. M. (2006). Pattern Recognition and Machine Learning. Springer.</li>
+        <li>Murphy, K. P. (2012). Machine Learning: A Probabilistic Perspective. MIT Press.</li>
+        <li>Hastie, T., Tibshirani, R., &amp; Friedman, J. (2009). The Elements of Statistical Learning: Data Mining, Inference, and Prediction. Springer.</li>
+        <li>Kuhn, M., &amp; Johnson, K. (2013). Applied Predictive Modeling. Springer.</li>
+        <li>Raschka, S., &amp; Mirjalili, V. (2019). Python Machine Learning: Machine Learning and Deep Learning with Python, scikit-learn, and TensorFlow 2. Packt Publishing.</li>
+        <li>VanderPlas, J. (2016). Python Data Science Handbook: Essential Tools for Working with Data. O'Reilly Media.</li>
+        <li>Chollet, F. (2017). Deep Learning with Python. Manning Publications.</li>
+        <li>Müller, A. C., &amp; Guido, S. (2016). Introduction to Machine Learning with Python: A Guide for Data Scientists. O'Reilly Media.</li>
+        <li>Burkov, A. (2019). The Hundred-Page Machine Learning Book. Andriy Burkov.</li>
     </ol>
 
     <p>Note: This reviewer is based on these references and other widely available online resources. It's intended for educational purposes and to provide a comprehensive overview of machine learning concepts.</p>
