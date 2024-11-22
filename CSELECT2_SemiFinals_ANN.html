@@ -1142,7 +1142,67 @@ Input Layer         Hidden Layers           Output
 
         <!-- Types of Learning Section -->
         <div class="card mt-4">
-         
+            <div class="card-body">
+                <h3>Types of Learning 📚</h3>
+                
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h5>Batch Learning</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="diagram text-center">
+                                    <svg viewBox="0 0 200 150">
+                                        <!-- Input Data -->
+                                        <rect x="10" y="20" width="60" height="100" fill="#e8e8e8"/>
+                                        <!-- Process Arrow -->
+                                        <path d="M80,70 L120,70" stroke="#4e73df" stroke-width="2" marker-end="url(#arrow)"/>
+                                        <!-- Output Update -->
+                                        <rect x="130" y="50" width="60" height="40" fill="#1cc88a"/>
+                                        
+                                        <!-- Labels -->
+                                        <text x="40" y="140" class="small">All Examples</text>
+                                        <text x="160" y="140" class="small">One Update</text>
+                                    </svg>
+                                </div>
+                                <p class="mt-3">Like studying the entire textbook before taking a test</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-header bg-success text-white">
+                                <h5>Mini-Batch Learning</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="diagram text-center">
+                                    <svg viewBox="0 0 200 150">
+                                        <!-- Multiple Batches -->
+                                        <rect x="10" y="20" width="30" height="30" fill="#e8e8e8"/>
+                                        <rect x="10" y="60" width="30" height="30" fill="#e8e8e8"/>
+                                        <rect x="10" y="100" width="30" height="30" fill="#e8e8e8"/>
+                                        
+                                        <!-- Arrows -->
+                                        <path d="M50,35 L90,35" stroke="#4e73df" stroke-width="2" marker-end="url(#arrow)"/>
+                                        <path d="M50,75 L90,75" stroke="#4e73df" stroke-width="2" marker-end="url(#arrow)"/>
+                                        <path d="M50,115 L90,115" stroke="#4e73df" stroke-width="2" marker-end="url(#arrow)"/>
+                                        
+                                        <!-- Updates -->
+                                        <rect x="100" y="20" width="30" height="30" fill="#1cc88a"/>
+                                        <rect x="100" y="60" width="30" height="30" fill="#1cc88a"/>
+                                        <rect x="100" y="100" width="30" height="30" fill="#1cc88a"/>
+                                        
+                                        <!-- Labels -->
+                                        <text x="20" y="140" class="small">Batches</text>
+                                        <text x="115" y="140" class="small">Updates</text>
+                                    </svg>
+                                </div>
+                                <p class="mt-3">Like studying chapter by chapter</p>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="col-lg-4">
                         <div class="card">
