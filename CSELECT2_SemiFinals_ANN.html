@@ -72,6 +72,50 @@
             right: 2rem;
             z-index: 1000;
         }
+
+        .learning-container {
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .data-box {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border: 2px solid #ccc;
+            transition: all 0.3s ease;
+        }
+        .data-container {
+            min-height: 100px;
+            margin: 20px 0;
+        }
+        .processed {
+            background-color: #28a745;
+            color: white;
+            border-color: #28a745;
+        }
+        .processing {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+        .control-panel {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .explanation {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+    </style
+
     </style>
 </head>
 <body>
@@ -786,7 +830,62 @@ Input Layer         Hidden Layers           Output
                             </div>
                         </div>
                     </div>
-
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h4>What Are Weights?</h4>
+                                    <p>Weights are like importance scores that the network assigns to different inputs. They determine how much each input contributes to the final decision.</p>
+                                    
+                                    <div class="example-box bg-light p-3 rounded">
+                                        <h5>Example: School Grades 📚</h5>
+                                        <table class="table">
+                                            <tr>
+                                                <th>Component</th>
+                                                <th>Weight</th>
+                                                <th>Impact</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Final Exam</td>
+                                                <td>× 0.4</td>
+                                                <td>40% of grade</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Quiz</td>
+                                                <td>× 0.2</td>
+                                                <td>20% of grade</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Project</td>
+                                                <td>× 0.4</td>
+                                                <td>40% of grade</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <h4>What Are Biases?</h4>
+                                    <p>Bias is like a threshold that determines how easy or hard it is for a neuron to activate. It's similar to having a base score or starting point.</p>
+                                    
+                                    <div class="example-box bg-light p-3 rounded">
+                                        <h5>Example: Decision Making</h5>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <h6>Without Bias:</h6>
+                                                <p>Sum = 2.3<br>Might not be enough to activate</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <h6>With Bias (+0.5):</h6>
+                                                <p>Sum = 2.8<br>More likely to activate</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
                     <!-- Gradient Descent Visualization -->
                     <div class="card mt-4">
                         <div class="card-header bg-light">
@@ -817,6 +916,7 @@ Input Layer         Hidden Layers           Output
                                         </svg>
                                     </div>
                                 </div>
+                                
                                 <div class="col-lg-6">
                                     <div class="gradient-explanation">
                                         <h5>How Gradient Descent Works</h5>
@@ -864,119 +964,10 @@ Input Layer         Hidden Layers           Output
 <!-- Previous HTML structure continues -->
 
 <section id="learning" class="mt-5">
-    <h1 class="mb-4">The Learning Process 🎓</h1>
 
     <!-- Learning Process Overview with Explanation -->
-    <div class="card">
-        <div class="card-body">
-            <h2>How Neural Networks Learn</h2>
-            
-            <div class="row mb-4">
-                <div class="col-lg-6">
-                    <!-- Previous Learning Cycle Visualization SVG here -->
-                    <div class="diagram text-center">
-                        <!-- Previous SVG content -->
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <h3>Simple Explanation</h3>
-                    <p>Neural networks learn just like humans do - through trial and error. Here's how it works:</p>
-                    <div class="card bg-light">
-                        <div class="card-body">
-                            <ol>
-                                <li><strong>Make Predictions:</strong> The network takes its best guess based on current knowledge</li>
-                                <li><strong>Check Errors:</strong> Compare the guess with the correct answer</li>
-                                <li><strong>Adjust:</strong> Modify internal settings to do better next time</li>
-                                <li><strong>Repeat:</strong> Keep practicing with more examples</li>
-                            </ol>
-                        </div>
-                    </div>
-
-                    <div class="analogy-box mt-3">
-                        <h4>Real-World Analogy: Learning to Cook 🍳</h4>
-                        <div class="row">
-                            <div class="col-6">
-                                <h5>Cooking</h5>
-                                <ul>
-                                    <li>Try recipe</li>
-                                    <li>Taste food</li>
-                                    <li>Adjust salt</li>
-                                    <li>Try again</li>
-                                </ul>
-                            </div>
-                            <div class="col-6">
-                                <h5>Neural Network</h5>
-                                <ul>
-                                    <li>Make prediction</li>
-                                    <li>Check error</li>
-                                    <li>Adjust weights</li>
-                                    <li>Next iteration</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <!-- Weights and Biases Section -->
-            <div class="card mt-4">
-                <div class="card-body">
-                    <h3>Weights and Biases: The Learning Tools</h3>
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h4>What Are Weights?</h4>
-                            <p>Weights are like importance scores that the network assigns to different inputs. They determine how much each input contributes to the final decision.</p>
-                            
-                            <div class="example-box bg-light p-3 rounded">
-                                <h5>Example: School Grades 📚</h5>
-                                <table class="table">
-                                    <tr>
-                                        <th>Component</th>
-                                        <th>Weight</th>
-                                        <th>Impact</th>
-                                    </tr>
-                                    <tr>
-                                        <td>Final Exam</td>
-                                        <td>× 0.4</td>
-                                        <td>40% of grade</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Quiz</td>
-                                        <td>× 0.2</td>
-                                        <td>20% of grade</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Project</td>
-                                        <td>× 0.4</td>
-                                        <td>40% of grade</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <h4>What Are Biases?</h4>
-                            <p>Bias is like a threshold that determines how easy or hard it is for a neuron to activate. It's similar to having a base score or starting point.</p>
-                            
-                            <div class="example-box bg-light p-3 rounded">
-                                <h5>Example: Decision Making</h5>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <h6>Without Bias:</h6>
-                                        <p>Sum = 2.3<br>Might not be enough to activate</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <h6>With Bias (+0.5):</h6>
-                                        <p>Sum = 2.8<br>More likely to activate</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+   
             <!-- Back Propagation Section -->
             <div class="card mt-4">
                 <div class="card-body">
@@ -1031,211 +1022,192 @@ Input Layer         Hidden Layers           Output
                 </div>
             </div>
 
-           <!-- Gradient Descent Section -->
+     
+
+        <!-- Types of Learning Section -->
         <div class="card mt-4">
-            <div class="card-body">
-                <h3>Gradient Descent: Finding the Best Solution 📉</h3>
+            <div class="learning-container">
+                <h3 class="mb-4">Types of Neural Network Learning</h3>
                 
-                <div class="row">
-                    <div class="col-lg-6">
-                        <!-- Gradient Descent Visualization -->
-                        <div class="diagram">
-                            <svg viewBox="0 0 400 300">
-                                <!-- Error Surface Curve -->
-                                <defs>
-                                    <path id="valleyPath" d="M50,250 Q100,150 200,200 T350,50" />
-                                </defs>
-                                
-                                <!-- Background Grid -->
-                                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#eee" stroke-width="1"/>
-                                </pattern>
-                                <rect width="400" height="300" fill="url(#grid)" />
-                                
-                                <!-- Error Surface -->
-                                <path d="M50,250 Q100,150 200,200 T350,50" 
-                                      fill="none" 
-                                      stroke="#4e73df" 
-                                      stroke-width="3"/>
-                                
-                                <!-- Gradient Steps -->
-                                <circle cx="80" cy="220" r="6" fill="#e74a3b"/>
-                                <circle cx="150" cy="180" r="6" fill="#e74a3b"/>
-                                <circle cx="200" cy="200" r="6" fill="#e74a3b"/>
-                                <circle cx="250" cy="150" r="6" fill="#e74a3b"/>
-                                <circle cx="300" cy="100" r="6" fill="#e74a3b"/>
-                                
-                                <!-- Step Arrows -->
-                                <path d="M80,220 L150,180" stroke="#e74a3b" stroke-width="2" marker-end="url(#arrowhead)"/>
-                                <path d="M150,180 L200,200" stroke="#e74a3b" stroke-width="2" marker-end="url(#arrowhead)"/>
-                                <path d="M200,200 L250,150" stroke="#e74a3b" stroke-width="2" marker-end="url(#arrowhead)"/>
-                                <path d="M250,150 L300,100" stroke="#e74a3b" stroke-width="2" marker-end="url(#arrowhead)"/>
-                                
-                                <!-- Labels -->
-                                <text x="60" y="280" class="small">High Error</text>
-                                <text x="320" y="80" class="small">Low Error</text>
-                                
-                                <!-- Current Position Label -->
-                                <text x="200" y="230" class="small" fill="#e74a3b">We are here</text>
-                            </svg>
-                        </div>
+                <div class="control-panel">
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-primary" onclick="setLearningType('batch')">Batch</button>
+                        <button class="btn btn-primary" onclick="setLearningType('miniBatch')">Mini-Batch</button>
+                        <button class="btn btn-primary" onclick="setLearningType('stochastic')">Stochastic</button>
                     </div>
-                    
-                    <div class="col-lg-6">
-                        <div class="explanation-box">
-                            <h4>Simple Explanation</h4>
-                            <p>Gradient descent is like walking down a hill blindfolded. You:</p>
-                            <ol>
-                                <li>Feel which way is steepest (gradient)</li>
-                                <li>Take a small step in that direction</li>
-                                <li>Check if you're lower than before</li>
-                                <li>Repeat until you reach the bottom</li>
-                            </ol>
-                            
-                            <div class="analogy-box mt-3">
-                                <h5>Real-World Analogy: Finding Valley in Fog 🌫️</h5>
-                                <ul class="list-unstyled">
-                                    <li>1. Feel which way is downhill</li>
-                                    <li>2. Take small step that direction</li>
-                                    <li>3. Check new position</li>
-                                    <li>4. Repeat until you reach bottom</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="learning-rate-box mt-3">
-                            <h4>Learning Rate Importance</h4>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="card bg-danger text-white">
-                                        <div class="card-body">
-                                            <h6>Too Big Steps</h6>
-                                            <p>↘↗↘↗↘</p>
-                                            <small>Overshooting</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card bg-warning">
-                                        <div class="card-body">
-                                            <h6>Too Small Steps</h6>
-                                            <p>→→→→→→→→→</p>
-                                            <small>Too slow</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card bg-success text-white">
-                                        <div class="card-body">
-                                            <h6>Just Right</h6>
-                                            <p>→↘→↘→↘</p>
-                                            <small>Good progress</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <button class="btn btn-success ms-3" id="playButton" onclick="toggleSimulation()">
+                        Start
+                    </button>
+                    <button class="btn btn-secondary ms-2" onclick="resetSimulation()">Reset</button>
+                </div>
+    
+                <div class="data-container">
+                    <div id="dataBoxes" class="mb-3"></div>
+                    <div id="processedData" class="mb-3"></div>
+                </div>
+    
+                <div class="explanation">
+                    <h5 id="currentType">Batch Learning</h5>
+                    <p id="explanation">Data is processed in one large batch, like studying an entire textbook before taking a test.</p>
+                    <div id="details">
+                        <strong>Characteristics:</strong>
+                        <ul>
+                            <li>Processes all training data at once</li>
+                            <li>Updates network weights after seeing all examples</li>
+                            <li>More stable learning but requires more memory</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Types of Learning Section -->
-        <div class="card mt-4">
-            <div class="card-body">
-                <h3>Types of Learning 📚</h3>
-                
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-header bg-primary text-white">
-                                <h5>Batch Learning</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="diagram text-center">
-                                    <svg viewBox="0 0 200 150">
-                                        <!-- Input Data -->
-                                        <rect x="10" y="20" width="60" height="100" fill="#e8e8e8"/>
-                                        <!-- Process Arrow -->
-                                        <path d="M80,70 L120,70" stroke="#4e73df" stroke-width="2" marker-end="url(#arrow)"/>
-                                        <!-- Output Update -->
-                                        <rect x="130" y="50" width="60" height="40" fill="#1cc88a"/>
-                                        
-                                        <!-- Labels -->
-                                        <text x="40" y="140" class="small">All Examples</text>
-                                        <text x="160" y="140" class="small">One Update</text>
-                                    </svg>
-                                </div>
-                                <p class="mt-3">Like studying the entire textbook before taking a test</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-header bg-success text-white">
-                                <h5>Mini-Batch Learning</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="diagram text-center">
-                                    <svg viewBox="0 0 200 150">
-                                        <!-- Multiple Batches -->
-                                        <rect x="10" y="20" width="30" height="30" fill="#e8e8e8"/>
-                                        <rect x="10" y="60" width="30" height="30" fill="#e8e8e8"/>
-                                        <rect x="10" y="100" width="30" height="30" fill="#e8e8e8"/>
-                                        
-                                        <!-- Arrows -->
-                                        <path d="M50,35 L90,35" stroke="#4e73df" stroke-width="2" marker-end="url(#arrow)"/>
-                                        <path d="M50,75 L90,75" stroke="#4e73df" stroke-width="2" marker-end="url(#arrow)"/>
-                                        <path d="M50,115 L90,115" stroke="#4e73df" stroke-width="2" marker-end="url(#arrow)"/>
-                                        
-                                        <!-- Updates -->
-                                        <rect x="100" y="20" width="30" height="30" fill="#1cc88a"/>
-                                        <rect x="100" y="60" width="30" height="30" fill="#1cc88a"/>
-                                        <rect x="100" y="100" width="30" height="30" fill="#1cc88a"/>
-                                        
-                                        <!-- Labels -->
-                                        <text x="20" y="140" class="small">Batches</text>
-                                        <text x="115" y="140" class="small">Updates</text>
-                                    </svg>
-                                </div>
-                                <p class="mt-3">Like studying chapter by chapter</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-header bg-info text-white">
-                                <h5>Stochastic Learning</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="diagram text-center">
-                                    <svg viewBox="0 0 200 150">
-                                        <!-- Single Examples -->
-                                        <rect x="10" y="20" width="20" height="20" fill="#e8e8e8"/>
-                                        <path d="M40,30 L80,30" stroke="#4e73df" stroke-width="2" marker-end="url(#arrow)"/>
-                                        <rect x="90" y="20" width="20" height="20" fill="#1cc88a"/>
-                                        
-                                        <rect x="10" y="50" width="20" height="20" fill="#e8e8e8"/>
-                                        <path d="M40,60 L80,60" stroke="#4e73df" stroke-width="2" marker-end="url(#arrow)"/>
-                                        <rect x="90" y="50" width="20" height="20" fill="#1cc88a"/>
-                                        
-                                        <rect x="10" y="80" width="20" height="20" fill="#e8e8e8"/>
-                                        <path d="M40,90 L80,90" stroke="#4e73df" stroke-width="2" marker-end="url(#arrow)"/>
-                                        <rect x="90" y="80" width="20" height="20" fill="#1cc88a"/>
-                                        
-                                        <!-- Labels -->
-                                        <text x="20" y="140" class="small">Example</text>
-                                        <text x="100" y="140" class="small">Update</text>
-                                    </svg>
-                                </div>
-                                <p class="mt-3">Like studying page by page</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    
+        <script>
+            let currentType = 'batch';
+            let isPlaying = false;
+            let simulationInterval;
+            let step = 0;
+            
+            const data = Array(8).fill().map((_, i) => ({
+                id: i,
+                value: i + 1,
+                processed: false
+            }));
+    
+            function createDataBoxes() {
+                const container = document.getElementById('dataBoxes');
+                container.innerHTML = data.map(item => 
+                    `<div class="data-box ${item.processed ? 'processed' : ''}" id="box-${item.id}">
+                        ${item.value}
+                    </div>`
+                ).join('');
+            }
+    
+            function setLearningType(type) {
+                currentType = type;
+                resetSimulation();
+                updateExplanation();
+            }
+    
+            function updateExplanation() {
+                const typeTitle = document.getElementById('currentType');
+                const explanation = document.getElementById('explanation');
+                const details = document.getElementById('details');
+    
+                switch(currentType) {
+                    case 'batch':
+                        typeTitle.textContent = 'Batch Learning';
+                        explanation.textContent = 'Data is processed in one large batch, like studying an entire textbook before taking a test.';
+                        details.innerHTML = `
+                            <strong>Characteristics:</strong>
+                            <ul>
+                                <li>Processes all training data at once</li>
+                                <li>Updates network weights after seeing all examples</li>
+                                <li>More stable learning but requires more memory</li>
+                            </ul>`;
+                        break;
+                    case 'miniBatch':
+                        typeTitle.textContent = 'Mini-Batch Learning';
+                        explanation.textContent = 'Data is processed in smaller groups, like studying chapter by chapter.';
+                        details.innerHTML = `
+                            <strong>Characteristics:</strong>
+                            <ul>
+                                <li>Processes data in small batches (e.g., 32 or 64 examples)</li>
+                                <li>Updates weights after each mini-batch</li>
+                                <li>Good balance between stability and speed</li>
+                            </ul>`;
+                        break;
+                    case 'stochastic':
+                        typeTitle.textContent = 'Stochastic Learning';
+                        explanation.textContent = 'Data is processed one example at a time, like studying page by page.';
+                        details.innerHTML = `
+                            <strong>Characteristics:</strong>
+                            <ul>
+                                <li>Processes one training example at a time</li>
+                                <li>Updates weights after each example</li>
+                                <li>Faster updates but more noisy learning</li>
+                            </ul>`;
+                        break;
+                }
+            }
+    
+            function processStep() {
+                switch(currentType) {
+                    case 'batch':
+                        // Process all data at once
+                        if (step === 0) {
+                            data.forEach(item => {
+                                const box = document.getElementById(`box-${item.id}`);
+                                box.classList.add('processing');
+                            });
+                        } else if (step === 1) {
+                            data.forEach(item => {
+                                item.processed = true;
+                                const box = document.getElementById(`box-${item.id}`);
+                                box.classList.remove('processing');
+                                box.classList.add('processed');
+                            });
+                            stopSimulation();
+                        }
+                        break;
+    
+                    case 'miniBatch':
+                        // Process in groups of 2
+                        const batchStart = step * 2;
+                        if (batchStart < data.length) {
+                            for (let i = batchStart; i < Math.min(batchStart + 2, data.length); i++) {
+                                data[i].processed = true;
+                                const box = document.getElementById(`box-${data[i].id}`);
+                                box.classList.add('processed');
+                            }
+                        } else {
+                            stopSimulation();
+                        }
+                        break;
+    
+                    case 'stochastic':
+                        // Process one at a time
+                        if (step < data.length) {
+                            data[step].processed = true;
+                            const box = document.getElementById(`box-${data[step].id}`);
+                            box.classList.add('processed');
+                        } else {
+                            stopSimulation();
+                        }
+                        break;
+                }
+                step++;
+            }
+    
+            function toggleSimulation() {
+                const playButton = document.getElementById('playButton');
+                if (isPlaying) {
+                    stopSimulation();
+                } else {
+                    isPlaying = true;
+                    playButton.textContent = 'Stop';
+                    simulationInterval = setInterval(() => {
+                        processStep();
+                    }, 1000);
+                }
+            }
+    
+            function stopSimulation() {
+                isPlaying = false;
+                clearInterval(simulationInterval);
+                document.getElementById('playButton').textContent = 'Start';
+            }
+    
+            function resetSimulation() {
+                stopSimulation();
+                step = 0;
+                data.forEach(item => item.processed = false);
+                createDataBoxes();
+            }
+    
+            // Initialize
+            createDataBoxes();
+            updateExplanation();
+        </script>
         </div>
 
 <!-- Learning Process Example Section -->
@@ -2578,7 +2550,7 @@ Input Layer         Hidden Layers           Output
     </div>
 
     <script>
-       // toggleAnswerKey();
+        toggleAnswerKey();
         function toggleAnswerKey() {
             const answerKey = document.getElementById('answerKey');
             if (answerKey.style.display === 'none' || !answerKey.style.display) {
@@ -2587,6 +2559,154 @@ Input Layer         Hidden Layers           Output
                 answerKey.style.display = 'none';
             }
         }
+
+        // Function to handle learning process visualization
+function initializeLearningProcess() {
+    const stages = document.querySelectorAll('.learning-timeline .card');
+    let currentStage = 0;
+    const totalStages = stages.length;
+    
+    function updateStages() {
+        stages.forEach((stage, index) => {
+            if (index === currentStage) {
+                stage.classList.add('active-stage');
+                stage.style.transform = 'scale(1.05)';
+                stage.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+            } else {
+                stage.classList.remove('active-stage');
+                stage.style.transform = 'scale(1)';
+                stage.style.boxShadow = 'none';
+            }
+        });
+    }
+
+    // Add navigation controls
+    const navContainer = document.createElement('div');
+    navContainer.className = 'navigation-controls text-center mt-3';
+    navContainer.innerHTML = `
+        <button class="btn btn-primary me-2" id="prevStage">Previous</button>
+        <button class="btn btn-primary" id="nextStage">Next</button>
+    `;
+    document.querySelector('.learning-timeline').appendChild(navContainer);
+
+    // Add event listeners
+    document.getElementById('prevStage').addEventListener('click', () => {
+        currentStage = (currentStage - 1 + totalStages) % totalStages;
+        updateStages();
+    });
+
+    document.getElementById('nextStage').addEventListener('click', () => {
+        currentStage = (currentStage + 1) % totalStages;
+        updateStages();
+    });
+
+    updateStages();
+}
+
+// Function to handle activation function demonstrations
+function initializeActivationFunctions() {
+    const functionTypes = {
+        relu: (x) => Math.max(0, x),
+        sigmoid: (x) => 1 / (1 + Math.exp(-x)),
+        tanh: (x) => Math.tanh(x)
+    };
+
+    function createVisualization(type, container) {
+        const canvas = document.createElement('canvas');
+        canvas.width = 200;
+        canvas.height = 100;
+        container.appendChild(canvas);
+        const ctx = canvas.getContext('2d');
+
+        // Draw axes
+        ctx.beginPath();
+        ctx.moveTo(0, 50);
+        ctx.lineTo(200, 50);
+        ctx.moveTo(100, 0);
+        ctx.lineTo(100, 100);
+        ctx.strokeStyle = '#ccc';
+        ctx.stroke();
+
+        // Draw function
+        ctx.beginPath();
+        ctx.moveTo(0, 50);
+        for (let x = -5; x <= 5; x += 0.1) {
+            const screenX = (x + 5) * 20;
+            const screenY = 50 - functionTypes[type](x) * 20;
+            ctx.lineTo(screenX, screenY);
+        }
+        ctx.strokeStyle = '#4e73df';
+        ctx.stroke();
+    }
+
+    // Create visualizations for each function type
+    const containers = document.querySelectorAll('.activation-types .card-body');
+    containers.forEach(container => {
+        const type = container.getAttribute('data-function-type');
+        if (type && functionTypes[type]) {
+            createVisualization(type, container);
+        }
+    });
+}
+
+// Function to handle assessment interactions
+function initializeAssessment() {
+    const questions = document.querySelectorAll('.question');
+    let score = 0;
+
+    questions.forEach((question, index) => {
+        const options = question.querySelectorAll('.options input[type="radio"]');
+        options.forEach(option => {
+            option.addEventListener('change', () => {
+                // Store user's answer
+                question.dataset.userAnswer = option.value;
+            });
+        });
+    });
+
+    // Add submit button
+    const submitButton = document.createElement('button');
+    submitButton.className = 'btn btn-primary mt-3';
+    submitButton.textContent = 'Submit Assessment';
+    submitButton.addEventListener('click', () => {
+        calculateScore();
+        displayResults();
+    });
+    document.querySelector('.assessment-section').appendChild(submitButton);
+
+    function calculateScore() {
+        score = 0;
+        questions.forEach(question => {
+            if (question.dataset.userAnswer === question.dataset.correctAnswer) {
+                score++;
+            }
+        });
+    }
+
+    function displayResults() {
+        const resultsDiv = document.createElement('div');
+        resultsDiv.className = 'alert alert-info mt-3';
+        resultsDiv.textContent = `Your score: ${score} out of ${questions.length}`;
+        document.querySelector('.assessment-section').appendChild(resultsDiv);
+    }
+}
+
+// Initialize all interactive features when the document is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    initializeLearningProcess();
+    initializeActivationFunctions();
+   //initializeAssessment();
+
+    // Add smooth scrolling for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+});
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 </body>
