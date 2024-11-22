@@ -1,0 +1,2593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Neural Networks: A Complete Guide</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+          .course-details {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+            border-left: 5px solid #4e73df;
+        }
+        .card {
+            margin-bottom: 1.5rem;
+            border: none;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        }
+        .diagram {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+        .code-block {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-family: monospace;
+        }
+        .analogy-box {
+            background: #e3f2fd;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+        .section-divider {
+            margin: 3rem 0;
+            border-top: 2px solid #e9ecef;
+        }
+
+        .assessment-section {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        }
+        .hidden {
+            display: none;
+        }
+        .answer-key {
+            display: none;
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+        }
+        .question {
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid #4e73df;
+        }
+        .options {
+            padding-left: 2rem;
+        }
+        .btn-reveal {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">Introduction to Artificial Neural Networks | November 23, 2024</a>
+        </div>
+    </nav>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Neural Networks Assessment</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            .course-details {
+                background-color: #f8f9fa;
+                padding: 1.5rem;
+                border-radius: 0.5rem;
+                margin-bottom: 2rem;
+                border-left: 5px solid #4e73df;
+            }
+            /* [Previous styles remain the same...] */
+        </style>
+    </head>
+    <body>
+        <div class="container mt-4">
+            <!-- Course Details Section -->
+            <div class="course-details">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>Course Information</h2>
+                        <table class="table table-borderless">
+                            <tr>
+                                <th>School:</th>
+                                <td>Naga College Foundation, Inc.</td>
+                            </tr>
+                            <tr>
+                                <th>College:</th>
+                                <td>College of Computer Studies</td>
+                            </tr>
+                            <tr>
+                                <th>Program:</th>
+                                <td>BS Computer Science</td>
+                            </tr>
+                            <tr>
+                                <th>Course Code:</th>
+                                <td>CS ELECT 2</td>
+                            </tr>
+                            <tr>
+                                <th>Course Title:</th>
+                                <td>Introduction to Intelligent Systems</td>
+                            </tr>
+                            <tr>
+                                <th>Year Level:</th>
+                                <td>3rd Year</td>
+                            </tr>
+                            <tr>
+                                <th>Term:</th>
+                                <td>Semi-Finals</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <h2>Instructor Information</h2>
+                        <table class="table table-borderless">
+                            <tr>
+                                <th>Instructor:</th>
+                                <td>Chino Dela Cruz</td>
+                            </tr>
+                            <tr>
+                                <th>Position:</th>
+                                <td>NCF-CCS Part-Time Instructor</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    <div class="container mt-4">
+        <!-- Table of Contents -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Table of Contents</h2>
+                <div class="list-group">
+                    <a href="#foundations" class="list-group-item list-group-item-action">1. Foundations</a>
+                    <a href="#learning" class="list-group-item list-group-item-action">2. Learning Process</a>
+                    <a href="#training" class="list-group-item list-group-item-action">3. Training & Optimization</a>
+                    <a href="#applications" class="list-group-item list-group-item-action">4. Applications</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Part 1: Foundations -->
+        <section id="foundations">
+            <h1 class="mb-4">Understanding Neural Networks: Foundations 🧠</h1>
+
+            <div class="card">
+                <div class="card-body">
+                    <h2>What is a Neural Network?</h2>
+                    <p class="lead">A neural network is a computer system that learns from examples, just like how humans learn.</p>
+
+                    <div class="analogy-box">
+                        <h4>Learning Process Analogy</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Humans:</h5>
+                                <ul class="list-unstyled">
+                                    <li>1. See recipe</li>
+                                    <li>2. Try cooking</li>
+                                    <li>3. Taste result</li>
+                                    <li>4. Adjust next time</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Neural Networks:</h5>
+                                <ul class="list-unstyled">
+                                    <li>1. Receive input data</li>
+                                    <li>2. Process information</li>
+                                    <li>3. Get output</li>
+                                    <li>4. Adjust for better results</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Neural Network Basic Structure Visualization -->
+                    <div class="diagram text-center">
+                        <svg viewBox="0 0 400 200">
+                            <!-- Input Layer -->
+                            <circle cx="50" cy="50" r="10" fill="#4e73df"/>
+                            <circle cx="50" cy="100" r="10" fill="#4e73df"/>
+                            <circle cx="50" cy="150" r="10" fill="#4e73df"/>
+                            
+                            <!-- Hidden Layer -->
+                            <circle cx="200" cy="40" r="10" fill="#1cc88a"/>
+                            <circle cx="200" cy="80" r="10" fill="#1cc88a"/>
+                            <circle cx="200" cy="120" r="10" fill="#1cc88a"/>
+                            <circle cx="200" cy="160" r="10" fill="#1cc88a"/>
+                            
+                            <!-- Output Layer -->
+                            <circle cx="350" cy="75" r="10" fill="#e74a3b"/>
+                            <circle cx="350" cy="125" r="10" fill="#e74a3b"/>
+                            
+                            <!-- Connections -->
+                            <!-- Input to Hidden -->
+                            <g stroke="#e8e8e8" stroke-width="1">
+                                <!-- Connect each input node to each hidden node -->
+                                <path d="M60,50 L190,40"/>
+                                <path d="M60,50 L190,80"/>
+                                <path d="M60,50 L190,120"/>
+                                <path d="M60,50 L190,160"/>
+                                
+                                <path d="M60,100 L190,40"/>
+                                <path d="M60,100 L190,80"/>
+                                <path d="M60,100 L190,120"/>
+                                <path d="M60,100 L190,160"/>
+                                
+                                <path d="M60,150 L190,40"/>
+                                <path d="M60,150 L190,80"/>
+                                <path d="M60,150 L190,120"/>
+                                <path d="M60,150 L190,160"/>
+                            </g>
+                            
+                            <!-- Hidden to Output -->
+                            <g stroke="#e8e8e8" stroke-width="1">
+                                <!-- Connect each hidden node to each output node -->
+                                <path d="M210,40 L340,75"/>
+                                <path d="M210,80 L340,75"/>
+                                <path d="M210,120 L340,75"/>
+                                <path d="M210,160 L340,75"/>
+                                
+                                <path d="M210,40 L340,125"/>
+                                <path d="M210,80 L340,125"/>
+                                <path d="M210,120 L340,125"/>
+                                <path d="M210,160 L340,125"/>
+                            </g>
+                            
+                            <!-- Labels -->
+                            <text x="50" y="20" text-anchor="middle" fill="#4e73df">Input</text>
+                            <text x="200" y="20" text-anchor="middle" fill="#1cc88a">Hidden</text>
+                            <text x="350" y="20" text-anchor="middle" fill="#e74a3b">Output</text>
+                        </svg>
+                    </div>
+
+                    <div class="mt-4">
+                        <h3>Information Flow Example</h3>
+                        <div class="code-block">
+                            <pre>
+Input Layer         Hidden Layers           Output
+[Square Feet]
+[Bedrooms]    →    [Processing]     →    [$350,000]
+[Location]          [Analysis]
+[Age]
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+          
+        
+
+           
+
+
+
+            <div class="card mt-4">
+                <div class="card-header bg-primary text-white">
+                    <h2>Activation Functions</h2>
+                </div>
+                <div class="card-body">
+                    <!-- What are Activation Functions -->
+                    <div class="introduction mb-4">
+                        <h3>What are Activation Functions?</h3>
+                        <p class="lead">Activation functions are mathematical equations that determine the output of a neural network. They decide whether a neuron should be activated ("fired") or not based on whether each neuron's input is relevant for the model's prediction.</p>
+                        
+                        <div class="example-box p-3 bg-light rounded">
+                            <h4>Why Do We Need Activation Functions? 🤔</h4>
+                            <ul>
+                                <li><strong>Non-linearity:</strong> They help neural networks learn complex patterns by introducing non-linear properties</li>
+                                <li><strong>Decision Making:</strong> Help determine how important each neuron's input is</li>
+                                <li><strong>Output Range:</strong> Normalize outputs to a specific range (like 0 to 1)</li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <!-- Types of Activation Functions -->
+                    <div class="activation-types">
+                        <div class="row">
+                            <!-- ReLU Function -->
+                            <div class="col-md-4">
+                                <div class="card h-100">
+                                    <div class="card-header">
+                                        <h4>ReLU (Rectified Linear Unit)</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="diagram">
+                                            <h5>ReLU Function</h5>
+                                            <svg viewBox="0 0 200 200">
+                                                <!-- Axes -->
+                                                <line x1="40" y1="160" x2="180" y2="160" stroke="black"/>
+                                                <line x1="40" y1="160" x2="40" y2="20" stroke="black"/>
+                                                
+                                                <!-- ReLU curve -->
+                                                <path d="M40,160 L100,160 L180,80" stroke="#4e73df" fill="none" stroke-width="2"/>
+                                                
+                                                <!-- Labels -->
+                                                <text x="110" y="180">Input</text>
+                                                <text x="20" y="90" transform="rotate(-90,20,90)">Output</text>
+                                            </svg>
+                                            <p class="mt-2">Best for: Hidden layers</p>
+                                        </div>
+                                        
+                                        <div class="function-details mt-3">
+                                            <h5>Mathematical Form:</h5>
+                                            <p>f(x) = max(0, x)</p>
+                                            
+                                            <h5>When to Use:</h5>
+                                            <ul>
+                                                <li>Default choice for hidden layers</li>
+                                                <li>Deep neural networks</li>
+                                                <li>Convolutional Neural Networks (CNN)</li>
+                                            </ul>
+    
+                                            <div class="example-box bg-light p-3 rounded">
+                                                <h5>Example:</h5>
+                                                <table class="table table-sm">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Input</th>
+                                                            <th>Output</th>
+                                                            <th>Explanation</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>2.0</td>
+                                                            <td>2.0</td>
+                                                            <td>Positive passes through</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>-1.0</td>
+                                                            <td>0.0</td>
+                                                            <td>Negative becomes zero</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>3.5</td>
+                                                            <td>3.5</td>
+                                                            <td>Positive passes through</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+    
+                                            <div class="pros-cons mt-3">
+                                                <h5>Advantages:</h5>
+                                                <ul class="text-success">
+                                                    <li>Computationally efficient</li>
+                                                    <li>Helps with vanishing gradient</li>
+                                                    <li>Creates sparse activations</li>
+                                                </ul>
+                                                <h5>Disadvantages:</h5>
+                                                <ul class="text-danger">
+                                                    <li>"Dying ReLU" problem</li>
+                                                    <li>Not zero-centered</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <!-- Sigmoid Function -->
+                            <div class="col-md-4">
+                                <div class="card h-100">
+                                    <div class="card-header">
+                                        <h4>Sigmoid</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="diagram">
+                                            <h5>Sigmoid Function</h5>
+                                            <svg viewBox="0 0 200 200">
+                                                <!-- Axes -->
+                                                <line x1="40" y1="160" x2="180" y2="160" stroke="black"/>
+                                                <line x1="40" y1="160" x2="40" y2="20" stroke="black"/>
+                                                
+                                                <!-- Sigmoid curve -->
+                                                <path d="M40,150 Q70,150 90,120 T180,40" stroke="#1cc88a" fill="none" stroke-width="2"/>
+                                                
+                                                <!-- Labels -->
+                                                <text x="110" y="180">Input</text>
+                                                <text x="20" y="90" transform="rotate(-90,20,90)">Output</text>
+                                            </svg>
+                                            <p class="mt-2">Best for: Binary decisions</p>
+                                        </div>
+                            
+                                        
+                                        <div class="function-details mt-3">
+                                            <h5>Mathematical Form:</h5>
+                                            <p>f(x) = 1 / (1 + e⁻ˣ)</p>
+                                            
+                                            <h5>When to Use:</h5>
+                                            <ul>
+                                                <li>Binary classification</li>
+                                                <li>Output layer for probability</li>
+                                                <li>When output needs to be between 0 and 1</li>
+                                            </ul>
+    
+                                            <div class="example-box bg-light p-3 rounded">
+                                                <h5>Example:</h5>
+                                                <table class="table table-sm">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Input</th>
+                                                            <th>Output</th>
+                                                            <th>Use Case</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>2.0</td>
+                                                            <td>0.88</td>
+                                                            <td>High probability</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>0.0</td>
+                                                            <td>0.50</td>
+                                                            <td>Uncertain</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>-2.0</td>
+                                                            <td>0.12</td>
+                                                            <td>Low probability</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+    
+                                            <div class="pros-cons mt-3">
+                                                <h5>Advantages:</h5>
+                                                <ul class="text-success">
+                                                    <li>Smooth gradient</li>
+                                                    <li>Bounded output</li>
+                                                    <li>Clear probability output</li>
+                                                </ul>
+                                                <h5>Disadvantages:</h5>
+                                                <ul class="text-danger">
+                                                    <li>Vanishing gradient problem</li>
+                                                    <li>Not zero-centered</li>
+                                                    <li>Computationally expensive</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <!-- Tanh Function -->
+                            <div class="col-md-4">
+                                <div class="card h-100">
+                                    <div class="card-header">
+                                        <h4>Tanh (Hyperbolic Tangent)</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="diagram">
+                                            <h5>Tanh Function</h5>
+                                            <svg viewBox="0 0 200 200">
+                                                <!-- Axes -->
+                                                <line x1="40" y1="160" x2="180" y2="160" stroke="black"/>
+                                                <line x1="40" y1="160" x2="40" y2="20" stroke="black"/>
+                                                
+                                                <!-- Tanh curve -->
+                                                <path d="M40,160 Q90,160 110,90 T180,20" stroke="#e74a3b" fill="none" stroke-width="2"/>
+                                                
+                                                <!-- Labels -->
+                                                <text x="110" y="180">Input</text>
+                                                <text x="20" y="90" transform="rotate(-90,20,90)">Output</text>
+                                            </svg>
+                                            <p class="mt-2">Best for: Normalized data</p>
+                                        </div>
+                            
+                                        <div class="function-details mt-3">
+                                            <h5>Mathematical Form:</h5>
+                                            <p>f(x) = (e^x - e^-x) / (e^x + e^-x)</p>
+                                            
+                                            <h5>When to Use:</h5>
+                                            <ul>
+                                                <li>Hidden layers</li>
+                                                <li>When zero-centered output is needed</li>
+                                                <li>For data normalized between -1 and 1</li>
+                                            </ul>
+    
+                                            <div class="example-box bg-light p-3 rounded">
+                                                <h5>Example:</h5>
+                                                <table class="table table-sm">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Input</th>
+                                                            <th>Output</th>
+                                                            <th>Explanation</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>2.0</td>
+                                                            <td>0.96</td>
+                                                            <td>Strong positive</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>0.0</td>
+                                                            <td>0.00</td>
+                                                            <td>Neutral</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>-2.0</td>
+                                                            <td>-0.96</td>
+                                                            <td>Strong negative</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+    
+                                            <div class="pros-cons mt-3">
+                                                <h5>Advantages:</h5>
+                                                <ul class="text-success">
+                                                    <li>Zero-centered</li>
+                                                    <li>Stronger gradients than sigmoid</li>
+                                                    <li>Bounded output</li>
+                                                </ul>
+                                                <h5>Disadvantages:</h5>
+                                                <ul class="text-danger">
+                                                    <li>Still has vanishing gradient</li>
+                                                    <li>Computationally expensive</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Real-World Applications -->
+                        <div class="practical-examples mt-4">
+                            <h3>Practical Examples</h3>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Image Classification</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p><strong>Network Structure:</strong></p>
+                                            <ul>
+                                                <li>Hidden Layers: ReLU</li>
+                                                <li>Output Layer: Sigmoid</li>
+                                            </ul>
+                                            <p><strong>Why?</strong> ReLU for fast training, Sigmoid for 0-1 probability output</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Price Prediction</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p><strong>Network Structure:</strong></p>
+                                            <ul>
+                                                <li>Hidden Layers: ReLU</li>
+                                                <li>Output Layer: Linear</li>
+                                            </ul>
+                                            <p><strong>Why?</strong> ReLU for non-linearity, Linear for unrestricted output</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Sentiment Analysis</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p><strong>Network Structure:</strong></p>
+                                            <ul>
+                                                <li>Hidden Layers: Tanh</li>
+                                                <li>Output Layer: Sigmoid</li>
+                                            </ul>
+                                            <p><strong>Why?</strong> Tanh for normalized features, Sigmoid for sentiment score</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </section>
+
+
+<!-- Continuing from previous HTML structure -->
+
+        <!-- Part 2: Learning Process -->
+        <section id="learning" class="mt-5">
+            <h1 class="mb-4">The Learning Process 🎓</h1>
+
+            <div class="card">
+                <div class="card-body">
+                    <h2>How Neural Networks Learn</h2>
+                    
+                    <!-- Introduction -->
+                    <div class="introduction mb-4">
+                        <p class="lead">Neural networks learn through a process called training, where they gradually improve their accuracy by adjusting their internal parameters based on examples. Think of it like learning to cook: you try, taste, adjust, and try again until you get it right.</p>
+                    </div>
+
+                    <!-- Learning Cycle Visualization with Explanation -->
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="diagram text-center">
+                                <svg viewBox="0 0 400 300">
+                                    <!-- Learning Cycle Circle -->
+                                    <circle cx="200" cy="150" r="100" fill="none" stroke="#4e73df" stroke-width="2" stroke-dasharray="5,5"/>
+                                    
+                                    <!-- Process Boxes -->
+                                    <rect x="160" y="20" width="80" height="40" rx="5" fill="#1cc88a"/>
+                                    <rect x="320" y="130" width="80" height="40" rx="5" fill="#1cc88a"/>
+                                    <rect x="160" y="240" width="80" height="40" rx="5" fill="#1cc88a"/>
+                                    <rect x="0" y="130" width="80" height="40" rx="5" fill="#1cc88a"/>
+                                    
+                                    <!-- Arrows -->
+                                    <path d="M200,60 Q200,100 280,130" fill="none" stroke="#4e73df" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                    <path d="M320,150 Q280,150 240,220" fill="none" stroke="#4e73df" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                    <path d="M160,240 Q100,200 80,170" fill="none" stroke="#4e73df" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                    <path d="M80,130 Q100,100 160,60" fill="none" stroke="#4e73df" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                    
+                                    <!-- Labels -->
+                                    <text x="200" y="45" text-anchor="middle" fill="white">Predict</text>
+                                    <text x="360" y="155" text-anchor="middle" fill="white">Compare</text>
+                                    <text x="200" y="265" text-anchor="middle" fill="white">Adjust</text>
+                                    <text x="40" y="155" text-anchor="middle" fill="white">Try Again</text>
+                                    
+                                    <!-- Arrow Marker Definition -->
+                                    <defs>
+                                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                            <polygon points="0 0, 10 3.5, 0 7" fill="#4e73df"/>
+                                        </marker>
+                                    </defs>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="learning-steps bg-light p-4 rounded">
+                                <h4>The Learning Cycle Explained</h4>
+                                <div class="step-details">
+                                    <div class="step mb-3">
+                                        <h5 class="text-primary">1. Predict</h5>
+                                        <ul>
+                                            <li>Network processes input through layers</li>
+                                            <li>Uses current weights and biases</li>
+                                            <li>Makes initial guess based on parameters</li>
+                                        </ul>
+                                    </div>
+                                    <div class="step mb-3">
+                                        <h5 class="text-primary">2. Compare</h5>
+                                        <ul>
+                                            <li>Compares prediction with actual answer</li>
+                                            <li>Calculates error using loss function</li>
+                                            <li>Determines how far off the prediction was</li>
+                                        </ul>
+                                    </div>
+                                    <div class="step mb-3">
+                                        <h5 class="text-primary">3. Adjust</h5>
+                                        <ul>
+                                            <li>Uses backpropagation to find which weights to change</li>
+                                            <li>Applies gradient descent to optimize parameters</li>
+                                            <li>Updates weights and biases to reduce error</li>
+                                        </ul>
+                                    </div>
+                                    <div class="step">
+                                        <h5 class="text-primary">4. Try Again</h5>
+                                        <ul>
+                                            <li>Uses updated parameters for next prediction</li>
+                                            <li>Processes new examples</li>
+                                            <li>Continues cycle until accuracy improves</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Weights and Bias Visualization -->
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header bg-light">
+                                    <h3>Weights Explained</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="diagram">
+                                        <svg viewBox="0 0 300 200">
+                                            <!-- Input Node -->
+                                            <circle cx="50" cy="100" r="20" fill="#4e73df"/>
+                                            <!-- Output Node -->
+                                            <circle cx="250" cy="100" r="20" fill="#1cc88a"/>
+                                            <!-- Connection with Weight -->
+                                            <line x1="70" y1="100" x2="230" y2="100" stroke="#e74a3b" stroke-width="3"/>
+                                            <!-- Weight Label -->
+                                            <rect x="140" y="70" width="40" height="25" fill="white" stroke="#e74a3b"/>
+                                            <text x="160" y="87" text-anchor="middle">0.8</text>
+                                            <!-- Labels -->
+                                            <text x="50" y="140" text-anchor="middle">Input</text>
+                                            <text x="250" y="140" text-anchor="middle">Output</text>
+                                        </svg>
+                                    </div>
+                                    <div class="weight-explanation mt-3">
+                                        <h5>What are Weights?</h5>
+                                        <ul>
+                                            <li>Connection strengths between neurons</li>
+                                            <li>Determine importance of inputs</li>
+                                            <li>Adjusted during learning</li>
+                                        </ul>
+                                        <div class="example-box bg-light p-3 mt-2 rounded">
+                                            <h6>Example:</h6>
+                                            <p>Like importance ratings in decision making:</p>
+                                            <ul>
+                                                <li>Weather (0.8): Very important</li>
+                                                <li>Day of week (0.3): Less important</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header bg-light">
+                                    <h3>Bias Explained</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="diagram">
+                                        <svg viewBox="0 0 300 200">
+                                            <!-- Neuron -->
+                                            <circle cx="150" cy="100" r="30" fill="#1cc88a"/>
+                                            <!-- Bias Arrow -->
+                                            <line x1="150" y1="40" x2="150" y2="70" stroke="#e74a3b" stroke-width="3" marker-end="url(#biasarrow)"/>
+                                            <!-- Bias Label -->
+                                            <rect x="130" y="20" width="40" height="25" fill="white" stroke="#e74a3b"/>
+                                            <text x="150" y="37" text-anchor="middle">+1.0</text>
+                                            <!-- Neuron Label -->
+                                            <text x="150" y="105" text-anchor="middle" fill="white">Sum</text>
+                                        </svg>
+                                    </div>
+                                    <div class="bias-explanation mt-3">
+                                        <h5>What is Bias?</h5>
+                                        <ul>
+                                            <li>Default activation threshold</li>
+                                            <li>Helps neuron fire even with low inputs</li>
+                                            <li>Adds flexibility to the model</li>
+                                        </ul>
+                                        <div class="example-box bg-light p-3 mt-2 rounded">
+                                            <h6>Example:</h6>
+                                            <p>Like a base score in judging:</p>
+                                            <ul>
+                                                <li>Starting score: 7/10</li>
+                                                <li>Adjusts based on performance</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gradient Descent Visualization -->
+                    <div class="card mt-4">
+                        <div class="card-header bg-light">
+                            <h3>Gradient Descent: Finding the Best Solution</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="diagram">
+                                        <svg viewBox="0 0 400 300">
+                                            <!-- Error Surface -->
+                                            <path d="M50,250 Q100,100 200,200 T350,50" fill="none" stroke="#4e73df" stroke-width="3"/>
+                                            
+                                            <!-- Gradient Steps -->
+                                            <circle cx="100" cy="120" r="5" fill="#e74a3b"/>
+                                            <circle cx="150" cy="180" r="5" fill="#e74a3b"/>
+                                            <circle cx="200" cy="200" r="5" fill="#e74a3b"/>
+                                            <circle cx="250" cy="150" r="5" fill="#e74a3b"/>
+                                            
+                                            <!-- Step Arrows -->
+                                            <path d="M100,120 L150,180" stroke="#e74a3b" stroke-width="2" marker-end="url(#gradientarrow)"/>
+                                            <path d="M150,180 L200,200" stroke="#e74a3b" stroke-width="2" marker-end="url(#gradientarrow)"/>
+                                            <path d="M200,200 L250,150" stroke="#e74a3b" stroke-width="2" marker-end="url(#gradientarrow)"/>
+                                            
+                                            <!-- Labels -->
+                                            <text x="50" y="280">High Error</text>
+                                            <text x="350" y="280">Low Error</text>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="gradient-explanation">
+                                        <h5>How Gradient Descent Works</h5>
+                                        <p>Like finding the bottom of a valley while blindfolded:</p>
+                                        <ol>
+                                            <li><strong>Feel the Slope:</strong> Determine which direction leads downhill</li>
+                                            <li><strong>Take a Step:</strong> Move in that direction</li>
+                                            <li><strong>Check Position:</strong> See if error decreased</li>
+                                            <li><strong>Repeat:</strong> Continue until reaching the bottom</li>
+                                        </ol>
+                                        
+                                        <div class="learning-rate-box mt-4">
+                                            <h5>Learning Rate Importance</h5>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="alert alert-danger">
+                                                        <strong>Too Large: ↘↗↘↗</strong>
+                                                        <p>Overshoots the target</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="alert alert-warning">
+                                                        <strong>Too Small: →→→→</strong>
+                                                        <p>Very slow progress</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="alert alert-success">
+                                                        <strong>Just Right: ↘→↘→</strong>
+                                                        <p>Optimal learning</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+<!-- Previous HTML structure continues -->
+
+<section id="learning" class="mt-5">
+    <h1 class="mb-4">The Learning Process 🎓</h1>
+
+    <!-- Learning Process Overview with Explanation -->
+    <div class="card">
+        <div class="card-body">
+            <h2>How Neural Networks Learn</h2>
+            
+            <div class="row mb-4">
+                <div class="col-lg-6">
+                    <!-- Previous Learning Cycle Visualization SVG here -->
+                    <div class="diagram text-center">
+                        <!-- Previous SVG content -->
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h3>Simple Explanation</h3>
+                    <p>Neural networks learn just like humans do - through trial and error. Here's how it works:</p>
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <ol>
+                                <li><strong>Make Predictions:</strong> The network takes its best guess based on current knowledge</li>
+                                <li><strong>Check Errors:</strong> Compare the guess with the correct answer</li>
+                                <li><strong>Adjust:</strong> Modify internal settings to do better next time</li>
+                                <li><strong>Repeat:</strong> Keep practicing with more examples</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="analogy-box mt-3">
+                        <h4>Real-World Analogy: Learning to Cook 🍳</h4>
+                        <div class="row">
+                            <div class="col-6">
+                                <h5>Cooking</h5>
+                                <ul>
+                                    <li>Try recipe</li>
+                                    <li>Taste food</li>
+                                    <li>Adjust salt</li>
+                                    <li>Try again</li>
+                                </ul>
+                            </div>
+                            <div class="col-6">
+                                <h5>Neural Network</h5>
+                                <ul>
+                                    <li>Make prediction</li>
+                                    <li>Check error</li>
+                                    <li>Adjust weights</li>
+                                    <li>Next iteration</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weights and Biases Section -->
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h3>Weights and Biases: The Learning Tools</h3>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>What Are Weights?</h4>
+                            <p>Weights are like importance scores that the network assigns to different inputs. They determine how much each input contributes to the final decision.</p>
+                            
+                            <div class="example-box bg-light p-3 rounded">
+                                <h5>Example: School Grades 📚</h5>
+                                <table class="table">
+                                    <tr>
+                                        <th>Component</th>
+                                        <th>Weight</th>
+                                        <th>Impact</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Final Exam</td>
+                                        <td>× 0.4</td>
+                                        <td>40% of grade</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Quiz</td>
+                                        <td>× 0.2</td>
+                                        <td>20% of grade</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Project</td>
+                                        <td>× 0.4</td>
+                                        <td>40% of grade</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h4>What Are Biases?</h4>
+                            <p>Bias is like a threshold that determines how easy or hard it is for a neuron to activate. It's similar to having a base score or starting point.</p>
+                            
+                            <div class="example-box bg-light p-3 rounded">
+                                <h5>Example: Decision Making</h5>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h6>Without Bias:</h6>
+                                        <p>Sum = 2.3<br>Might not be enough to activate</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <h6>With Bias (+0.5):</h6>
+                                        <p>Sum = 2.8<br>More likely to activate</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back Propagation Section -->
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h3>Back Propagation: Learning from Mistakes</h3>
+                    
+                    <p>Back propagation is the process where the network traces back through its decisions to figure out which weights need adjustment. It's like retracing your steps to find where you went wrong.</p>
+
+                    <div class="example-box bg-light p-3 rounded">
+                        <h5>Real Example: House Price Prediction</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Forward Pass:</h6>
+                                <ul class="list-unstyled">
+                                    <li>Prediction: $250,000</li>
+                                    <li>Actual Price: $300,000</li>
+                                    <li>Error: $50,000 too low</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Adjustment Process:</h6>
+                                <ol>
+                                    <li>Calculate error ($50,000)</li>
+                                    <li>Trace back through network</li>
+                                    <li>Adjust weights that caused error</li>
+                                    <li>Try new prediction</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analogy-box mt-3">
+                        <h5>Real-World Analogy: Basketball 🏀</h5>
+                        <table class="table">
+                            <tr>
+                                <th>Shot Result</th>
+                                <th>Adjustment</th>
+                            </tr>
+                            <tr>
+                                <td>Shot misses right</td>
+                                <td>Adjust aim left</td>
+                            </tr>
+                            <tr>
+                                <td>Shot too short</td>
+                                <td>Add more power</td>
+                            </tr>
+                            <tr>
+                                <td>Shot too long</td>
+                                <td>Reduce power</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+           <!-- Gradient Descent Section -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <h3>Gradient Descent: Finding the Best Solution 📉</h3>
+                
+                <div class="row">
+                    <div class="col-lg-6">
+                        <!-- Gradient Descent Visualization -->
+                        <div class="diagram">
+                            <svg viewBox="0 0 400 300">
+                                <!-- Error Surface Curve -->
+                                <defs>
+                                    <path id="valleyPath" d="M50,250 Q100,150 200,200 T350,50" />
+                                </defs>
+                                
+                                <!-- Background Grid -->
+                                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#eee" stroke-width="1"/>
+                                </pattern>
+                                <rect width="400" height="300" fill="url(#grid)" />
+                                
+                                <!-- Error Surface -->
+                                <path d="M50,250 Q100,150 200,200 T350,50" 
+                                      fill="none" 
+                                      stroke="#4e73df" 
+                                      stroke-width="3"/>
+                                
+                                <!-- Gradient Steps -->
+                                <circle cx="80" cy="220" r="6" fill="#e74a3b"/>
+                                <circle cx="150" cy="180" r="6" fill="#e74a3b"/>
+                                <circle cx="200" cy="200" r="6" fill="#e74a3b"/>
+                                <circle cx="250" cy="150" r="6" fill="#e74a3b"/>
+                                <circle cx="300" cy="100" r="6" fill="#e74a3b"/>
+                                
+                                <!-- Step Arrows -->
+                                <path d="M80,220 L150,180" stroke="#e74a3b" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                <path d="M150,180 L200,200" stroke="#e74a3b" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                <path d="M200,200 L250,150" stroke="#e74a3b" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                <path d="M250,150 L300,100" stroke="#e74a3b" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                
+                                <!-- Labels -->
+                                <text x="60" y="280" class="small">High Error</text>
+                                <text x="320" y="80" class="small">Low Error</text>
+                                
+                                <!-- Current Position Label -->
+                                <text x="200" y="230" class="small" fill="#e74a3b">We are here</text>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="explanation-box">
+                            <h4>Simple Explanation</h4>
+                            <p>Gradient descent is like walking down a hill blindfolded. You:</p>
+                            <ol>
+                                <li>Feel which way is steepest (gradient)</li>
+                                <li>Take a small step in that direction</li>
+                                <li>Check if you're lower than before</li>
+                                <li>Repeat until you reach the bottom</li>
+                            </ol>
+                            
+                            <div class="analogy-box mt-3">
+                                <h5>Real-World Analogy: Finding Valley in Fog 🌫️</h5>
+                                <ul class="list-unstyled">
+                                    <li>1. Feel which way is downhill</li>
+                                    <li>2. Take small step that direction</li>
+                                    <li>3. Check new position</li>
+                                    <li>4. Repeat until you reach bottom</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="learning-rate-box mt-3">
+                            <h4>Learning Rate Importance</h4>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card bg-danger text-white">
+                                        <div class="card-body">
+                                            <h6>Too Big Steps</h6>
+                                            <p>↘↗↘↗↘</p>
+                                            <small>Overshooting</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-warning">
+                                        <div class="card-body">
+                                            <h6>Too Small Steps</h6>
+                                            <p>→→→→→→→→→</p>
+                                            <small>Too slow</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-success text-white">
+                                        <div class="card-body">
+                                            <h6>Just Right</h6>
+                                            <p>→↘→↘→↘</p>
+                                            <small>Good progress</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Types of Learning Section -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <h3>Types of Learning 📚</h3>
+                
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h5>Batch Learning</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="diagram text-center">
+                                    <svg viewBox="0 0 200 150">
+                                        <!-- Input Data -->
+                                        <rect x="10" y="20" width="60" height="100" fill="#e8e8e8"/>
+                                        <!-- Process Arrow -->
+                                        <path d="M80,70 L120,70" stroke="#4e73df" stroke-width="2" marker-end="url(#arrow)"/>
+                                        <!-- Output Update -->
+                                        <rect x="130" y="50" width="60" height="40" fill="#1cc88a"/>
+                                        
+                                        <!-- Labels -->
+                                        <text x="40" y="140" class="small">All Examples</text>
+                                        <text x="160" y="140" class="small">One Update</text>
+                                    </svg>
+                                </div>
+                                <p class="mt-3">Like studying the entire textbook before taking a test</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-header bg-success text-white">
+                                <h5>Mini-Batch Learning</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="diagram text-center">
+                                    <svg viewBox="0 0 200 150">
+                                        <!-- Multiple Batches -->
+                                        <rect x="10" y="20" width="30" height="30" fill="#e8e8e8"/>
+                                        <rect x="10" y="60" width="30" height="30" fill="#e8e8e8"/>
+                                        <rect x="10" y="100" width="30" height="30" fill="#e8e8e8"/>
+                                        
+                                        <!-- Arrows -->
+                                        <path d="M50,35 L90,35" stroke="#4e73df" stroke-width="2" marker-end="url(#arrow)"/>
+                                        <path d="M50,75 L90,75" stroke="#4e73df" stroke-width="2" marker-end="url(#arrow)"/>
+                                        <path d="M50,115 L90,115" stroke="#4e73df" stroke-width="2" marker-end="url(#arrow)"/>
+                                        
+                                        <!-- Updates -->
+                                        <rect x="100" y="20" width="30" height="30" fill="#1cc88a"/>
+                                        <rect x="100" y="60" width="30" height="30" fill="#1cc88a"/>
+                                        <rect x="100" y="100" width="30" height="30" fill="#1cc88a"/>
+                                        
+                                        <!-- Labels -->
+                                        <text x="20" y="140" class="small">Batches</text>
+                                        <text x="115" y="140" class="small">Updates</text>
+                                    </svg>
+                                </div>
+                                <p class="mt-3">Like studying chapter by chapter</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-header bg-info text-white">
+                                <h5>Stochastic Learning</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="diagram text-center">
+                                    <svg viewBox="0 0 200 150">
+                                        <!-- Single Examples -->
+                                        <rect x="10" y="20" width="20" height="20" fill="#e8e8e8"/>
+                                        <path d="M40,30 L80,30" stroke="#4e73df" stroke-width="2" marker-end="url(#arrow)"/>
+                                        <rect x="90" y="20" width="20" height="20" fill="#1cc88a"/>
+                                        
+                                        <rect x="10" y="50" width="20" height="20" fill="#e8e8e8"/>
+                                        <path d="M40,60 L80,60" stroke="#4e73df" stroke-width="2" marker-end="url(#arrow)"/>
+                                        <rect x="90" y="50" width="20" height="20" fill="#1cc88a"/>
+                                        
+                                        <rect x="10" y="80" width="20" height="20" fill="#e8e8e8"/>
+                                        <path d="M40,90 L80,90" stroke="#4e73df" stroke-width="2" marker-end="url(#arrow)"/>
+                                        <rect x="90" y="80" width="20" height="20" fill="#1cc88a"/>
+                                        
+                                        <!-- Labels -->
+                                        <text x="20" y="140" class="small">Example</text>
+                                        <text x="100" y="140" class="small">Update</text>
+                                    </svg>
+                                </div>
+                                <p class="mt-3">Like studying page by page</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!-- Learning Process Example Section -->
+<div class="card mt-4">
+    <div class="card-body">
+        <h3>Learning Process Example: Image Classification 🖼️</h3>
+        
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Step-by-Step Learning Process</h4>
+                
+                <!-- Timeline Visualization -->
+                <div class="learning-timeline mt-4">
+                    <div class="row">
+                        <!-- Initial State -->
+                        <div class="col-md">
+                            <div class="card">
+                                <div class="card-header bg-primary text-white">
+                                    <h5>1. Initial State</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="diagram text-center">
+                                        <svg viewBox="0 0 200 200">
+                                            <!-- Cat Image Representation -->
+                                            <rect x="20" y="50" width="60" height="60" fill="#e8e8e8" rx="5"/>
+                                            <text x="50" y="85" text-anchor="middle">🐱</text>
+                                            
+                                            <!-- Arrow -->
+                                            <path d="M90,80 L130,80" stroke="#4e73df" stroke-width="2" marker-end="url(#arrow)"/>
+                                            
+                                            <!-- Random Output -->
+                                            <rect x="140" y="50" width="40" height="60" fill="#f8f9fa" rx="5"/>
+                                            <text x="160" y="80" text-anchor="middle" fill="#dc3545">?</text>
+                                            <text x="160" y="100" text-anchor="middle" font-size="10">Random Guess</text>
+                                        </svg>
+                                    </div>
+                                    <p class="mt-2">Network starts untrained, makes random guesses</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- First Prediction -->
+                        <div class="col-md">
+                            <div class="card">
+                                <div class="card-header bg-warning">
+                                    <h5>2. First Prediction</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="diagram text-center">
+                                        <svg viewBox="0 0 200 200">
+                                            <!-- Input Image -->
+                                            <rect x="20" y="30" width="60" height="60" fill="#e8e8e8" rx="5"/>
+                                            <text x="50" y="65" text-anchor="middle">🐱</text>
+                                            
+                                            <!-- Prediction -->
+                                            <path d="M90,60 L130,60" stroke="#4e73df" stroke-width="2" marker-end="url(#arrow)"/>
+                                            
+                                            <!-- Output -->
+                                            <rect x="140" y="30" width="40" height="60" fill="#f8f9fa" rx="5"/>
+                                            <text x="160" y="55" text-anchor="middle">🐕</text>
+                                            <text x="160" y="75" text-anchor="middle" font-size="10">Dog: 80%</text>
+                                            
+                                            <!-- Error Indication -->
+                                            <path d="M160,90 L160,110" stroke="#dc3545" stroke-width="2" marker-end="url(#error)"/>
+                                            <text x="160" y="130" text-anchor="middle" fill="#dc3545" font-size="10">Wrong!</text>
+                                        </svg>
+                                    </div>
+                                    <div class="mt-2">
+                                        <p>Prediction: "Dog" (80% confident)</p>
+                                        <p class="text-danger">Error: Wrong prediction!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Weight Adjustment -->
+                        <div class="col-md">
+                            <div class="card">
+                                <div class="card-header bg-info text-white">
+                                    <h5>3. Weight Adjustment</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="diagram text-center">
+                                        <svg viewBox="0 0 200 200">
+                                            <!-- Before Weights -->
+                                            <rect x="20" y="20" width="70" height="70" fill="#f8f9fa" rx="5"/>
+                                            <text x="55" y="45" text-anchor="middle" font-size="10">Ears × 0.2</text>
+                                            <text x="55" y="65" text-anchor="middle" font-size="10">Whiskers × 0.3</text>
+                                            <text x="55" y="85" text-anchor="middle" font-size="10">Tail × 0.4</text>
+                                            
+                                            <!-- Arrow -->
+                                            <path d="M100,55 L130,55" stroke="#4e73df" stroke-width="2" marker-end="url(#arrow)"/>
+                                            
+                                            <!-- After Weights -->
+                                            <rect x="140" y="20" width="70" height="70" fill="#e8f5e9" rx="5"/>
+                                            <text x="175" y="45" text-anchor="middle" font-size="10">Ears × 0.4</text>
+                                            <text x="175" y="65" text-anchor="middle" font-size="10">Whiskers × 0.5</text>
+                                            <text x="175" y="85" text-anchor="middle" font-size="10">Tail × 0.3</text>
+                                        </svg>
+                                    </div>
+                                    <div class="mt-2">
+                                        <p>Adjusting weights based on error:</p>
+                                        <ul class="list-unstyled">
+                                            <li>↑ Cat feature weights</li>
+                                            <li>↓ Dog feature weights</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Final Success -->
+                        <div class="col-md">
+                            <div class="card">
+                                <div class="card-header bg-success text-white">
+                                    <h5>4. Success!</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="diagram text-center">
+                                        <svg viewBox="0 0 200 200">
+                                            <!-- Input Image -->
+                                            <rect x="20" y="50" width="60" height="60" fill="#e8e8e8" rx="5"/>
+                                            <text x="50" y="85" text-anchor="middle">🐱</text>
+                                            
+                                            <!-- Arrow -->
+                                            <path d="M90,80 L130,80" stroke="#4e73df" stroke-width="2" marker-end="url(#arrow)"/>
+                                            
+                                            <!-- Correct Output -->
+                                            <rect x="140" y="50" width="40" height="60" fill="#e8f5e9" rx="5"/>
+                                            <text x="160" y="75" text-anchor="middle">🐱</text>
+                                            <text x="160" y="95" text-anchor="middle" font-size="10">Cat: 95%</text>
+                                        </svg>
+                                    </div>
+                                    <div class="mt-2">
+                                        <p class="text-success">Correct Prediction!</p>
+                                        <p>Cat image → "Cat" (95% confident)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Real Training Example -->
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h4>Real Training Example: Digit Recognition</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>First Try</h5>
+                                <div class="diagram">
+                                    <svg viewBox="0 0 200 100">
+                                        <!-- Input "7" -->
+                                        <rect x="20" y="20" width="40" height="60" fill="#e8e8e8" rx="5"/>
+                                        <text x="40" y="60" text-anchor="middle" font-size="30">7</text>
+                                        
+                                        <!-- Arrow -->
+                                        <path d="M70,50 L110,50" stroke="#4e73df" stroke-width="2" marker-end="url(#arrow)"/>
+                                        
+                                        <!-- Predictions -->
+                                        <rect x="120" y="20" width="60" height="60" fill="#f8f9fa" rx="5"/>
+                                        <text x="150" y="40" text-anchor="middle" font-size="12">1: 40%</text>
+                                        <text x="150" y="60" text-anchor="middle" font-size="12">7: 30%</text>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>After Training</h5>
+                                <div class="diagram">
+                                    <svg viewBox="0 0 200 100">
+                                        <!-- Input "7" -->
+                                        <rect x="20" y="20" width="40" height="60" fill="#e8e8e8" rx="5"/>
+                                        <text x="40" y="60" text-anchor="middle" font-size="30">7</text>
+                                        
+                                        <!-- Arrow -->
+                                        <path d="M70,50 L110,50" stroke="#4e73df" stroke-width="2" marker-end="url(#arrow)"/>
+                                        
+                                        <!-- Correct Prediction -->
+                                        <rect x="120" y="20" width="60" height="60" fill="#e8f5e9" rx="5"/>
+                                        <text x="150" y="40" text-anchor="middle" font-size="12">7: 95%</text>
+                                        <text x="150" y="60" text-anchor="middle" font-size="12">1: 3%</text>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <h5>What Changed?</h5>
+                            <ul>
+                                <li>Network learned to recognize vertical and angled lines characteristic of "7"</li>
+                                <li>Improved differentiation between similar digits (1 vs 7)</li>
+                                <li>Increased confidence in correct predictions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // Interactive Timeline Animation
+    document.addEventListener('DOMContentLoaded', () => {
+        // Add hover effects to learning stages
+        const cards = document.querySelectorAll('.learning-timeline .card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                // Highlight current stage
+                card.style.transform = 'scale(1.02)';
+                card.style.transition = 'transform 0.3s ease';
+                card.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1)';
+                card.style.boxShadow = 'none';
+            });
+        });
+
+        // Weight Adjustment Animation
+        const weightCard = document.querySelector('.card-header.bg-info').parentElement;
+        weightCard.addEventListener('click', () => {
+            const beforeWeights = weightCard.querySelectorAll('.diagram text');
+            beforeWeights.forEach(weight => {
+                // Animate weight changes
+                weight.style.transition = 'fill 0.5s ease';
+                weight.style.fill = '#dc3545'; // Highlight changing weights
+                setTimeout(() => {
+                    weight.style.fill = '#000000'; // Return to original color
+                }, 500);
+            });
+        });
+
+        // Add progress indicator
+        const learningStages = document.querySelectorAll('.col-md');
+        let currentStage = 0;
+
+        function highlightStage() {
+            learningStages.forEach((stage, index) => {
+                if (index === currentStage) {
+                    stage.querySelector('.card').style.borderColor = '#4e73df';
+                    stage.querySelector('.card').style.borderWidth = '2px';
+                } else {
+                    stage.querySelector('.card').style.borderColor = '#dee2e6';
+                    stage.querySelector('.card').style.borderWidth = '1px';
+                }
+            });
+        }
+
+        // Add navigation buttons
+        const navigationDiv = document.createElement('div');
+        navigationDiv.className = 'text-center mt-3';
+        navigationDiv.innerHTML = `  `;
+        document.querySelector('.learning-timeline').appendChild(navigationDiv);
+
+        document.getElementById('prevStage').addEventListener('click', () => {
+            currentStage = Math.max(0, currentStage - 1);
+            highlightStage();
+        });
+
+        document.getElementById('nextStage').addEventListener('click', () => {
+            currentStage = Math.min(learningStages.length - 1, currentStage + 1);
+            highlightStage();
+        });
+
+        // Initialize first stage
+        highlightStage();
+
+        // Digit Recognition Example Interaction
+        const digitExample = document.querySelector('.col-md-6');
+        digitExample.addEventListener('click', () => {
+            const beforeAfter = document.querySelectorAll('.diagram svg');
+            beforeAfter.forEach(svg => {
+                // Animate transition between initial and trained state
+                svg.style.transition = 'opacity 0.5s ease';
+                svg.style.opacity = '0.5';
+                setTimeout(() => {
+                    svg.style.opacity = '1';
+                }, 500);
+            });
+        });
+
+        // Add tooltips for explanations
+        const tooltipTriggers = document.querySelectorAll('[data-toggle="tooltip"]');
+        tooltipTriggers.forEach(trigger => {
+            new bootstrap.Tooltip(trigger);
+        });
+
+        // Add animation for arrows showing data flow
+        const arrows = document.querySelectorAll('path[marker-end="url(#arrow)"]');
+        arrows.forEach(arrow => {
+            arrow.style.strokeDasharray = '4';
+            arrow.style.animation = 'dash 1s linear infinite';
+        });
+    });
+
+    // Add CSS animation for arrows
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes dash {
+            to {
+                stroke-dashoffset: -8;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+</script>
+
+
+<!-- Part 3: Training and Optimization -->
+<section id="training" class="mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h2>Training and Optimization 📈</h2>
+
+            <!-- Training Process Overview -->
+            <div class="row mb-4">
+                <div class="col-lg-6">
+                    <div class="diagram">
+                        <svg viewBox="0 0 300 300">
+                            <!-- Training Cycle -->
+                            <defs>
+                                <path id="circlePath" 
+                                      d="M 150,150 m -100,0 a 100,100 0 1,1 200,0 a 100,100 0 1,1 -200,0"
+                                      fill="none"/>
+                            </defs>
+                            
+                            <!-- Circular Flow -->
+                            <circle cx="150" cy="150" r="100" 
+                                    fill="none" stroke="#e8e8e8" 
+                                    stroke-width="40" 
+                                    stroke-dasharray="5 3"/>
+                            
+                            <!-- Process Steps -->
+                            <g>
+                                <!-- Prepare Data -->
+                                <rect x="120" y="30" width="60" height="40" 
+                                      fill="#4e73df" rx="5"/>
+                                <text x="150" y="55" text-anchor="middle" 
+                                      fill="white" font-size="12">
+                                    Prepare
+                                </text>
+                                
+                                <!-- Train -->
+                                <rect x="240" y="130" width="60" height="40" 
+                                      fill="#1cc88a" rx="5"/>
+                                <text x="270" y="155" text-anchor="middle" 
+                                      fill="white" font-size="12">
+                                    Train
+                                </text>
+                                
+                                <!-- Evaluate -->
+                                <rect x="120" y="230" width="60" height="40" 
+                                      fill="#e74a3b" rx="5"/>
+                                <text x="150" y="255" text-anchor="middle" 
+                                      fill="white" font-size="12">
+                                    Evaluate
+                                </text>
+                                
+                                <!-- Adjust -->
+                                <rect x="0" y="130" width="60" height="40" 
+                                      fill="#f6c23e" rx="5"/>
+                                <text x="30" y="155" text-anchor="middle" 
+                                      fill="white" font-size="12">
+                                    Adjust
+                                </text>
+                            </g>
+                            
+                            <!-- Connecting Arrows -->
+                            <g stroke="#4e73df" stroke-width="2" 
+                               fill="none" marker-end="url(#arrowhead)">
+                                <path d="M150,70 Q150,100 220,130"/>
+                                <path d="M270,170 Q270,200 180,230"/>
+                                <path d="M120,230 Q50,200 30,170"/>
+                                <path d="M30,130 Q30,100 120,70"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h4>The Training Cycle</h4>
+                    <div class="example-box">
+                        <ol>
+                            <li><strong>Prepare Data:</strong> Clean and organize training examples</li>
+                            <li><strong>Train Network:</strong> Feed data through network</li>
+                            <li><strong>Evaluate Results:</strong> Measure performance</li>
+                            <li><strong>Adjust Parameters:</strong> Improve based on results</li>
+                        </ol>
+                    </div>
+                    <div class="analogy-box mt-3">
+                        <h5>Real-World Analogy: Learning to Cook 🍳</h5>
+                        <ul>
+                            <li>Prepare ingredients (Data preparation)</li>
+                            <li>Follow recipe (Training)</li>
+                            <li>Taste food (Evaluation)</li>
+                            <li>Adjust seasoning (Parameter tuning)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loss Functions Section -->
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h3>Loss Functions: Measuring Success 📏</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <!-- MSE Visualization -->
+                        <div class="col-md-6">
+                            <h4>Mean Squared Error (MSE)</h4>
+                            <div class="diagram">
+                                <svg viewBox="0 0 200 150">
+                                    <!-- Coordinate System -->
+                                    <line x1="20" y1="130" x2="180" y2="130" 
+                                          stroke="black" stroke-width="1"/>
+                                    <line x1="20" y1="130" x2="20" y2="20" 
+                                          stroke="black" stroke-width="1"/>
+                                    
+                                    <!-- Prediction Points -->
+                                    <circle cx="50" cy="90" r="3" fill="#4e73df"/>
+                                    <circle cx="90" cy="60" r="3" fill="#4e73df"/>
+                                    <circle cx="130" cy="100" r="3" fill="#4e73df"/>
+                                    
+                                    <!-- Error Squares -->
+                                    <rect x="45" y="70" width="10" height="20" 
+                                          fill="#e74a3b" fill-opacity="0.3"/>
+                                    <rect x="85" y="40" width="10" height="20" 
+                                          fill="#e74a3b" fill-opacity="0.3"/>
+                                    <rect x="125" y="80" width="10" height="20" 
+                                          fill="#e74a3b" fill-opacity="0.3"/>
+                                    
+                                    <!-- True Value Line -->
+                                    <line x1="20" y1="70" x2="180" y2="70" 
+                                          stroke="#1cc88a" stroke-width="2" 
+                                          stroke-dasharray="4"/>
+                                    
+                                    <!-- Labels -->
+                                    <text x="100" y="145" text-anchor="middle">Predictions</text>
+                                    <text x="10" y="75" text-anchor="end" 
+                                          font-size="10">True</text>
+                                </svg>
+                            </div>
+                            <div class="mt-2">
+                                <p><strong>Best for:</strong> Numeric predictions</p>
+                                <div class="example-box">
+                                    <p>Example: House Price Prediction</p>
+                                    <ul>
+                                        <li>Predicted: $200,000</li>
+                                        <li>Actual: $250,000</li>
+                                        <li>Error²: ($50,000)² = 2.5B</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cross-Entropy Visualization -->
+                        <div class="col-md-6">
+                            <h4>Cross-Entropy Loss</h4>
+                            <div class="diagram">
+                                <svg viewBox="0 0 200 150">
+                                    <!-- Bar Chart -->
+                                    <g transform="translate(40,20)">
+                                        <!-- Cat Prediction -->
+                                        <rect x="10" y="30" width="30" height="80" 
+                                              fill="#4e73df"/>
+                                        <text x="25" y="120" text-anchor="middle">Cat</text>
+                                        <text x="25" y="25" text-anchor="middle">70%</text>
+                                        
+                                        <!-- Dog Prediction -->
+                                        <rect x="50" y="70" width="30" height="40" 
+                                              fill="#4e73df"/>
+                                        <text x="65" y="120" text-anchor="middle">Dog</text>
+                                        <text x="65" y="65" text-anchor="middle">30%</text>
+                                        
+                                        <!-- True Label -->
+                                        <line x1="0" y1="30" x2="100" y2="30" 
+                                              stroke="#1cc88a" stroke-width="2" 
+                                              stroke-dasharray="4"/>
+                                        <text x="110" y="35" fill="#1cc88a">True (Cat)</text>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="mt-2">
+                                <p><strong>Best for:</strong> Classification tasks</p>
+                                <div class="example-box">
+                                    <p>Example: Image Classification</p>
+                                    <ul>
+                                        <li>Prediction: Cat (70%)</li>
+                                        <li>Truth: Is Cat (100%)</li>
+                                        <li>Loss: -log(0.7) = 0.36</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!-- Part 4: Practical Applications -->
+<section id="applications" class="mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h2>Practical Applications and Real-World Usage 🌟</h2>
+
+            <!-- Image Recognition Section -->
+            <div class="card mt-4">
+                <div class="card-header bg-primary text-white">
+                    <h3>Image Recognition 🖼️</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <!-- Image Processing Pipeline Visualization -->
+                            <div class="diagram">
+                                <svg viewBox="0 0 400 200">
+                                    <!-- Input Image -->
+                                    <rect x="20" y="60" width="80" height="80" 
+                                          fill="#e8e8e8" rx="5"/>
+                                    <text x="60" y="100" text-anchor="middle" 
+                                          font-size="30">📸</text>
+                                    
+                                    <!-- Feature Detection -->
+                                    <g transform="translate(140,60)">
+                                        <rect width="80" height="80" 
+                                              fill="#f8f9fa" rx="5"/>
+                                        <line x1="10" y1="20" x2="70" y2="20" 
+                                              stroke="#4e73df" stroke-width="2"/>
+                                        <line x1="10" y1="40" x2="70" y2="40" 
+                                              stroke="#4e73df" stroke-width="2"/>
+                                        <line x1="10" y1="60" x2="70" y2="60" 
+                                              stroke="#4e73df" stroke-width="2"/>
+                                    </g>
+                                    
+                                    <!-- Pattern Recognition -->
+                                    <g transform="translate(260,60)">
+                                        <rect width="80" height="80" 
+                                              fill="#f8f9fa" rx="5"/>
+                                        <circle cx="40" cy="40" r="30" 
+                                                fill="none" stroke="#1cc88a" 
+                                                stroke-width="2"/>
+                                        <path d="M25,40 L55,40 M40,25 L40,55" 
+                                              stroke="#1cc88a" stroke-width="2"/>
+                                    </g>
+                                    
+                                    <!-- Arrows -->
+                                    <path d="M100,100 L140,100" stroke="#4e73df" 
+                                          stroke-width="2" marker-end="url(#arrow)"/>
+                                    <path d="M220,100 L260,100" stroke="#4e73df" 
+                                          stroke-width="2" marker-end="url(#arrow)"/>
+                                    
+                                    <!-- Labels -->
+                                    <text x="60" y="160" text-anchor="middle">Input</text>
+                                    <text x="180" y="160" text-anchor="middle">Features</text>
+                                    <text x="300" y="160" text-anchor="middle">Patterns</text>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="process-explanation">
+                                <h4>How It Works</h4>
+                                <ol>
+                                    <li><strong>Feature Detection</strong>
+                                        <ul>
+                                            <li>Identify edges and shapes</li>
+                                            <li>Detect colors and textures</li>
+                                            <li>Find basic patterns</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Pattern Recognition</strong>
+                                        <ul>
+                                            <li>Combine simple features</li>
+                                            <li>Identify complex shapes</li>
+                                            <li>Recognize objects</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Classification</strong>
+                                        <ul>
+                                            <li>Make final decision</li>
+                                            <li>Calculate confidence</li>
+                                            <li>Output results</li>
+                                        </ul>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Real Example: Medical Diagnosis -->
+                    <div class="example-box mt-4">
+                        <h4>Real Example: Medical Diagnosis</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="diagram">
+                                    <svg viewBox="0 0 300 200">
+                                        <!-- X-Ray Image Representation -->
+                                        <rect x="20" y="20" width="100" height="160" 
+                                              fill="#e8e8e8" rx="5"/>
+                                        <text x="70" y="100" text-anchor="middle" 
+                                              font-size="40">🫁</text>
+                                        
+                                        <!-- Processing Steps -->
+                                        <g transform="translate(150,20)">
+                                            <rect width="120" height="160" 
+                                                  fill="#f8f9fa" rx="5"/>
+                                            <line x1="10" y1="40" x2="110" y2="40" 
+                                                  stroke="#4e73df" stroke-width="2"/>
+                                            <line x1="10" y1="80" x2="110" y2="80" 
+                                                  stroke="#4e73df" stroke-width="2"/>
+                                            <line x1="10" y1="120" x2="110" y2="120" 
+                                                  stroke="#4e73df" stroke-width="2"/>
+                                        </g>
+                                        
+                                        <!-- Labels -->
+                                        <text x="70" y="190" text-anchor="middle">X-Ray</text>
+                                        <text x="210" y="190" text-anchor="middle">Analysis</text>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="process-steps">
+                                    <h5>Process:</h5>
+                                    <ol>
+                                        <li>Input X-ray image</li>
+                                        <li>Detect anomalies</li>
+                                        <li>Compare with database</li>
+                                        <li>Generate diagnosis</li>
+                                    </ol>
+                                    <div class="result-box mt-3">
+                                        <p><strong>Result:</strong> "Pneumonia detected (95% confidence)"</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Natural Language Processing Section -->
+            <div class="card mt-4">
+                <div class="card-header bg-success text-white">
+                    <h3>Natural Language Processing (NLP) 📝</h3>
+                </div>
+                <div class="card-body">
+                    <!-- NLP Process Visualization -->
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="diagram">
+                                <svg viewBox="0 0 400 200">
+                                    <!-- Text Input -->
+                                    <rect x="20" y="40" width="100" height="120" 
+                                          fill="#e8e8e8" rx="5"/>
+                                    <text x="70" y="100" text-anchor="middle" 
+                                          font-size="14">"Great product!"</text>
+                                    
+                                    <!-- Tokenization -->
+                                    <g transform="translate(160,40)">
+                                        <rect width="80" height="120" 
+                                              fill="#f8f9fa" rx="5"/>
+                                        <text x="40" y="60" text-anchor="middle" 
+                                              font-size="12">Great</text>
+                                        <text x="40" y="90" text-anchor="middle" 
+                                              font-size="12">product</text>
+                                        <text x="40" y="120" text-anchor="middle" 
+                                              font-size="12">!</text>
+                                    </g>
+                                    
+                                    <!-- Sentiment Analysis -->
+                                    <g transform="translate(280,40)">
+                                        <rect width="100" height="120" 
+                                              fill="#f8f9fa" rx="5"/>
+                                        <text x="50" y="90" text-anchor="middle" 
+                                              font-size="20">😊</text>
+                                    </g>
+                                    
+                                    <!-- Process Arrows -->
+                                    <path d="M120,100 L160,100" stroke="#4e73df" 
+                                          stroke-width="2" marker-end="url(#arrow)"/>
+                                    <path d="M240,100 L280,100" stroke="#4e73df" 
+                                          stroke-width="2" marker-end="url(#arrow)"/>
+                                    
+                                    <!-- Labels -->
+                                    <text x="70" y="180" text-anchor="middle">Input</text>
+                                    <text x="200" y="180" text-anchor="middle">Tokens</text>
+                                    <text x="330" y="180" text-anchor="middle">Sentiment</text>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="process-explanation">
+                                <h4>Process Flow:</h4>
+                                <ol>
+                                    <li><strong>Text Processing</strong>
+                                        <ul>
+                                            <li>Break into words</li>
+                                            <li>Remove noise</li>
+                                            <li>Standardize format</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Analysis</strong>
+                                        <ul>
+                                            <li>Assign word scores</li>
+                                            <li>Detect patterns</li>
+                                            <li>Consider context</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Output</strong>
+                                        <ul>
+                                            <li>Generate sentiment score</li>
+                                            <li>Classify text</li>
+                                            <li>Provide confidence level</li>
+                                        </ul>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+<!-- Part 5: FAQ Section -->
+<section id="faq" class="mt-5">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h2>Frequently Asked Questions 🤔</h2>
+        </div>
+        <div class="card-body">
+            <!-- Basic Concepts -->
+            <div class="faq-section">
+                <h3>Basic Concepts</h3>
+                
+                <div class="accordion" id="basicConceptsFAQ">
+                    <div class="accordion-item">
+                        <h4 class="accordion-header">
+                            <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#q1">
+                                What exactly is a neural network and how does it work?
+                            </button>
+                        </h4>
+                        <div id="q1" class="accordion-collapse collapse show">
+                            <div class="accordion-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p><strong>Simple Answer:</strong><br>
+                                        A neural network is like a digital brain that learns from examples. It processes information through layers of connected nodes, similar to how your brain processes information through neurons.</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="diagram">
+                                            <svg viewBox="0 0 200 100">
+                                                <!-- Simple Network Visualization -->
+                                                <circle cx="30" cy="50" r="10" fill="#4e73df"/>
+                                                <circle cx="100" cy="30" r="10" fill="#1cc88a"/>
+                                                <circle cx="100" cy="70" r="10" fill="#1cc88a"/>
+                                                <circle cx="170" cy="50" r="10" fill="#e74a3b"/>
+                                                
+                                                <!-- Connections -->
+                                                <line x1="40" y1="50" x2="90" y2="30" stroke="#888" stroke-width="1"/>
+                                                <line x1="40" y1="50" x2="90" y2="70" stroke="#888" stroke-width="1"/>
+                                                <line x1="110" y1="30" x2="160" y2="50" stroke="#888" stroke-width="1"/>
+                                                <line x1="110" y1="70" x2="160" y2="50" stroke="#888" stroke-width="1"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h4 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q2">
+                                How does a neural network learn?
+                            </button>
+                        </h4>
+                        <div id="q2" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <div class="learning-process">
+                                    <ol>
+                                        <li><strong>Makes Predictions:</strong> Takes input and guesses output</li>
+                                        <li><strong>Compares Results:</strong> Checks how far off it was</li>
+                                        <li><strong>Adjusts Weights:</strong> Modifies internal connections</li>
+                                        <li><strong>Repeats:</strong> Continues until predictions improve</li>
+                                    </ol>
+                                    <div class="example-box mt-3">
+                                        <p><strong>Example:</strong> Learning to recognize cats</p>
+                                        <ul>
+                                            <li>First try: Might confuse cat with dog</li>
+                                            <li>Learns: Pointy ears, whiskers are important</li>
+                                            <li>Improves: Gets better with each example</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Architecture & Components -->
+            <div class="faq-section mt-4">
+                <h3>Architecture & Components</h3>
+                
+                <div class="accordion" id="architectureFAQ">
+                    <div class="accordion-item">
+                        <h4 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q3">
+                                What's the difference between various activation functions?
+                            </button>
+                        </h4>
+                        <div id="q3" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Function</th>
+                                                <th>Best For</th>
+                                                <th>Why Use It</th>
+                                                <th>Common Issues</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>ReLU</td>
+                                                <td>Hidden layers</td>
+                                                <td>Fast, prevents vanishing gradient</td>
+                                                <td>Dead neurons</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sigmoid</td>
+                                                <td>Binary classification</td>
+                                                <td>Outputs 0-1 range</td>
+                                                <td>Vanishing gradient</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tanh</td>
+                                                <td>Hidden layers</td>
+                                                <td>Zero-centered outputs</td>
+                                                <td>Vanishing gradient</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Training & Optimization -->
+            <div class="faq-section mt-4">
+                <h3>Training & Optimization</h3>
+                
+                <div class="accordion" id="trainingFAQ">
+                    <div class="accordion-item">
+                        <h4 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q4">
+                                How do I prevent overfitting?
+                            </button>
+                        </h4>
+                        <div id="q4" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>Solutions:</h5>
+                                        <ul>
+                                            <li><strong>More Data:</strong> Collect more training examples</li>
+                                            <li><strong>Dropout:</strong> Randomly disable neurons</li>
+                                            <li><strong>Regularization:</strong> Penalize complexity</li>
+                                            <li><strong>Data Augmentation:</strong> Create variations of data</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="diagram">
+                                            <svg viewBox="0 0 200 100">
+                                                <!-- Overfitting Visualization -->
+                                                <path d="M10,90 Q50,10 100,90 T190,90" 
+                                                      stroke="#e74a3b" fill="none" 
+                                                      stroke-width="2"/>
+                                                <path d="M10,90 Q100,70 190,90" 
+                                                      stroke="#1cc88a" fill="none" 
+                                                      stroke-width="2" stroke-dasharray="4"/>
+                                                
+                                                <text x="100" y="20" text-anchor="middle" 
+                                                      fill="#e74a3b" font-size="10">Overfitted</text>
+                                                <text x="100" y="40" text-anchor="middle" 
+                                                      fill="#1cc88a" font-size="10">Good Fit</text>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Practical Applications -->
+            <div class="faq-section mt-4">
+                <h3>Practical Applications</h3>
+                
+                <div class="accordion" id="applicationsFAQ">
+                    <div class="accordion-item">
+                        <h4 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q5">
+                                What types of problems can neural networks solve?
+                            </button>
+                        </h4>
+                        <div id="q5" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <h5>Classification</h5>
+                                        <ul>
+                                            <li>Image recognition</li>
+                                            <li>Spam detection</li>
+                                            <li>Medical diagnosis</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h5>Prediction</h5>
+                                        <ul>
+                                            <li>Stock prices</li>
+                                            <li>Weather forecast</li>
+                                            <li>Sales forecasting</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h5>Generation</h5>
+                                        <ul>
+                                            <li>Text generation</li>
+                                            <li>Image synthesis</li>
+                                            <li>Music composition</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Troubleshooting -->
+            <div class="faq-section mt-4">
+                <h3>Troubleshooting</h3>
+                
+                <div class="accordion" id="troubleshootingFAQ">
+                    <div class="accordion-item">
+                        <h4 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q6">
+                                Why isn't my neural network learning?
+                            </button>
+                        </h4>
+                        <div id="q6" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <div class="troubleshooting-guide">
+                                    <h5>Common Issues and Solutions:</h5>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Problem</th>
+                                                    <th>Possible Cause</th>
+                                                    <th>Solution</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Not improving</td>
+                                                    <td>Learning rate too high/low</td>
+                                                    <td>Adjust learning rate</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Poor accuracy</td>
+                                                    <td>Insufficient data</td>
+                                                    <td>Get more training data</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Unstable training</td>
+                                                    <td>Bad initialization</td>
+                                                    <td>Use proper initialization</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Best Practices -->
+            <div class="faq-section mt-4">
+                <h3>Best Practices</h3>
+                
+                <div class="accordion" id="bestPracticesFAQ">
+                    <div class="accordion-item">
+                        <h4 class="accordion-header">
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q7">
+                                What are the key steps to build a successful neural network?
+                            </button>
+                        </h4>
+                        <div id="q7" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <div class="best-practices">
+                                    <ol>
+                                        <li><strong>Data Preparation</strong>
+                                            <ul>
+                                                <li>Clean your data</li>
+                                                <li>Normalize inputs</li>
+                                                <li>Split into train/test sets</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Architecture Design</strong>
+                                            <ul>
+                                                <li>Start simple</li>
+                                                <li>Choose appropriate layers</li>
+                                                <li>Select activation functions</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Training Process</strong>
+                                            <ul>
+                                                <li>Monitor loss</li>
+                                                <li>Use validation data</li>
+                                                <li>Implement early stopping</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Evaluation</strong>
+                                            <ul>
+                                                <li>Test thoroughly</li>
+                                                <li>Use appropriate metrics</li>
+                                                <li>Consider real-world performance</li>
+                                            </ul>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    </div>
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Neural Networks Complete Assessment</h1>
+
+        <!-- Multiple Choice Section -->
+        <div class="assessment-section">
+            <h2 class="text-primary">Multiple Choice Questions (20 items)</h2>
+            <div class="questions">
+                <div class="question">
+                    <p>1. What is the main purpose of an activation function in neural networks?</p>
+                    <div class="options">
+                        a) To initialize network weights<br>
+                        b) To determine whether a neuron should be activated based on input<br>
+                        c) To store training data<br>
+                        d) To calculate network size
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>2. In a neural network learning cycle, what comes after the "Compare" step?</p>
+                    <div class="options">
+                        a) Predict<br>
+                        b) Process<br>
+                        c) Adjust<br>
+                        d) Initialize
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>3. Which activation function sets all negative values to zero?</p>
+                    <div class="options">
+                        a) Sigmoid<br>
+                        b) ReLU<br>
+                        c) Tanh<br>
+                        d) Linear
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>4. What is the primary role of bias in a neural network?</p>
+                    <div class="options">
+                        a) To store data<br>
+                        b) To provide a default activation threshold<br>
+                        c) To calculate errors<br>
+                        d) To connect neurons
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>5. Which type of learning is analogous to "studying chapter by chapter"?</p>
+                    <div class="options">
+                        a) Batch learning<br>
+                        b) Mini-batch learning<br>
+                        c) Stochastic learning<br>
+                        d) Supervised learning
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>6. What does gradient descent help find?</p>
+                    <div class="options">
+                        a) Input data<br>
+                        b) The minimum error<br>
+                        c) Network size<br>
+                        d) Training examples
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>7. Which activation function is best suited for binary classification problems?</p>
+                    <div class="options">
+                        a) ReLU<br>
+                        b) Tanh<br>
+                        c) Sigmoid<br>
+                        d) Linear
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>8. What happens when the learning rate is too large?</p>
+                    <div class="options">
+                        a) Learning becomes too slow<br>
+                        b) Overshooting occurs<br>
+                        c) Nothing changes<br>
+                        d) Learning improves
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>9. What is the purpose of weights in a neural network?</p>
+                    <div class="options">
+                        a) To store data<br>
+                        b) To determine connection strengths between neurons<br>
+                        c) To calculate network size<br>
+                        d) To initialize bias
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>10. Which is a characteristic of the tanh activation function?</p>
+                    <div class="options">
+                        a) Only positive outputs<br>
+                        b) Zero-centered outputs<br>
+                        c) No gradient issues<br>
+                        d) Linear response
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>11. What does back propagation do?</p>
+                    <div class="options">
+                        a) Initializes weights<br>
+                        b) Processes input data<br>
+                        c) Traces back to adjust weights based on error<br>
+                        d) Stores training examples
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>12. Which is the first step in image recognition?</p>
+                    <div class="options">
+                        a) Classification<br>
+                        b) Feature detection<br>
+                        c) Pattern matching<br>
+                        d) Output generation
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>13. What is meant by the "dying ReLU" problem?</p>
+                    <div class="options">
+                        a) Network becomes too large<br>
+                        b) Neurons always output zero<br>
+                        c) Learning stops<br>
+                        d) Weights become too small
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>14. Which loss function is best for numeric predictions?</p>
+                    <div class="options">
+                        a) Cross-entropy<br>
+                        b) Mean Squared Error<br>
+                        c) Binary loss<br>
+                        d) Categorical loss
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>15. What is stochastic learning compared to in the document?</p>
+                    <div class="options">
+                        a) Reading a whole book<br>
+                        b) Reading chapter by chapter<br>
+                        c) Reading page by page<br>
+                        d) Not reading at all
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>16. Which activation function outputs values between -1 and 1?</p>
+                    <div class="options">
+                        a) ReLU<br>
+                        b) Sigmoid<br>
+                        c) Tanh<br>
+                        d) Linear
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>17. What is the first step in the neural network learning cycle?</p>
+                    <div class="options">
+                        a) Compare<br>
+                        b) Predict<br>
+                        c) Adjust<br>
+                        d) Try Again
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>18. What type of activation function is ReLU?</p>
+                    <div class="options">
+                        a) Linear<br>
+                        b) Non-linear<br>
+                        c) Circular<br>
+                        d) Exponential
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>19. What is Cross-Entropy Loss typically used for?</p>
+                    <div class="options">
+                        a) Regression problems<br>
+                        b) Classification tasks<br>
+                        c) Network initialization<br>
+                        d) Weight adjustment
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p>20. Which learning process uses the entire dataset for each update?</p>
+                    <div class="options">
+                        a) Stochastic learning<br>
+                        b) Mini-batch learning<br>
+                        c) Batch learning<br>
+                        d) Online learning
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- True/False Section -->
+        <div class="assessment-section">
+            <h2 class="text-primary">True or False Questions (10 items)</h2>
+            <div class="questions">
+                <div class="question">1. Neural networks can learn without any form of supervision or training data.</div>
+                <div class="question">2. The sigmoid activation function outputs values between 0 and 1.</div>
+                <div class="question">3. Increasing the learning rate always leads to better model performance.</div>
+                <div class="question">4. Back propagation is used to adjust weights in the network based on error.</div>
+                <div class="question">5. ReLU is currently the most commonly used activation function for hidden layers.</div>
+                <div class="question">6. Overfitting occurs when a model performs poorly on both training and test data.</div>
+                <div class="question">7. The tanh activation function is zero-centered, unlike the sigmoid function.</div>
+                <div class="question">8. Mini-batch learning combines aspects of both batch and stochastic learning.</div>
+                <div class="question">9. Neural networks can only solve classification problems.</div>
+                <div class="question">10. Adding more layers to a neural network always improves its performance.</div>
+            </div>
+        </div>
+
+        <!-- Identification Section -->
+        <div class="assessment-section">
+            <h2 class="text-primary">Identification Questions (5 items)</h2>
+            <div class="questions">
+                <div class="question">1. I am a threshold that determines how easy or hard it is for a neuron to activate. I'm similar to having a base score or starting point. What am I?</div>
+                <div class="question">2. I am a process where the network traces back through its decisions to figure out which weights need adjustment. It's like retracing your steps to find where you went wrong. What am I?</div>
+                <div class="question">3. I help neural networks learn complex patterns by introducing non-linear properties and help determine how important each neuron's input is. What am I?</div>
+                <div class="question">4. I am a training method that's like studying chapter by chapter, processing data in smaller groups rather than all at once or one by one. What am I?</div>
+                <div class="question">5. I occur when a neural network memorizes the training data instead of learning general patterns. I can be prevented through methods like dropout and regularization. What am I?</div>
+            </div>
+        </div>
+
+        <!-- Show Answer Key Button -->
+        <!--<button class="btn btn-primary btn-reveal" onclick="toggleAnswerKey()">Show/Hide Answer Key</button>-->
+
+        <!-- Answer Key Section -->
+        <div class="answer-key" id="answerKey">
+            <h3 class="text-primary">Answer Key</h3>
+            
+            <h4>Multiple Choice Answers:</h4>
+            <ol>
+                <li>b) To determine whether a neuron should be activated based on input</li>
+                <li>c) Adjust</li>
+                <li>b) ReLU</li>
+                <li>b) To provide a default activation threshold</li>
+                <li>b) Mini-batch learning</li>
+                <li>b) The minimum error</li>
+                <li>c) Sigmoid</li>
+                <li>b) Overshooting occurs</li>
+                <li>b) To determine connection strengths between neurons</li>
+                <li>b) Zero-centered outputs</li>
+                <li>c) Traces back to adjust weights based on error</li>
+                <li>b) Feature detection</li>
+                <li>b) Neurons always output zero</li>
+                <li>b) Mean Squared Error</li>
+                <li>c) Reading page by page</li>
+                <li>c) Tanh</li>
+                <li>b) Predict</li>
+                <li>b) Non-linear</li>
+                <li>b) Classification tasks</li>
+                <li>c) Batch learning</li>
+            </ol>
+
+            <h4>True/False Answers:</h4>
+            <ol>
+                <li>False - Neural networks require training data to learn</li>
+                <li>True - As shown in the sigmoid function description</li>
+                <li>False - Too large learning rates can cause overshooting</li>
+                <li>True - This is the primary purpose of back propagation</li>
+                <li>True - ReLU is described as the default choice for hidden layers</li>
+                <li>False - Overfitting is when the model memorizes training data instead of learning patterns</li>
+                <li>True - This is a key characteristic of tanh mentioned in the document</li>
+                <li>True - Mini-batch learning is described as a middle ground approach</li>
+                <li>False - Neural networks can handle various tasks including prediction and generation</li>
+                <li>False - Adding more layers doesn't guarantee better performance</li>
+            </ol>
+
+            <h4>Identification Answers:</h4>
+            <ol>
+                <li>Bias</li>
+                <li>Back Propagation</li>
+                <li>Activation Function</li>
+                <li>Mini-Batch Learning</li>
+                <li>Overfitting</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        toggleAnswerKey();
+        function toggleAnswerKey() {
+            const answerKey = document.getElementById('answerKey');
+            if (answerKey.style.display === 'none' || !answerKey.style.display) {
+                answerKey.style.display = 'block';
+            } else {
+                answerKey.style.display = 'none';
+            }
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
