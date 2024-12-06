@@ -89,6 +89,15 @@
             border-radius: 4px;
             margin-top: 10px;
         }
+        pre.calculation {
+    background: #1a1a1a;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-family: 'Consolas', 'Monaco', monospace;
+    line-height: 1.5;
+}
     </style>
 </head>
 <body>
@@ -300,6 +309,99 @@
             calculateNetwork();
         }
 
+        function showCodeVersion(nodeType) {
+   const commonCode = `
+import numpy as np
+
+def relu(x):
+   return max(0, x)
+
+def tanh(x):
+   return np.tanh(x)
+   
+def sigmoid(x):
+   return 1 / (1 + np.exp(-x))
+
+`;
+
+   if (nodeType.startsWith('h')) {
+       const idx = nodeType[1];
+       const w = weights[nodeType];
+       const bias = document.getElementById(`b${idx}`).value;
+       const x1 = parseFloat(document.getElementById('x1').value);
+       const x2 = parseFloat(document.getElementById('x2').value);
+       const activationType = document.getElementById('activation-function').value;
+
+       const code = `${commonCode}
+# Hidden Node ${idx} Input Values
+x1, x2 = ${x1}, ${x2}  # Input values
+w1, w2 = ${w.w1.toFixed(2)}, ${w.w2.toFixed(2)}  # Weights
+bias = ${bias}  # Bias value
+
+def calculate_h${idx}(x1, x2, w1, w2, bias):
+   """Calculate hidden node ${idx} output"""
+   # Weighted sum
+   z = (x1 * w1 + x2 * w2) + bias
+   print(f"z = ({x1} * {w1} + {x2} * {w2}) + {bias}")
+   print(f"z = {(x1 * w1 + x2 * w2 + float(bias)):.2f}")
+   
+   # Apply activation
+   output = ${activationType}(z)
+   print(f"output = {activationType}({z:.2f})")
+   return output
+
+# Calculate node output
+output = calculate_h${idx}(x1, x2, w1, w2, bias)
+print(f"H${idx} = {output:.2f}")  # ${networkValues[nodeType].toFixed(2)}`;
+
+       return code;
+
+   } else {
+       const w = weights.output;
+       const bias = document.getElementById('b_out').value;
+       const activationType = document.getElementById('activation-function').value;
+
+       const code = `${commonCode}
+# Output Node Values
+hidden_outputs = {
+   'h1': ${networkValues.h1.toFixed(2)},
+   'h2': ${networkValues.h2.toFixed(2)}, 
+   'h3': ${networkValues.h3.toFixed(2)}
+}
+weights = {
+   'v1': ${w.v1.toFixed(2)},
+   'v2': ${w.v2.toFixed(2)},
+   'v3': ${w.v3.toFixed(2)}
+}
+bias = ${bias}
+
+def calculate_output(h_outputs, weights, bias):
+   """Calculate final output node"""
+   # Weighted sum
+   z = (h_outputs['h1'] * weights['v1'] + 
+        h_outputs['h2'] * weights['v2'] + 
+        h_outputs['h3'] * weights['v3']) + bias
+        
+   print(f"z = ({h_outputs['h1']} * {weights['v1']} + "
+         f"{h_outputs['h2']} * {weights['v2']} + "
+         f"{h_outputs['h3']} * {weights['v3']}) + {bias}")
+   print(f"z = {z:.2f}")
+   
+   # Apply activation
+   output = ${activationType}(z)
+   print(f"output = {activationType}({z:.2f})")
+   return output
+
+# Calculate output
+final_output = calculate_output(hidden_outputs, weights, bias)
+print(f"Output = {final_output:.2f}")  # ${networkValues.output.toFixed(2)}`;
+
+       return code;
+   }
+}
+
+
+
        function calculateNetwork() {
     const x1 = parseFloat(document.getElementById('x1').value);
     const x2 = parseFloat(document.getElementById('x2').value);
@@ -355,6 +457,10 @@
                 activationFunctions[activationType].formula;
         }
 
+
+
+
+
         function showDetails(nodeType) {
             const x1 = parseFloat(document.getElementById('x1').value);
             const x2 = parseFloat(document.getElementById('x2').value);
@@ -398,8 +504,11 @@
                     </div>
                 `;
             }
+            html += `<pre class="calculation">${showCodeVersion(nodeType)}</pre>`;
 
             document.getElementById('calculation').innerHTML = html;
+            
+    
             document.getElementById('details').style.display = 'block';
         }
 
